@@ -21,8 +21,9 @@ const routes: Routes = [
   {path: 'ministryLogin', component:MinistryLoginComponent},
   {path: 'instituteRegistration', component:InstituteRegisterComponent},
   {path: 'NodalRegistration' , component:NodalRegisterComponent},
-  {path: 'StudentRegistration' , component:StudentRegisterComponent}
-
+  {path: 'StudentRegistration' , component:StudentRegisterComponent},
+  {path: 'nodalRegistration' , component:NodalRegisterComponent},
+  {path: 'studentRegistration' , component:StudentRegisterComponent}
 ];
 
 @NgModule({
