@@ -8,6 +8,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NodalRegisterComponent } from './nodal-register/nodal-register.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -18,7 +19,9 @@ const routes: Routes = [
   {path: 'studentLogin', component: StudentLoginComponent},
   {path: 'nodalLogin', component: NodalLoginComponent},
   {path: 'ministryLogin', component:MinistryLoginComponent},
-  {path: 'instituteRegistration', component:InstituteRegisterComponent}
+  {path: 'instituteRegistration', component:InstituteRegisterComponent},
+  {path: 'NodalRegistration' , component:NodalRegisterComponent},
+  {path: 'StudentRegistration' , component:StudentRegisterComponent}
 
 ];
 
