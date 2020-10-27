@@ -13,6 +13,7 @@ import { StudentLoginComponent } from './student-login/student-login.component';
 import { NodalLoginComponent } from './nodal-login/nodal-login.component';
 import { MinistryLoginComponent } from './ministry-login/ministry-login.component';
 import { NodalRegisterComponent } from './nodal-register/nodal-register.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NodalRegisterComponent } from './nodal-register/nodal-register.componen
     StudentLoginComponent,
     NodalLoginComponent,
     MinistryLoginComponent,
-    NodalRegisterComponent
+    NodalRegisterComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

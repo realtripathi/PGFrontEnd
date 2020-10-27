@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NodalRegisterComponent } from './nodal-register/nodal-register.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'nodalRegistration' , component:NodalRegisterComponent},
   {path: 'studentRegistration' , component:StudentRegisterComponent},
   {path: 'nodalRegistration' , component:NodalRegisterComponent},
-  {path: 'studentRegistration' , component:StudentRegisterComponent}
+  {path: 'studentRegistration' , component:StudentRegisterComponent},
+  {path: 'forgotPassword' , component:ForgotPasswordComponent}
 ];
 
 @NgModule({
