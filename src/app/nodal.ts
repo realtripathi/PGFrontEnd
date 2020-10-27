@@ -1,6 +1,6 @@
 export class Nodal {
     constructor(
-      public nodalUid:String,
+      public nodalUid: String,
       public nodalName: String,
       public nodalState:String,
       public nodalPhone:String,
