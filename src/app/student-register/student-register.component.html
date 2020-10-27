@@ -1,117 +1,111 @@
+
 <div class="container-fluid mb-5">
-    <h3 style="text-align: center;">Student Registration</h3>
-    
-    <form #nodalForm="ngForm" action="">
-        <fieldset class="">
-          <legend>Basic Details</legend>
-          <div class="form-group">
-            <label for="studentAadharNumber">Aadhar Number</label>
-            <input type="text" name="studentAadharNumber" id="" class="form-control" placeholder="Enter Aadhar Number"
-              [(ngModel)]="studentModel.studentAadharNumber">
-          </div>
+  <h3 style="text-align: center;">New Student Registration</h3>
+  <!-- comment this portion -->
+  <hr>
+  {{studentRegForm.value | json}}
+  <hr>
+  {{studentModel | json}}
+  <hr>
+  <br>
+    <br>
+  <form #studentRegForm="ngForm" action="">
 
-          <div class="form-group">
-            <label for="studentName">Student Name</label>
-            <input type="text" name="studentName" id="" class="form-control" placeholder="Enter Student Name"
-              [(ngModel)]="studentModel.studentName">
-          </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="studentState">Domicile</label>
+        <select class="custom-select" name="studentState" id="" [(ngModel)]="studentModel.studentDomicile">
+          <option selected>Select Institute State</option>
+          <option *ngFor="let studstate of studStates">{{studstate}}</option>
+        </select>
+      </div>
 
-          <div class="mb-3">
-            <label>Gender </label>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="studentGender" value="Female"
-                [(ngModel)]="studentModel.studentGender">
-              <label class="form-check-label" for="studentGender">Female</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="studentGender" value="Male"
-                [(ngModel)]="studentModel.studentGender">
-              <label class="form-check-label" for="studentGender">Male</label>
-            </div>
-          </div>
+      <div class="col-md-6 mb-3">
+        <label for="studentDistrict">District</label>
+        <select class="custom-select" name="studentDistrict" id="" [(ngModel)]="studentModel.studentDistrict">
+          <option selected>Select District</option>
+          <option *ngFor="let studDistrict of studDistricts">{{studDistrict}}</option>
+        </select>
+      </div>
+    </div>
 
-          <div class="form-group">
-            <label for="studentDateOfBirth">Date of Birth</label>
-            <input type="text" name="studentDateOfBirth" id="" class="form-control" placeholder="Enter Date of Birth"
-              [(ngModel)]="studentModel.studentDateOfBirth">
-          </div>
+    <div class="form-group">
+      <label for="studName">Student Name</label>
+      <input type="text" name="studName" id="" class="form-control" placeholder="Enter Name" [(ngModel)]="studentModel.studentName">
+    </div>
 
-          <div class="form-row">
-            <div class="col-md-6 mb-3">
-              <label for="studentPassword">Set Password: </label>
-              <input type="password" name="studentPassword" id="" class="form-control" placeholder="Enter Password"
-                [(ngModel)]="studentModel.studentPassword">
-            </div>
-    
-            <div class="col-md-6 mb-3">
-              <label for="studentConfirmPassword">Confirm Password: </label>
-              <input type="password" name="studentConfirmPassword" id="" class="form-control" placeholder="Re enter Password to Confirm"
-                ngModel>
-            </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="studDOB">DOB</label>
+        <input type="text" name="studDOB" id="" class="form-control" placeholder="Enter Name DOB" [(ngModel)]="studentModel.studentDOB">
+      </div>
 
-          <div class="col-md-6 mb-3">
-            <label for="studentStateOfDomicile">State</label>
-            <select class="custom-select" name="studentStateOfDomicile" id="" [(ngModel)]="studentModel.studentStateOfDomicile">
-              <option selected>Select State of Domicile</option>
-              <option *ngFor="let studentStateOfDomicile of studentStates">{{studentStateOfDomicile}}</option>
-            </select>
-          </div>
+      <div class="col-md-6 mb-3">
+        <label for="studGender">Gender</label>
+        <select class="custom-select" name="studGender" id="" [(ngModel)]="studentModel.studentGender">
+          <option selected>Select Gender</option>
+          <option *ngFor="let studGender of studGenders">{{studGender}}</option>
+        </select>
+      </div>
 
-          <div class="form-group">
-            <label for="studentDistrict">District</label>
-            <input type="text" name="studentDistrict" id="" class="form-control" placeholder="Enter District"
-              [(ngModel)]="studentModel.studentDistrict">
-          </div>
-          </div>
-        </fieldset>
+      <div class="col-md-6 mb-3">
+        <label for="studMobile">Mobile Number</label>
+        <input type="text" name="studMobile" id="" class="form-control" placeholder="Enter Mobile Number" [(ngModel)]="studentModel.studentNumber">
+      </div>
 
+      <div class="col-md-6 mb-3">
+        <label for="studEmail">Email</label>
+        <input type="text" name="studEmail" id="" class="form-control" placeholder="Enter Email" [(ngModel)]="studentModel.studentEmail">
+      </div>
 
-        <fieldset class="">
-            <legend>Bank Details</legend>
-            <div class="col-md-6 mb-3">
-              <label for="studentBankAccountNumber">Bank Account Number</label>
-              <input type="text" name="studentBankAccountNumber" id="" class="form-control" placeholder="Enter Bank Account Number"
-                [(ngModel)]="studentModel.studentBankAccountNumber">
-            </div>
-  
-            <div class="col-md-6 mb-3">
-              <label for="studentBankName">Bank Name</label>
-              <input type="text" name="studentBankName" id="" class="form-control" placeholder="Enter Bank Name"
-                [(ngModel)]="studentModel.studentBankName">
-            </div>
+      <div class="col-md-6 mb-3">
+        <label for="studInstitue">Institute Code</label>
+        <input type="text" name="studInstitue" id="" class="form-control" placeholder="Enter Instituet Code" [(ngModel)]="studentModel.studentInstituteCode">
+      </div>
 
-            <div class="col-md-6 mb-3">
-                <label for="studentIfscCode">Bank IFSC Code</label>
-                <input type="text" name="studentIfscCode" id="" class="form-control" placeholder="Enter the IFSC Code"
-                  [(ngModel)]="studentModel.studentIfscCode">
-              </div>
-            </fieldset>
+      <div class="col-md-6 mb-3">
+        <label for="studAadhar">Aadhar Number</label>
+        <input type="text" name="studAadhar" id="" class="form-control" placeholder="Enter Aadhar Number" [(ngModel)]="studentModel.studentUID">
+      </div>
 
-          <fieldset class="">
-            <legend>Contact Details</legend>
-            <div class="col-md-6 mb-3">
-              <label for="studentMobileNumber">Student Phone no</label>
-              <input type="text" name="studentMobileNumber" id="" class="form-control" placeholder="Enter Phone no"
-                [(ngModel)]="studentModel.studentMobileNumber">
-            </div>
-  
-            <div class="col-md-6 mb-3">
-              <label for="studentEmail">Student Email </label>
-              <input type="text" name="studentEmail" id="" class="form-control" placeholder="Enter Email"
-                [(ngModel)]="studentModel.studentEmail">
-            </div>
-            </fieldset>
+      <div class="col-md-6 mb-3">
+        <label for="studIFSC">Bank IFSC Code</label>
+        <input type="text" name="studIFSC" id="" class="form-control" placeholder="Enter Bank IFSC Code" [(ngModel)]="studentModel.studentIFSCcode">
+      </div>
 
-            <div class="mx-auto text-center" >
-                <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
-                <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
-              </div>
+      <div class="col-md-6 mb-3">
+        <label for="studAccNumber">Account Number</label>
+        <input type="text" name="studAccNumber" id="" class="form-control" placeholder="Enter Account NUmber" [(ngModel)]="studentModel.studentBankAccountNumber">
+      </div>
 
-              </form>
-              </div>
+    </div>
 
-        
+    <div class="form-group">
+      <label for="studBank">Bank Name</label>
+      <input type="text" name="studBank" id="" class="form-control" placeholder="Enter Bank Name" [(ngModel)]="studentModel.studentBankName">
+    </div>
 
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="studentPwd">Set Password: </label>
+        <input type="password" name="studentPwd" id="" class="form-control" placeholder="Enter Password" [(ngModel)]="studentModel.studentPassword">
+      </div>
 
+      <div class="col-md-6 mb-3">
+        <label for="studConfPwd">Confirm Password: </label>
+        <input type="password" name="studConfPwd" id="" class="form-control" placeholder="Confirm Password">
+      </div>
+    </div>
 
+    <div class="form-check mb-3">
+      <input type="checkbox" class="form-check-input" name="detail_Verify">
+      <label class="form-check-label">All Details provided are correct</label>
+    </div>
 
+    <div class="mx-auto text-center" >
+      <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
+      <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
+    </div>
+
+  </form>
+</div>

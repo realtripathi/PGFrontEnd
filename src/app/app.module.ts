@@ -14,6 +14,7 @@ import { NodalLoginComponent } from './nodal-login/nodal-login.component';
 import { MinistryLoginComponent } from './ministry-login/ministry-login.component';
 import { NodalRegisterComponent } from './nodal-register/nodal-register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     NodalLoginComponent,
     MinistryLoginComponent,
     NodalRegisterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

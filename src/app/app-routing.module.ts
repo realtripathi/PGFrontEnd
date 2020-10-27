@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MinistryLoginComponent } from './ministry-login/ministry-login.component';
 import { NodalLoginComponent } from './nodal-login/nodal-login.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
@@ -12,20 +13,21 @@ import { NodalRegisterComponent } from './nodal-register/nodal-register.componen
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: 'home', pathMatch: "full"},
   {path: 'home', component: HomeComponent},
   {path: 'aboutUs', component: AboutUsComponent},
   {path: 'freshInstitute', component: InstituteRegisterComponent},
   {path: 'freshStudent', component: StudentRegisterComponent},
+  {path: 'freshNodal', component: NodalRegisterComponent},
   {path: 'instituteLogin', component: InstituteLoginComponent},
   {path: 'studentLogin', component: StudentLoginComponent},
   {path: 'nodalLogin', component: NodalLoginComponent},
   {path: 'ministryLogin', component:MinistryLoginComponent},
   {path: 'instituteRegistration', component:InstituteRegisterComponent},
-  {path: 'nodalRegistration' , component:NodalRegisterComponent},
   {path: 'studentRegistration' , component:StudentRegisterComponent},
-  {path: 'nodalRegistration' , component:NodalRegisterComponent},
   {path: 'studentRegistration' , component:StudentRegisterComponent},
-  {path: 'forgotPassword' , component:ForgotPasswordComponent}
+  {path: 'forgotPassword' , component:ForgotPasswordComponent},
+  {path: '**', component:PageNotFoundComponent}
 ];
 
 @NgModule({
