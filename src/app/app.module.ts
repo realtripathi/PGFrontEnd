@@ -12,6 +12,7 @@ import { InstituteLoginComponent } from './institute-login/institute-login.compo
 import { StudentLoginComponent } from './student-login/student-login.component';
 import { NodalLoginComponent } from './nodal-login/nodal-login.component';
 import { MinistryLoginComponent } from './ministry-login/ministry-login.component';
+import { NodalRegisterComponent } from './nodal-register/nodal-register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MinistryLoginComponent } from './ministry-login/ministry-login.componen
     InstituteLoginComponent,
     StudentLoginComponent,
     NodalLoginComponent,
-    MinistryLoginComponent
+    MinistryLoginComponent,
+    NodalRegisterComponent
   ],
   imports: [
     BrowserModule,
