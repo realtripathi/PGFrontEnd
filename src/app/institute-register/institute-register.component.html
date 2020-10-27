@@ -1,0 +1,215 @@
+<div class="container-fluid mb-5">
+  <h3 style="text-align: center;">New Institute Registration</h3>
+  <!-- <h1>Institute Registration Form</h1>
+  {{instituteForm.value | json}}
+  <hr>
+  {{InstituteModel | json}}
+  <br>
+    <br> -->
+  <form #instituteForm="ngForm" action="">
+    <fieldset class="">
+      <legend>Basic Details</legend>
+      <div class="form-group">
+        <div class="form-group">
+          <label for="inst_cat">Institute Category</label>
+          <select class="custom-select" name="inst_cat" id="" [(ngModel)]="InstituteModel.Institute_category">
+            <option selected>Select Institute Category</option>
+            <option *ngFor="let inst_cat of inst_cats">{{inst_cat}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inst_name">Institute Name</label>
+        <input type="text" name="inst_name" id="" class="form-control" placeholder="Enter Institute Name"
+          [(ngModel)]="InstituteModel.Institute_Name">
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="inst_state">State</label>
+          <select class="custom-select" name="inst_state" id="" [(ngModel)]="InstituteModel.Institute_State">
+            <option selected>Select Institute State</option>
+            <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
+          </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="inst_district">District</label>
+          <select class="custom-select" name="inst_district" id="" [(ngModel)]="InstituteModel.Institute_District">
+            <option selected>Select Institute District</option>
+            <option *ngFor="let inst_district of inst_districts">{{inst_district}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="inst_code">INSTITUTE CODE</label>
+          <input type="text" name="inst_code" id="" class="form-control" placeholder="Enter Institute Name"
+            [(ngModel)]="InstituteModel.Institute_ID">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="inst_dise">DISE CODE</label>
+          <input type="text" name="inst_dise" id="" class="form-control" placeholder="Enter Institute Name"
+            [(ngModel)]="InstituteModel.Institue_DISEcode">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label>Location: </label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="inst_location" value="Urban"
+            [(ngModel)]="InstituteModel.Institute_Location">
+          <label class="form-check-label" for="inst_location">Urban</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="inst_location" value="Rural"
+            [(ngModel)]="InstituteModel.Institute_Location">
+          <label class="form-check-label" for="inst_location">Rural</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-group">
+          <label for="inst_type">Institute Type</label>
+          <select class="custom-select" name="inst_type" id="" [(ngModel)]="InstituteModel.Institute_type">
+            <option selected>Select Institute Type</option>
+            <option *ngFor="let inst_type of inst_types">{{inst_type}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-group">
+          <label for="inst_affUniState">Affiliated University State</label>
+          <select class="custom-select" name="inst_affUniState" id=""
+            [(ngModel)]="InstituteModel.Institute_AffUniState">
+            <option selected>Select affilicated university state</option>
+            <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inst_affUni">Affiliated Univeristy/Board Name: </label>
+        <input type="text" name="inst_affUni" id="" class="form-control" placeholder="Enter Institute Name"
+          [(ngModel)]="InstituteModel.Institue_AffUniName">
+      </div>
+
+      <div class="form-group">
+        <div class="form-group">
+          <label for="inst_admitYear">YEAR FROM WHICH ADMISSION STARTED</label>
+          <select class="custom-select" name="inst_admitYear" id=""
+            [(ngModel)]="InstituteModel.Institute_AdmissionYear">
+            <option selected>Select admission year</option>
+            <option *ngFor="let inst_year of inst_years">{{inst_year}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="inst_pwd">Set Password: </label>
+          <input type="password" name="inst_pwd" id="" class="form-control" placeholder="Enter Institute Name"
+            [(ngModel)]="InstituteModel.Institute_Password">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="inst_confpwd">Confirm Password: </label>
+          <input type="password" name="inst_confpwd" id="" class="form-control" placeholder="Enter Institute Name"
+            ngModel>
+        </div>
+      </div>
+    </fieldset>
+    <br>
+    <br>
+    <fieldset class="">
+      <div ngModelGroup="address">
+        <legend>Address</legend>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="inst_addressl1">Line 1: </label>
+            <input type="text" name="inst_addressl1" id="" class="form-control" placeholder="Enter Institute Name"
+              [(ngModel)]="InstituteModel.Institue_Address_line1">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="inst_addressl2">Line 2: </label>
+            <input type="text" name="inst_addressl2" id="" class="form-control" placeholder="Enter Institute Name"
+              [(ngModel)]="InstituteModel.Institue_Address_line2">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="inst_city">City: </label>
+            <input type="text" name="inst_city" id="" class="form-control" placeholder="Enter Institute Name"
+              [(ngModel)]="InstituteModel.Institue_Address_City">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="inst_addressState">State</label>
+            <select class="custom-select" name="inst_addressState" id="" [(ngModel)]="InstituteModel.Institute_State">
+              <option selected>Select Institute State</option>
+              <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="inst_addressDistrict">District</label>
+            <select class="custom-select" name="inst_addressDistrict" id=""
+              [(ngModel)]="InstituteModel.Institute_District">
+              <option selected>Select Institute District</option>
+              <option *ngFor="let inst_district of inst_districts">{{inst_district}}</option>
+            </select>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="inst_pincode">PIN CODE: </label>
+            <input type="text" name="inst_pincode" id="" class="form-control" placeholder="Enter Institute Name"
+              [(ngModel)]="InstituteModel.Institue_Address_pincode">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <br>
+    <br>
+    <fieldset class="">
+      <legend>Contact Details</legend>
+      <div class="form-group">
+        <label for="inst_principal">Principal Name: </label>
+        <input type="text" name="inst_principal" id="" class="form-control" placeholder="Enter Institute Name"
+          [(ngModel)]="InstituteModel.Institute_principalName">
+      </div>
+      <div class="form-row">
+
+        <div class="col-md-6 mb-3">
+          <label for="inst_mobile">Mobile Number: </label>
+          <input type="text" name="inst_mobile" id="" class="form-control" placeholder="Enter Institute Name"
+            [(ngModel)]="InstituteModel.Institute_Number">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="inst_Email">Email: </label>
+          <input type="text" name="inst_Email" id="" class="form-control" placeholder="Enter Institute Name"
+            [(ngModel)]="InstituteModel.Institute_Email">
+        </div>
+      </div>
+
+      <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" name="detail_Verify"
+          [(ngModel)]="InstituteModel.Institute_Status">
+        <label class="form-check-label">All Details provided are correct</label>
+      </div>
+    </fieldset>
+    <div class="mx-auto text-center" >
+      <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
+      <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
+    </div>
+
+  </form>
+</div>

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "PG2"
+    }
+  },
+  "defaultProject": "PG2",
+  "cli": {
+    "analytics": "cbfce1e6-27ef-4309-accc-ff490b4ea38a"
+  }
 }
