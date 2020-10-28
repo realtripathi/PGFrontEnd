@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InstituteLogin } from "../institute-login";
 
 @Component({
   selector: 'app-institute-login',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstituteLoginComponent implements OnInit {
 
+
+  instituteForm = new InstituteLogin(null,null);
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
