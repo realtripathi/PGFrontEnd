@@ -1,3 +1,6 @@
+{{ministryLoginForm.value|json}}
+<hr>
+{{ministryForm|json}}
 <div class="main">
 	<div class="container">
 		<div class="d-flex justify-content-center h-100">
@@ -6,19 +9,19 @@
 					<h3 style="text-align: center;"><i class="fas fa-ethernet"></i> Ministry Login</h3>
 				</div>
 				<div class="card-body">
-					<form>
+					<form #ministryLoginForm="ngForm">
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-ethernet"></i></span>
 							</div>
-							<input type="text" class="form-control" placeholder="username">
+							<input type="text" class="form-control" placeholder="username" name="ministryUid" [(ngModel)]="ministryForm.ministryUid">
 
 						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" class="form-control" placeholder="password">
+							<input type="password" class="form-control" placeholder="password"  name="ministryPassword" [(ngModel)]="ministryForm.ministryPwd">
 						</div>
 						<div class="row align-items-center remember">
 							<input type="checkbox">Remember Me
