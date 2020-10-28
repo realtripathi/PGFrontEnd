@@ -15,7 +15,7 @@
       <div class="col-md-6 mb-3">
         <label for="studentState">Domicile</label>
         <select class="custom-select" name="studentState" id="" [(ngModel)]="studentModel.studentDomicile">
-          <option selected>Select Institute State</option>
+          <option selected value=null>Select Institute State</option>
           <option *ngFor="let studstate of studStates">{{studstate}}</option>
         </select>
       </div>
@@ -23,7 +23,7 @@
       <div class="col-md-6 mb-3">
         <label for="studentDistrict">District</label>
         <select class="custom-select" name="studentDistrict" id="" [(ngModel)]="studentModel.studentDistrict">
-          <option selected>Select District</option>
+          <option selected value=null>Select District</option>
           <option *ngFor="let studDistrict of studDistricts">{{studDistrict}}</option>
         </select>
       </div>
@@ -43,7 +43,7 @@
       <div class="col-md-6 mb-3">
         <label for="studGender">Gender</label>
         <select class="custom-select" name="studGender" id="" [(ngModel)]="studentModel.studentGender">
-          <option selected>Select Gender</option>
+          <option selected value=null>Select Gender</option>
           <option *ngFor="let studGender of studGenders">{{studGender}}</option>
         </select>
       </div>

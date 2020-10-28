@@ -13,7 +13,7 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  forgotPasswordModel = new ForgotPassword("","");
+  forgotPasswordModel = new ForgotPassword(null,null);
 
   forgotPasswordModules = ['Student', 'Institute', 'State Nodal Officer','Ministry'];
 }

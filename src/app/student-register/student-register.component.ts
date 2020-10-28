@@ -19,6 +19,6 @@ export class StudentRegisterComponent implements OnInit {
 
   studGenders = ['Male','Female'];
 
-  studentModel = new Student("","","","","","","","","","","","","",false);
+  studentModel = new Student(null,null,null,null,null,null,null,null,null,null,null,null,null,false);
 
 }

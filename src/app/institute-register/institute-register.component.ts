@@ -23,6 +23,6 @@ export class InstituteRegisterComponent implements OnInit {
 
   inst_years = ['2016','2017','2018'];
 
-  InstituteModel = new Institute("","","","","","","","","","","","","","","","","","","",true);
+  InstituteModel = new Institute(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,false);
 
 }

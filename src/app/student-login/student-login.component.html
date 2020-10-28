@@ -1,3 +1,10 @@
+<!-- comment this part -->
+<hr>
+{{studentLoginForm.value | json}}
+<hr>
+{{studentLogin | json}}
+<hr>
+
 <div class="main">
 	<div class="container">
 		<div class="d-flex justify-content-center h-100">
@@ -6,19 +13,19 @@
 					<h3 style="text-align: center;"><i class="fas fa-user"></i> Student Login</h3>
 				</div>
 				<div class="card-body">
-					<form>
+					<form #studentLoginForm = "ngForm" action="">
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" class="form-control" placeholder="username">
+							<input name="StudentUID" type="text" class="form-control" placeholder="username" [(ngModel)]="studentLogin.StudentUID">
 
 						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" class="form-control" placeholder="password">
+							<input name="studentPwd" type="password" class="form-control" placeholder="password" [(ngModel)]="studentLogin.StudentPwd">
 						</div>
 						<div class="row align-items-center remember">
 							<input type="checkbox">Remember Me

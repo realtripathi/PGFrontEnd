@@ -13,7 +13,7 @@
         <div class="form-group">
           <label for="inst_cat">Institute Category</label>
           <select class="custom-select" name="inst_cat" id="" [(ngModel)]="InstituteModel.Institute_category">
-            <option selected>Select Institute Category</option>
+            <option selected value=null>Select Institute Category</option>
             <option *ngFor="let inst_cat of inst_cats">{{inst_cat}}</option>
           </select>
         </div>
@@ -29,7 +29,7 @@
         <div class="col-md-6 mb-3">
           <label for="inst_state">State</label>
           <select class="custom-select" name="inst_state" id="" [(ngModel)]="InstituteModel.Institute_State">
-            <option selected>Select Institute State</option>
+            <option selected value=null>Select Institute State</option>
             <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
           </select>
         </div>
@@ -37,7 +37,7 @@
         <div class="col-md-6 mb-3">
           <label for="inst_district">District</label>
           <select class="custom-select" name="inst_district" id="" [(ngModel)]="InstituteModel.Institute_District">
-            <option selected>Select Institute District</option>
+            <option selected value=null>Select Institute District</option>
             <option *ngFor="let inst_district of inst_districts">{{inst_district}}</option>
           </select>
         </div>
@@ -75,7 +75,7 @@
         <div class="form-group">
           <label for="inst_type">Institute Type</label>
           <select class="custom-select" name="inst_type" id="" [(ngModel)]="InstituteModel.Institute_type">
-            <option selected>Select Institute Type</option>
+            <option selected value=null>Select Institute Type</option>
             <option *ngFor="let inst_type of inst_types">{{inst_type}}</option>
           </select>
         </div>
@@ -86,7 +86,7 @@
           <label for="inst_affUniState">Affiliated University State</label>
           <select class="custom-select" name="inst_affUniState" id=""
             [(ngModel)]="InstituteModel.Institute_AffUniState">
-            <option selected>Select affilicated university state</option>
+            <option selected value=null>Select affilicated university state</option>
             <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
           </select>
         </div>
@@ -103,7 +103,7 @@
           <label for="inst_admitYear">YEAR FROM WHICH ADMISSION STARTED</label>
           <select class="custom-select" name="inst_admitYear" id=""
             [(ngModel)]="InstituteModel.Institute_AdmissionYear">
-            <option selected>Select admission year</option>
+            <option selected value=null>Select admission year</option>
             <option *ngFor="let inst_year of inst_years">{{inst_year}}</option>
           </select>
         </div>
@@ -152,7 +152,7 @@
           <div class="col-md-6 mb-3">
             <label for="inst_addressState">State</label>
             <select class="custom-select" name="inst_addressState" id="" [(ngModel)]="InstituteModel.Institute_State">
-              <option selected>Select Institute State</option>
+              <option selected value=null>Select Institute State</option>
               <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
             </select>
           </div>
@@ -163,7 +163,7 @@
             <label for="inst_addressDistrict">District</label>
             <select class="custom-select" name="inst_addressDistrict" id=""
               [(ngModel)]="InstituteModel.Institute_District">
-              <option selected>Select Institute District</option>
+              <option selected value=null>Select Institute District</option>
               <option *ngFor="let inst_district of inst_districts">{{inst_district}}</option>
             </select>
           </div>

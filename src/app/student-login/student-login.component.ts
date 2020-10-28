@@ -1,3 +1,4 @@
+import { StudentLogin } from './../student-login';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,5 +12,7 @@ export class StudentLoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  studentLogin = new StudentLogin(null,null);
 
 }
