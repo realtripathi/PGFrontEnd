@@ -17,4 +17,6 @@ export class NodalRegisterComponent implements OnInit {
 
   NodalModel= new Nodal("","","","","",true);
 
+ 
+
 }

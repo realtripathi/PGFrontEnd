@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NodalLogin } from "../nodal-login";
 
 @Component({
   selector: 'app-nodal-login',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NodalLoginComponent implements OnInit {
 
+  nodalForm=new NodalLogin(null,null);
   constructor() { }
 
   ngOnInit(): void {
