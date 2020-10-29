@@ -16,18 +16,15 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: "full"},
   {path: 'home', component: HomeComponent},
   {path: 'aboutUs', component: AboutUsComponent},
-  {path: 'freshInstitute', component: InstituteRegisterComponent},
-  {path: 'freshStudent', component: StudentRegisterComponent},
+  {path: 'freshStudent' , component:StudentRegisterComponent},
+  {path: 'freshInstitute', component:InstituteRegisterComponent},
   {path: 'freshNodal', component: NodalRegisterComponent},
-  {path: 'instituteLogin', component: InstituteLoginComponent},
   {path: 'studentLogin', component: StudentLoginComponent},
+  {path: 'instituteLogin', component: InstituteLoginComponent},
   {path: 'nodalLogin', component: NodalLoginComponent},
   {path: 'ministryLogin', component:MinistryLoginComponent},
-  {path: 'instituteRegistration', component:InstituteRegisterComponent},
-  {path: 'studentRegistration' , component:StudentRegisterComponent},
-  {path: 'studentRegistration' , component:StudentRegisterComponent},
   {path: 'forgotPassword' , component:ForgotPasswordComponent},
-  {path: '**', component:PageNotFoundComponent}
+  {path: '**', component:PageNotFoundComponent} //Put this always in last
 ];
 
 @NgModule({

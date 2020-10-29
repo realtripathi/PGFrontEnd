@@ -1,11 +1,11 @@
+<!-- comment this portion -->
+<hr>
+{{instituteForm.value | json}}
+<hr>
+{{InstituteModel | json}}
+<hr>
 <div class="container-fluid mb-5">
   <h3 style="text-align: center;">New Institute Registration</h3>
-  <!-- comment this portion -->
-  <hr>
-  {{instituteForm.value | json}}
-  <hr>
-  {{InstituteModel | json}}
-  <hr>
   <form #instituteForm="ngForm" action="">
     <fieldset class="">
       <legend>Basic Details</legend>
@@ -206,7 +206,7 @@
         <label class="form-check-label">All Details provided are correct</label>
       </div>
     </fieldset>
-    <div class="mx-auto text-center" >
+    <div class="mx-auto text-center">
       <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
       <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
     </div>

@@ -1,14 +1,11 @@
-
+<!-- comment this portion -->
+<hr>
+{{studentRegForm.value | json}}
+<hr>
+{{studentModel | json}}
+<hr>
 <div class="container-fluid mb-5">
   <h3 style="text-align: center;">New Student Registration</h3>
-  <!-- comment this portion -->
-  <hr>
-  {{studentRegForm.value | json}}
-  <hr>
-  {{studentModel | json}}
-  <hr>
-  <br>
-    <br>
   <form #studentRegForm="ngForm" action="">
 
     <div class="form-row">
@@ -31,13 +28,15 @@
 
     <div class="form-group">
       <label for="studName">Student Name</label>
-      <input type="text" name="studName" id="" class="form-control" placeholder="Enter Name" [(ngModel)]="studentModel.studentName">
+      <input type="text" name="studName" id="" class="form-control" placeholder="Enter Name"
+        [(ngModel)]="studentModel.studentName">
     </div>
 
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="studDOB">DOB</label>
-        <input type="text" name="studDOB" id="" class="form-control" placeholder="Enter Name DOB" [(ngModel)]="studentModel.studentDOB">
+        <input type="text" name="studDOB" id="" class="form-control" placeholder="Enter Name DOB"
+          [(ngModel)]="studentModel.studentDOB">
       </div>
 
       <div class="col-md-6 mb-3">
@@ -50,45 +49,53 @@
 
       <div class="col-md-6 mb-3">
         <label for="studMobile">Mobile Number</label>
-        <input type="text" name="studMobile" id="" class="form-control" placeholder="Enter Mobile Number" [(ngModel)]="studentModel.studentNumber">
+        <input type="text" name="studMobile" id="" class="form-control" placeholder="Enter Mobile Number"
+          [(ngModel)]="studentModel.studentNumber">
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studEmail">Email</label>
-        <input type="text" name="studEmail" id="" class="form-control" placeholder="Enter Email" [(ngModel)]="studentModel.studentEmail">
+        <input type="text" name="studEmail" id="" class="form-control" placeholder="Enter Email"
+          [(ngModel)]="studentModel.studentEmail">
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studInstitue">Institute Code</label>
-        <input type="text" name="studInstitue" id="" class="form-control" placeholder="Enter Instituet Code" [(ngModel)]="studentModel.studentInstituteCode">
+        <input type="text" name="studInstitue" id="" class="form-control" placeholder="Enter Instituet Code"
+          [(ngModel)]="studentModel.studentInstituteCode">
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studAadhar">Aadhar Number</label>
-        <input type="text" name="studAadhar" id="" class="form-control" placeholder="Enter Aadhar Number" [(ngModel)]="studentModel.studentUID">
+        <input type="text" name="studAadhar" id="" class="form-control" placeholder="Enter Aadhar Number"
+          [(ngModel)]="studentModel.studentUID">
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studIFSC">Bank IFSC Code</label>
-        <input type="text" name="studIFSC" id="" class="form-control" placeholder="Enter Bank IFSC Code" [(ngModel)]="studentModel.studentIFSCcode">
+        <input type="text" name="studIFSC" id="" class="form-control" placeholder="Enter Bank IFSC Code"
+          [(ngModel)]="studentModel.studentIFSCcode">
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studAccNumber">Account Number</label>
-        <input type="text" name="studAccNumber" id="" class="form-control" placeholder="Enter Account NUmber" [(ngModel)]="studentModel.studentBankAccountNumber">
+        <input type="text" name="studAccNumber" id="" class="form-control" placeholder="Enter Account NUmber"
+          [(ngModel)]="studentModel.studentBankAccountNumber">
       </div>
 
     </div>
 
     <div class="form-group">
       <label for="studBank">Bank Name</label>
-      <input type="text" name="studBank" id="" class="form-control" placeholder="Enter Bank Name" [(ngModel)]="studentModel.studentBankName">
+      <input type="text" name="studBank" id="" class="form-control" placeholder="Enter Bank Name"
+        [(ngModel)]="studentModel.studentBankName">
     </div>
 
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="studentPwd">Set Password: </label>
-        <input type="password" name="studentPwd" id="" class="form-control" placeholder="Enter Password" [(ngModel)]="studentModel.studentPassword">
+        <input type="password" name="studentPwd" id="" class="form-control" placeholder="Enter Password"
+          [(ngModel)]="studentModel.studentPassword">
       </div>
 
       <div class="col-md-6 mb-3">
@@ -102,7 +109,7 @@
       <label class="form-check-label">All Details provided are correct</label>
     </div>
 
-    <div class="mx-auto text-center" >
+    <div class="mx-auto text-center">
       <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
       <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
     </div>
