@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'forgotPassword' , component:ForgotPasswordComponent},
   {path: 'addScheme' , component:SchemeRegisterComponent},
   {path: 'scholarshipForm' , component:ScholarshipformRegisterComponent},
-  {path: '**', component:PageNotFoundComponent} //Put this always in last
+  {path: '**', component:PageNotFoundComponent} //Put this always in last 
 ];
 
 @NgModule({
