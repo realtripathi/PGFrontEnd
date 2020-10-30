@@ -15,6 +15,8 @@ import { MinistryLoginComponent } from './ministry-login/ministry-login.componen
 import { NodalRegisterComponent } from './nodal-register/nodal-register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SchemeRegisterComponent } from './scheme-register/scheme-register.component';
+import { ScholarshipformRegisterComponent } from './scholarshipform-register/scholarshipform-register.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MinistryLoginComponent,
     NodalRegisterComponent,
     ForgotPasswordComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SchemeRegisterComponent,
+    ScholarshipformRegisterComponent
   ],
   imports: [
     BrowserModule,

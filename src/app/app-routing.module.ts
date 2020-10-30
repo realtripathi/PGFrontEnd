@@ -11,6 +11,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NodalRegisterComponent } from './nodal-register/nodal-register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { SchemeRegisterComponent } from './scheme-register/scheme-register.component';
+import { ScholarshipformRegisterComponent } from './scholarshipform-register/scholarshipform-register.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: "full"},
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path: 'nodalLogin', component: NodalLoginComponent},
   {path: 'ministryLogin', component:MinistryLoginComponent},
   {path: 'forgotPassword' , component:ForgotPasswordComponent},
+  {path: 'addScheme' , component:SchemeRegisterComponent},
+  {path: 'scholarshipForm' , component:ScholarshipformRegisterComponent},
   {path: '**', component:PageNotFoundComponent} //Put this always in last
 ];
 
