@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-2">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" (click)="viewProfile()" role="tab"
+        aria-controls="v-pills-home" aria-selected="true">Profile</a>
+      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" (click)="newNodalRegistration()" role="tab"
+        aria-controls="v-pills-profile" aria-selected="false">New officer Registration</a>
+      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" (click)="newSchemeRegister()" role="tab"
+        aria-controls="v-pills-messages" aria-selected="false">Add New Scheme</a>
+      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" (click)="formVerification()" role="tab"
+        aria-controls="v-pills-settings" aria-selected="false">View Student Forms</a>
+      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" (click)="viewInstitute()" role="tab"
+        aria-controls="v-pills-settings" aria-selected="false">View Insititutes</a>
+      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" (click)="viewNodal()" role="tab"
+        aria-controls="v-pills-settings" aria-selected="false">View Nodal Officers</a>
+    </div>
+  </div>
+  <div class="col-10">
+    <div class="tab-content" id="v-pills-tabContent">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

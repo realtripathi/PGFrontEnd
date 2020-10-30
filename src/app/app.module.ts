@@ -17,6 +17,22 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SchemeRegisterComponent } from './scheme-register/scheme-register.component';
 import { ScholarshipformRegisterComponent } from './scholarshipform-register/scholarshipform-register.component';
+import { MinistryDashComponent } from './ministry-dash/ministry-dash.component';
+import { MinistryProfileComponent } from './ministry-profile/ministry-profile.component';
+import { MinistryFormVerificationComponent } from './ministry-form-verification/ministry-form-verification.component';
+import { MinistryViewNodalComponent } from './ministry-view-nodal/ministry-view-nodal.component';
+import { MinistryViewInstituteComponent } from './ministry-view-institute/ministry-view-institute.component';
+import { NodalDashComponent } from './nodal-dash/nodal-dash.component';
+import { NodalProfileComponent } from './nodal-profile/nodal-profile.component';
+import { NodalFormViewComponent } from './nodal-form-view/nodal-form-view.component';
+import { NodalInstituteViewComponent } from './nodal-institute-view/nodal-institute-view.component';
+import { InstituteProfileComponent } from './institute-profile/institute-profile.component';
+import { InstituteDashComponent } from './institute-dash/institute-dash.component';
+import { InstituteFormViewComponent } from './institute-form-view/institute-form-view.component';
+import { InstituteStudentViewComponent } from './institute-student-view/institute-student-view.component';
+import { StudentDashComponent } from './student-dash/student-dash.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { StudentSchemeapplyComponent } from './student-schemeapply/student-schemeapply.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +49,23 @@ import { ScholarshipformRegisterComponent } from './scholarshipform-register/sch
     ForgotPasswordComponent,
     PageNotFoundComponent,
     SchemeRegisterComponent,
-    ScholarshipformRegisterComponent
+    ScholarshipformRegisterComponent,
+    MinistryDashComponent,
+    MinistryProfileComponent,
+    MinistryFormVerificationComponent,
+    MinistryViewNodalComponent,
+    MinistryViewInstituteComponent,
+    NodalDashComponent,
+    NodalProfileComponent,
+    NodalFormViewComponent,
+    NodalInstituteViewComponent,
+    InstituteProfileComponent,
+    InstituteDashComponent,
+    InstituteFormViewComponent,
+    InstituteStudentViewComponent,
+    StudentDashComponent,
+    StudentProfileComponent,
+    StudentSchemeapplyComponent
   ],
   imports: [
     BrowserModule,
