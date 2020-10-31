@@ -8,7 +8,7 @@ import { ScholarshipForm } from "../scholarship-form";
 })
 export class ScholarshipformRegisterComponent implements OnInit {
 
-  scholarshipFormModel=new ScholarshipForm(null,null,null,null,null,null,false);
+  scholarshipFormModel=new ScholarshipForm(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,false);
   constructor() { }
 
   ngOnInit(): void {
