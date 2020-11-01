@@ -1,55 +1,87 @@
+<!-- comment this section -->
+<hr>
 {{schemeForm.value |json}}
 <hr>
 {{schemeModel |json}}
+<hr>
+<div class="container-fluid">
+  <h3 style="text-align: center;">New Scheme Registration</h3>
+  <form #schemeForm="ngForm" action="">
+    <div class="form-row">
 
-<h3>New Scheme Registration</h3>
-<form #schemeForm="ngForm" action="">
-        
+      <div class="col-md-6 md-3">
         <label for="schemeName">Scheme Name</label>
         <input type="text" name="schemeName" id="" class="form-control" placeholder="Enter Scheme Name"
           [(ngModel)]="schemeModel.schemeName">
+      </div>
 
+      <div class="col-md-6 md-3">
         <label for="schemeMinistry">Scheme Ministry Name</label>
         <input type="text" name="schemeMinistry" id="" class="form-control" placeholder="Enter Mnistry Name"
           [(ngModel)]="schemeModel.schemeMinistry">
+      </div>
 
+      <div class="col-md-6 md-3">
         <label for="schemeCourseLevel">Scheme Couse Level</label>
-        <input type="text" name="schemeCourseLevel" id="" class="form-control" placeholder="Enter course level for scheme"
-          [(ngModel)]="schemeModel.schemeCourseLevel">
+        <input type="text" name="schemeCourseLevel" id="" class="form-control"
+          placeholder="Enter course level for scheme" [(ngModel)]="schemeModel.schemeCourseLevel">
+      </div>
 
-          <label for="scheme10ec">Scheme 10th qualification</label>
-          <input type="text" name="scheme10ec" id="" class="form-control" placeholder="Enter 10th marks requirement for the scheme"
-            [(ngModel)]="schemeModel.scheme10ec">
+      <div class="col-md-6 md-3">
+        <label for="scheme10ec">Scheme 10th qualification</label>
+        <input type="text" name="scheme10ec" id="" class="form-control"
+          placeholder="Enter 10th marks requirement for the scheme" [(ngModel)]="schemeModel.scheme10ec">
+      </div>
 
-            <label for="scheme12ec">Scheme 12th qualification</label>
-          <input type="text" name="scheme12ec" id="" class="form-control" placeholder="Enter 12th marks requirement for the scheme"
-            [(ngModel)]="schemeModel.scheme12ec">
+      <div class="col-md-6 md-3">
+        <label for="scheme12ec">Scheme 12th qualification</label>
+        <input type="text" name="scheme12ec" id="" class="form-control"
+          placeholder="Enter 12th marks requirement for the scheme" [(ngModel)]="schemeModel.scheme12ec">
+      </div>
+      <div class="col-md-6 md-3">
+        <label for="schemeCaste">Scheme Caste</label>
+        <input type="text" name="schemeCaste" id="" class="form-control"
+          placeholder="Enter the caste which can avail the scheme" [(ngModel)]="schemeModel.schemeCaste">
+      </div>
 
-            <label for="schemeCaste">Scheme Caste</label>
-          <input type="text" name="schemeCaste" id="" class="form-control" placeholder="Enter the caste which can avail the scheme"
-            [(ngModel)]="schemeModel.schemeCaste">
+      <div class="col-md-6 md-3">
+        <label for="schemeAge">Scheme Age</label>
+        <input type="text" name="schemeAge" id="" class="form-control"
+          placeholder="Enter the age of student who can avail the scheme" [(ngModel)]="schemeModel.schemeAge">
+      </div>
 
-            <label for="schemeAge">Scheme Age</label>
-          <input type="text" name="schemeAge" id="" class="form-control" placeholder="Enter the age of student who can avail the scheme"
-            [(ngModel)]="schemeModel.schemeAge">
+      <div class="col-md-6 md-3">
+        <label for="schemeGender">Scheme Age</label>
+        <input type="text" name="schemeGender" id="" class="form-control"
+          placeholder="Enter the gender of student who can avail the scheme" [(ngModel)]="schemeModel.schemeGender">
+      </div>
 
-            <label for="schemeGender">Scheme Age</label>
-          <input type="text" name="schemeGender" id="" class="form-control" placeholder="Enter the gender of student who can avail the scheme"
-            [(ngModel)]="schemeModel.schemeGender">
+      <div class="col-md-6 md-3">
+        <label for="schemeFamilyIncome">Scheme Family Income</label>
+        <input type="text" name="schemeFamilyIncome" id="" class="form-control"
+          placeholder="Enter the family income of student who can avail the scheme"
+          [(ngModel)]="schemeModel.schemeFamilyIncome">
+      </div>
 
-            <label for="schemeFamilyIncome">Scheme Family Income</label>
-          <input type="text" name="schemeFamilyIncome" id="" class="form-control" placeholder="Enter the family income of student who can avail the scheme"
-            [(ngModel)]="schemeModel.schemeFamilyIncome">
+      <div class="col-md-6 md-3">
+        <label for="schemeForDisabled">Scheme For Disabled</label>
+        <input type="text" name="schemeForDisabled" id="" class="form-control"
+          placeholder="Enter the disability criteria" [(ngModel)]="schemeModel.schemeForDisabled">
+      </div>
 
-            <label for="schemeForDisabled">Scheme For Disabled</label>
-          <input type="text" name="schemeForDisabled" id="" class="form-control" placeholder="Enter the disability criteria"
-            [(ngModel)]="schemeModel.schemeForDisabled">
+      <div class="col-md-6 md-3">
+        <label for="schemeAmount">Scheme Amount</label>
+        <input type="text" name="schemeAmount" id="" class="form-control" placeholder="Enter the Amount of Scheme"
+          [(ngModel)]="schemeModel.schemeAmount">
+      </div>
 
-            <label for="schemeAmount">Scheme Amount</label>
-          <input type="text" name="schemeAmount" id="" class="form-control" placeholder="Enter the Amount of Scheme"
-            [(ngModel)]="schemeModel.schemeAmount">
+    </div>
 
-            <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
-            <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
-            
+    <div class="mx-auto text-center">
+      <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
+      <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
+    </div>
 
+  </form>
+  
+</div>

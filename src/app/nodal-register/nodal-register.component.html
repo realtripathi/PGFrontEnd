@@ -1,37 +1,50 @@
+<!-- comment this section -->
+<hr>
 {{nodalRegForm.value |json}}
 <hr>
 {{nodalModel |json}}
-
-<h3>New Nodal Registration</h3>
-<form #nodalRegForm="ngForm" action="">
-        
+<hr>
+<div class="container-fuild">
+  <h3 style="text-align: center;">New Nodal Registration</h3>
+  <form #nodalRegForm="ngForm" action="">
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
         <label for="nodalName">Nodal Name</label>
         <input type="text" name="nodalName" id="" class="form-control" placeholder="Enter Nodal Officer Name"
           [(ngModel)]="nodalModel.nodalName">
-  
-         <label for="nodalState">State</label>
-          <select class="custom-select" name="nodalState" id="" [(ngModel)]="nodalModel.nodalState">
-            <option selected value=null>Select Nodal Officer State</option>
-            <option *ngFor="let nodalState of nodalStates">{{nodalState}}</option>
-          </select>
+      </div>
 
+      <div class="col-md-6 mb-3">
+        <label for="nodalState">State</label>
+        <select class="custom-select" name="nodalState" id="" [(ngModel)]="nodalModel.nodalState">
+          <option selected value=null>Select Nodal Officer State</option>
+          <option *ngFor="let nodalState of nodalStates">{{nodalState}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 mb-3">
         <label for="nodalPhone">Nodal Phone Number</label>
         <input type="text" name="nodalPhone" id="" class="form-control" placeholder="Enter Nodal Officer Contact Number"
-        [(ngModel)]="nodalModel.nodalPhone">
+          [(ngModel)]="nodalModel.nodalPhone">
+      </div>
 
+      <div class="col-md-6 mb-3">
         <label for="nodalEmail">Nodal Email address</label>
         <input type="text" name="nodalEmail" id="" class="form-control" placeholder="Enter Nodal Officer Email Id"
-        [(ngModel)]="nodalModel.nodalEmail">
+          [(ngModel)]="nodalModel.nodalEmail">
+      </div>
 
+      <div class="col-md-6 mb-3">
         <label for="nodalPassword">Nodal Password</label>
-         <input type="text" name="nodalPassword" id="" class="form-control" placeholder="Set Nodal Officer Password"
-         [(ngModel)]="nodalModel.nodalPassword">
+        <input type="text" name="nodalPassword" id="" class="form-control" placeholder="Set Nodal Officer Password"
+          [(ngModel)]="nodalModel.nodalPassword">
+      </div>
+    </div>
 
-        <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
-        <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
+    <div class="mx-auto text-center">
+      <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
+      <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
+    </div>
 
-
-
-
-
-</form>
+  </form>
+</div>
