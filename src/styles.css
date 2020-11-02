@@ -9,19 +9,21 @@
 }
 
 .bannerImage img{
-  margin-left: 5%;
-  width: 100px;
-  height: 100px;
+  margin-left: 7%;
+  max-width: 6%;
+  max-height: 6%;
   border-radius: 50%;
-  padding: 10px;
+  padding: 1%;
+  position: relative;
 }
 .title{
   float: right;
-  margin-right: 55%;
+  margin-right: 87%;
   margin-top: 1.5%;
 }
 
 h1{
   color: chocolate;
   padding-bottom: 1%;
+  position: absolute;
 }
