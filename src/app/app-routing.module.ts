@@ -30,6 +30,7 @@ import { MinistryViewInstituteComponent } from './ministry-view-institute/minist
 import { NodalFormViewComponent } from './nodal-form-view/nodal-form-view.component';
 import { InstituteFormViewComponent } from './institute-form-view/institute-form-view.component';
 import { combineLatest } from 'rxjs';
+import { InstituteStudentVerifyComponent } from './institute-student-verify/institute-student-verify.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: "full" },
@@ -42,8 +43,8 @@ const routes: Routes = [
     path: 'studentDashboard',
     component: StudentDashComponent,
     children: [
-      {path: 'profile', component: StudentProfileComponent},
-      {path:'applyScheme',component:StudentSchemeapplyComponent}
+      { path: 'profile', component: StudentProfileComponent },
+      { path: 'applyScheme', component: StudentSchemeapplyComponent }
     ]
   },
   { path: 'instituteLogin', component: InstituteLoginComponent },
@@ -53,7 +54,12 @@ const routes: Routes = [
     children: [
       { path: 'profile', component: InstituteProfileComponent },
       { path: 'formVerification', component: InstituteFormViewComponent },
-      { path: 'studentVerification', component: InstituteStudentViewComponent }
+      {
+        path: 'studentVerification', component: InstituteStudentViewComponent, children: [
+          { path: 'studentDetails', component: InstituteStudentVerifyComponent }
+        ]
+      }
+
     ]
   },
   { path: 'nodalLogin', component: NodalLoginComponent },

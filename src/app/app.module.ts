@@ -33,6 +33,7 @@ import { InstituteStudentViewComponent } from './institute-student-view/institut
 import { StudentDashComponent } from './student-dash/student-dash.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { StudentSchemeapplyComponent } from './student-schemeapply/student-schemeapply.component';
+import { InstituteStudentVerifyComponent } from './institute-student-verify/institute-student-verify.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { StudentSchemeapplyComponent } from './student-schemeapply/student-schem
     InstituteStudentViewComponent,
     StudentDashComponent,
     StudentProfileComponent,
-    StudentSchemeapplyComponent
+    StudentSchemeapplyComponent,
+    InstituteStudentVerifyComponent
   ],
   imports: [
     BrowserModule,

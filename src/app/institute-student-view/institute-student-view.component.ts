@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-institute-student-view',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstituteStudentViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:ActivatedRoute,private route:Router) { }
 
   ngOnInit(): void {
+  }
+
+  public viewStudentDetails(){
+    this.route.navigate(['studentDetails'],{relativeTo: this.router});
   }
 
 }
