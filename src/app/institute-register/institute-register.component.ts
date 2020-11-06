@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Institute } from '../institute';
+import { InstituteService } from '../institute.service';
+
 
 @Component({
   selector: 'app-institute-register',
@@ -7,11 +10,6 @@ import { Institute } from '../institute';
   styleUrls: ['./institute-register.component.css']
 })
 export class InstituteRegisterComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   inst_cats = ['Autonomous Higher Education Institute','Central University','State University','Deemed Universities','Private University'];
 
@@ -23,6 +21,26 @@ export class InstituteRegisterComponent implements OnInit {
 
   inst_years = ['2016','2017','2018'];
 
-  InstituteModel = new Institute(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,false);
+  instituteModel = new Institute();
+
+ 
+
+  constructor(private instituteService :InstituteService, private router:Router) { }
+
+  ngOnInit(): void {
+  }
+
+  register() {
+    console.log(this.instituteModel);
+    this.instituteService.register(this.instituteModel).subscribe(data => {
+     //alert(JSON.stringify(data));
+     if(data.status == 'SUCCESS') {
+       this.router.navigate(['instituteLogin']);
+     }
+     else {
+       //this.router.navigate(['error']);
+     }
+   })
+   }
 
 }

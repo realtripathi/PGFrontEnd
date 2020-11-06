@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { InstituteLogin } from "../institute-login";
+import { InstituteService } from '../institute.service';
 
 @Component({
   selector: 'app-institute-login',
@@ -9,12 +11,25 @@ import { InstituteLogin } from "../institute-login";
 export class InstituteLoginComponent implements OnInit {
 
 
-  instituteForm = new InstituteLogin(null,null);
+  instituteLogin = new InstituteLogin();
 
-  constructor() { }
+  constructor(private instituteService : InstituteService, private router : Router) { }
 
   ngOnInit(): void {
 
+  }
+
+  login(){
+    alert(JSON.stringify(this.login));
+    this.instituteService.login(this.instituteLogin).subscribe(data => {
+      alert(JSON.stringify(data));
+      if(data.status == 'SUCCESS') {
+        this.router.navigate(['instituteDashboard']);
+      }
+      else {
+        alert("EORROR");
+      }
+    })
   }
 
 }

@@ -1,3 +1,4 @@
 export class InstituteLogin {
-    constructor(public instituteUid:string, public institutePassword:string ){}
+    public instituteId:string;
+     public password:string;
 }

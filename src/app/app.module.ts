@@ -34,6 +34,8 @@ import { StudentDashComponent } from './student-dash/student-dash.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { StudentSchemeapplyComponent } from './student-schemeapply/student-schemeapply.component';
 import { InstituteStudentVerifyComponent } from './institute-student-verify/institute-student-verify.component';
+import { HttpClientModule } from '@angular/common/http';
+import { InstituteService } from './institute.service';
 
 @NgModule({
   declarations: [
@@ -72,9 +74,10 @@ import { InstituteStudentVerifyComponent } from './institute-student-verify/inst
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [InstituteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
