@@ -36,6 +36,8 @@ import { StudentSchemeapplyComponent } from './student-schemeapply/student-schem
 import { InstituteStudentVerifyComponent } from './institute-student-verify/institute-student-verify.component';
 import { HttpClientModule } from '@angular/common/http';
 import { InstituteService } from './institute.service';
+import {StudentService} from './student.service'
+
 
 @NgModule({
   declarations: [
@@ -77,7 +79,7 @@ import { InstituteService } from './institute.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [InstituteService],
+  providers: [InstituteService,StudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

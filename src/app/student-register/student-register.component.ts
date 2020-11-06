@@ -1,5 +1,7 @@
 import { Student } from './../student';
 import { Component, OnInit } from '@angular/core';
+import { StudentService } from '../student.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-register',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentRegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private studentService:StudentService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -19,6 +21,19 @@ export class StudentRegisterComponent implements OnInit {
 
   studGenders = ['Male','Female'];
 
-  studentModel = new Student(null,null,null,null,null,null,null,null,null,null,null,null,null,false);
+  studentModel = new Student();
+
+  register() {
+    console.log(this.studentModel);
+    this.studentService.register(this.studentModel).subscribe(data => {
+     //alert(JSON.stringify(data));
+     if(data.status == 'SUCCESS') {
+       this.router.navigate(['studentLogin']);
+     }
+     else {
+       //this.router.navigate(['error']);
+     }
+   })
+   }
 
 }

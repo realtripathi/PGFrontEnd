@@ -1,17 +1,17 @@
-<!-- comment this portion
+comment this portion
 <hr>
 {{studentRegForm.value | json}}
 <hr>
 {{studentModel | json}}
-<hr> -->
+<hr>
 <div class="container-fluid mb-5">
   <h3 style="text-align: center;">New Student Registration</h3>
-  <form #studentRegForm="ngForm" action="">
+  <form #studentRegForm="ngForm" (ngSubmit)="register()">
 
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="studentState">Domicile</label>
-        <select class="custom-select" name="studentState" id="" [(ngModel)]="studentModel.studentDomicile">
+        <select class="custom-select" name="studentState" id="" [(ngModel)]="studentModel.studentStateOfDomicile">
           <option selected value=null>Select Institute State</option>
           <option *ngFor="let studstate of studStates">{{studstate}}</option>
         </select>
@@ -35,8 +35,8 @@
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="studDOB">DOB</label>
-        <input type="text" name="studDOB" id="" class="form-control" placeholder="Enter Name DOB"
-          [(ngModel)]="studentModel.studentDOB">
+        <input type="date" name="studDOB" id="" class="form-control" placeholder="Enter Name DOB"
+          [(ngModel)]="studentModel.studentDateOfBirth">
       </div>
 
       <div class="col-md-6 mb-3">
@@ -50,7 +50,7 @@
       <div class="col-md-6 mb-3">
         <label for="studMobile">Mobile Number</label>
         <input type="text" name="studMobile" id="" class="form-control" placeholder="Enter Mobile Number"
-          [(ngModel)]="studentModel.studentNumber">
+          [(ngModel)]="studentModel.studentMobileNumber">
       </div>
 
       <div class="col-md-6 mb-3">
@@ -59,22 +59,22 @@
           [(ngModel)]="studentModel.studentEmail">
       </div>
 
-      <div class="col-md-6 mb-3">
+      <!-- <div class="col-md-6 mb-3">
         <label for="studInstitue">Institute Code</label>
         <input type="text" name="studInstitue" id="" class="form-control" placeholder="Enter Instituet Code"
-          [(ngModel)]="studentModel.studentInstituteCode">
-      </div>
+          [(ngModel)]="studentModel.institute">
+      </div> -->
 
       <div class="col-md-6 mb-3">
         <label for="studAadhar">Aadhar Number</label>
         <input type="text" name="studAadhar" id="" class="form-control" placeholder="Enter Aadhar Number"
-          [(ngModel)]="studentModel.studentUID">
+          [(ngModel)]="studentModel.studentAadharNumber">
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studIFSC">Bank IFSC Code</label>
         <input type="text" name="studIFSC" id="" class="form-control" placeholder="Enter Bank IFSC Code"
-          [(ngModel)]="studentModel.studentIFSCcode">
+          [(ngModel)]="studentModel.studentIfcsCode">
       </div>
 
       <div class="col-md-6 mb-3">

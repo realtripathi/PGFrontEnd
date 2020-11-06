@@ -1,6 +1,6 @@
 export class StudentLogin {
-  constructor(
-    public StudentUID: String,
-    public StudentPwd: String
-  ) { }
+  
+    public studentId:Number;
+    public password: String;
+  
 }

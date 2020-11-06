@@ -1,5 +1,7 @@
 import { StudentLogin } from './../student-login';
 import { Component, OnInit } from '@angular/core';
+import { StudentService } from '../student.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-login',
@@ -8,11 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private studentService:StudentService,private router:Router) { }
 
   ngOnInit(): void {
   }
 
-  studentLogin = new StudentLogin(null,null);
+  studentLogin = new StudentLogin();
+
+  login(){
+    alert(JSON.stringify(this.login));
+    this.studentService.login(this.studentLogin).subscribe(data => {
+      alert(JSON.stringify(data));
+      if(data.status == 'SUCCESS') {
+        this.router.navigate(['studentDashboard']);
+      }
+      else {
+        alert("ERROR");
+      }
+    })
+  }
 
 }

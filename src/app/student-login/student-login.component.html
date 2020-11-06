@@ -13,25 +13,25 @@
 					<h3 style="text-align: center;"><i class="fas fa-user"></i> Student Login</h3>
 				</div>
 				<div class="card-body">
-					<form #studentLoginForm = "ngForm" action="">
+					<form #studentLoginForm = "ngForm" (ngSubmit)="login()">
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input name="StudentUID" type="text" class="form-control" placeholder="username" [(ngModel)]="studentLogin.StudentUID">
+							<input name="StudentUID" type="text" class="form-control" placeholder="username" [(ngModel)]="studentLogin.studentId">
 
 						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input name="studentPwd" type="password" class="form-control" placeholder="password" [(ngModel)]="studentLogin.StudentPwd">
+							<input name="studentPwd" type="password" class="form-control" placeholder="password" [(ngModel)]="studentLogin.password">
 						</div>
 						<div class="row align-items-center remember">
 							<input type="checkbox">Remember Me
 						</div>
 						<div class="form-group">
-							<input type="submit" value="Login" class="btn float-right login_btn" routerLink="/studentDashboard">
+							<input type="submit" value="Login" class="btn float-right login_btn">
 						</div>
 					</form>
 				</div>
