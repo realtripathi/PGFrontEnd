@@ -6,7 +6,7 @@
 <hr> -->
 <div class="container-fluid mb -5">
   <h3 style="text-align: center;">New Scheme Registration</h3>
-  <form #schemeForm="ngForm" action="">
+  <form #schemeForm="ngForm" (ngSubmit)="register()">
     <div class="form-row">
 
       <div class="col-md-6 md-3">
@@ -29,14 +29,14 @@
 
       <div class="col-md-6 md-3">
         <label for="scheme10ec">Scheme 10th qualification</label>
-        <input type="text" name="scheme10ec" id="" class="form-control"
-          placeholder="Enter 10th marks requirement for the scheme" [(ngModel)]="schemeModel.scheme10ec">
+        <input type="number" name="scheme10ec" id="" class="form-control"
+          placeholder="Enter 10th marks requirement for the scheme" [(ngModel)]="schemeModel.scheme10EC">
       </div>
 
       <div class="col-md-6 md-3">
         <label for="scheme12ec">Scheme 12th qualification</label>
-        <input type="text" name="scheme12ec" id="" class="form-control"
-          placeholder="Enter 12th marks requirement for the scheme" [(ngModel)]="schemeModel.scheme12ec">
+        <input type="number" name="scheme12ec" id="" class="form-control"
+          placeholder="Enter 12th marks requirement for the scheme" [(ngModel)]="schemeModel.scheme12EC">
       </div>
       <div class="col-md-6 md-3">
         <label for="schemeCaste">Scheme Caste</label>
@@ -46,19 +46,19 @@
 
       <div class="col-md-6 md-3">
         <label for="schemeAge">Scheme Age</label>
-        <input type="text" name="schemeAge" id="" class="form-control"
+        <input type="number" name="schemeAge" id="" class="form-control"
           placeholder="Enter the age of student who can avail the scheme" [(ngModel)]="schemeModel.schemeAge">
       </div>
 
       <div class="col-md-6 md-3">
-        <label for="schemeGender">Scheme Age</label>
+        <label for="schemeGender">Scheme Gender</label>
         <input type="text" name="schemeGender" id="" class="form-control"
           placeholder="Enter the gender of student who can avail the scheme" [(ngModel)]="schemeModel.schemeGender">
       </div>
 
       <div class="col-md-6 md-3">
         <label for="schemeFamilyIncome">Scheme Family Income</label>
-        <input type="text" name="schemeFamilyIncome" id="" class="form-control"
+        <input type="number" name="schemeFamilyIncome" id="" class="form-control"
           placeholder="Enter the family income of student who can avail the scheme"
           [(ngModel)]="schemeModel.schemeFamilyIncome">
       </div>
@@ -71,7 +71,7 @@
 
       <div class="col-md-6 md-3">
         <label for="schemeAmount">Scheme Amount</label>
-        <input type="text" name="schemeAmount" id="" class="form-control" placeholder="Enter the Amount of Scheme"
+        <input type="number" name="schemeAmount" id="" class="form-control" placeholder="Enter the Amount of Scheme"
           [(ngModel)]="schemeModel.schemeAmount">
       </div>
 
