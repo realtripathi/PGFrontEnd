@@ -25,14 +25,20 @@
 
         <div class="col-md-6 mb-3">
           <label for="religion">Religion</label>
-          <input type="text" name="religion" id="" class="form-control" placeholder="Enter Religion"
-            [(ngModel)]="scholarshipFormModel.religion">
+          <select required #religion="ngModel" [class.is-invalid]="religion.invalid && religion.touched"
+            (blur)="validateReligionStatus(religion.value)" (change)="validateReligionStatus(religion.value)"
+            class="custom-select" name="religion" [(ngModel)]="scholarshipFormModel.religion">
+            <option selected value="">Select Religion</option>
+            <option *ngFor="let religion_category of religionCategory">{{religion_category}}</option>
+          
+          </select>
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="category">Community/Category</label>
-          <input type="text" name="category" id="" class="form-control" placeholder="Enter Category"
+          <input type="text" required #category="ngModel" [class.is-invalid]="category.invalid && category.touched" name="category" class="form-control" placeholder="Enter Category"
             [(ngModel)]="scholarshipFormModel.category">
+            <small class="text-danger" [class.d-none]="category.valid || category.untouched">Community is required</small>
         </div>
 
         <div class="col-md-6 mb-3">
@@ -157,26 +163,39 @@
 
         <div class="col-md-6 mb-3">
           <label for="isDisabled">Disability</label>
-          <input type="text" name="isDisabled" id="" class="form-control" placeholder="Is disabled?"
-            [(ngModel)]="scholarshipFormModel.isDisabled">
+          <select required #isDisabled="ngModel" [class.is-invalid]="isDisabled.invalid && isDisabled.touched"
+            (blur)="validateDisabilityStatus(isDisabled.value)" (change)="validateDisabilityStatus(isDisabled.value)"
+            class="custom-select" name="isDisabled" [(ngModel)]="scholarshipFormModel.isDisabled">
+            <option selected value="">Select Disability Criteria</option>
+            <option *ngFor="let disability_category of disabilityCategory">{{disability_category}}</option>
+          
+          </select>
+
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="typeOfDisability">Type of Disability</label>
-          <input type="text" name="typeOfDisability" id="" class="form-control" placeholder="Type Of Disability"
+          <input type="text" required #typeOfDisability="ngModel" [class.is-invalid]="typeOfDisability.invalid && typeOfDisability.touched" name="typeOfDisability" id="" class="form-control" placeholder="Type Of Disability"
             [(ngModel)]="scholarshipFormModel.typeOfDisability">
+            <small class="text-danger" [class.d-none]="typeOfDisability.valid || typeOfDisability.untouched">Type of Disability is required</small>
+
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="percentOfDisability">% of Disability</label>
-          <input type="text" name="percentOfDisability" id="" class="form-control" placeholder="% of Disability"
+          <input type="text" required #percentOfDisability="ngModel" [class.is-invalid]="percentOfDisability.invalid && percentOfDisability.touched"name="percentOfDisability" id="" class="form-control" placeholder="% of Disability"
             [(ngModel)]="scholarshipFormModel.percentOfDisability">
+            <small class="text-danger" [class.d-none]="percentOfDisability.valid || percentOfDisability.untouched">Percentage of Disability is required</small>
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="maritalStatus">Marital Status</label>
-          <input type="text" name="maritalStatus" id="" class="form-control" placeholder="Marital Status"
-            [(ngModel)]="scholarshipFormModel.maritalStatus">
+          <select required #maritalStatus="ngModel" [class.is-invalid]="maritalStatus.invalid && maritalStatus.touched"
+            (blur)="validateMaritalStatus(maritalStatus.value)" (change)="validateMaritalStatus(maritalStatus.value)"
+            class="custom-select" name="maritalStatus" [(ngModel)]="scholarshipFormModel.maritalStatus">
+            <option selected value="">Select Marital Status</option>
+            <option *ngFor="let marital_status of maritalStatusCategory">{{marital_status}}</option>
+          </select>
         </div>
 
         <div class="col-md-6 mb-3">

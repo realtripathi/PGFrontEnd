@@ -10,6 +10,13 @@ import { StudentService } from '../student.service'
 })
 export class StudentSchemeapplyComponent implements OnInit {
 
+  maritalStatusCategory=['Single','Married','Divorced','Other'];
+  religionCategory=['Buddhism','Christianity','Hinduism','Islam','Jainism','Sikhism','Other'];
+  disabilityCategory=['Disabled','Not Disabled'];
+
+  maritalStatusInvalid=true;
+  religionStatusInvalid=true;
+  disabilityStatusInavlid=true;
 
   scholarshipFormModel=new ScholarshipForm();
 
@@ -36,5 +43,30 @@ export class StudentSchemeapplyComponent implements OnInit {
      }
    })
   }
+  validateMaritalStatus(value){
+    if(value == ''){
+      this.maritalStatusInvalid = true;
+    }
+    else{
+      this.maritalStatusInvalid = false;
+    }
+  }
 
+  validateReligionStatus(value){
+    if(value == ''){
+      this.religionStatusInvalid = true;
+    }
+    else{
+      this.religionStatusInvalid = false;
+    }
+  }
+
+  validateDisabilityStatus(value){
+    if(value == ''){
+      this.disabilityStatusInavlid = true;
+    }
+    else{
+      this.disabilityStatusInavlid = false;
+    }
+  }
 }
