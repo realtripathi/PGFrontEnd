@@ -39,6 +39,7 @@ import { InstituteService } from './institute.service';
 import {StudentService} from './student.service';
 import { SchemeService  } from "./scheme.service";
 import { NodalService } from "./nodal.service";
+import { MinistryService } from "./ministry.service";
 
 
 @NgModule({
@@ -81,7 +82,7 @@ import { NodalService } from "./nodal.service";
     FormsModule,
     HttpClientModule
   ],
-  providers: [InstituteService,StudentService,SchemeService, NodalService],
+  providers: [InstituteService,StudentService,SchemeService, NodalService, MinistryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
