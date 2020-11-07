@@ -28,8 +28,10 @@ comment this portion
 
     <div class="form-group">
       <label for="studName">Student Name</label>
-      <input type="text" name="studName" id="" class="form-control" placeholder="Enter Name"
-        [(ngModel)]="studentModel.studentName">
+      <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" placeholder="Enter Name"
+        name="name" [(ngModel)]="studentModel.studentName">
+        <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
+        <div></div>
     </div>
 
     <div class="form-row">
@@ -49,14 +51,24 @@ comment this portion
 
       <div class="col-md-6 mb-3">
         <label for="studMobile">Mobile Number</label>
-        <input type="text" name="studMobile" id="" class="form-control" placeholder="Enter Mobile Number"
+        <input type="text" required #phone="ngModel" pattern="\d{10}$" name="phone" [class.is-invalid]="phone.invalid && phone.touched" class="form-control" placeholder="Enter Mobile Number"
           [(ngModel)]="studentModel.studentMobileNumber">
+          <div *ngIf="phone.errors && (phone.valid || phone.touched)">
+            <small class="text-danger" *ngIf="phone.errors.required">Phone number is required</small>
+            <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must be a 10 digits number</small>
+    
+          </div>
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studEmail">Email</label>
-        <input type="text" name="studEmail" id="" class="form-control" placeholder="Enter Email"
+        <input type="text" required #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" [class.is-invalid]="email.invalid && email.touched" class="form-control" placeholder="Enter Email"
           [(ngModel)]="studentModel.studentEmail">
+          <div *ngIf="email.errors && (email.valid || email.touched)">
+            <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
+            <small class="text-danger" *ngIf="email.errors.pattern">Please enter a valid email</small>
+    
+          </div>
       </div>
 
       <!-- <div class="col-md-6 mb-3">
@@ -67,28 +79,39 @@ comment this portion
 
       <div class="col-md-6 mb-3">
         <label for="studAadhar">Aadhar Number</label>
-        <input type="text" name="studAadhar" id="" class="form-control" placeholder="Enter Aadhar Number"
+        <input type="text" required name="aadhar" #aadhar="ngModel" pattern="\d{12}$" [class.is-invalid]="aadhar.invalid && aadhar.touched" class="form-control" placeholder="Enter Aadhar Number"
           [(ngModel)]="studentModel.studentAadharNumber">
+          <div *ngIf="aadhar.errors && (aadhar.valid || aadhar.touched)">
+            <small class="text-danger" *ngIf="aadhar.errors.required">Aadhar Number is required</small>
+            <small class="text-danger" *ngIf="aadhar.errors.pattern">Please enter a valid Aadhar Number</small>
+    
+          </div>
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studIFSC">Bank IFSC Code</label>
-        <input type="text" name="studIFSC" id="" class="form-control" placeholder="Enter Bank IFSC Code"
+        <input type="text" required #bankifsc="ngModel" [class.is-invalid]="bankifsc.invalid && bankifsc.touched" name="bankifsc" class="form-control" placeholder="Enter Bank IFSC Code"
           [(ngModel)]="studentModel.studentIfcsCode">
+          <small class="text-danger" [class.d-none]="bankifsc.valid || bankifsc.untouched">IFSC code is required</small>
+
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studAccNumber">Account Number</label>
-        <input type="text" name="studAccNumber" id="" class="form-control" placeholder="Enter Account NUmber"
+        <input type="text" required #accountNumber="ngModel" [class.is-invalid]="accountNumber.invalid && accountNumber.touched" name="accountNumber" id="" class="form-control" placeholder="Enter Account Number"
           [(ngModel)]="studentModel.studentBankAccountNumber">
+          <small class="text-danger" [class.d-none]="accountNumber.valid || accountNumber.untouched">Bank Account Number is required</small>
+
       </div>
 
     </div>
 
     <div class="form-group">
       <label for="studBank">Bank Name</label>
-      <input type="text" name="studBank" id="" class="form-control" placeholder="Enter Bank Name"
+      <input type="text" required #bankName="ngModel" [class.is-invalid]="bankName.invalid && bankName.touched" name="bankName" id="" class="form-control" placeholder="Enter Bank Name"
         [(ngModel)]="studentModel.studentBankName">
+        <small class="text-danger" [class.d-none]="bankName.valid || bankName.untouched">Bank Name is required</small>
+
     </div>
 
     <div class="form-row">

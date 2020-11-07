@@ -12,7 +12,7 @@ export class SchemeService {
   constructor(private http:HttpClient) { }
 
   register(scheme: Scheme): Observable<Status> {
-    let url = 'http://localhost:8585/addScheme';
+    let url = 'http://localhost:8080/addScheme';
     return this.http.post<Status>(url, scheme);
   }
 }
