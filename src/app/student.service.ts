@@ -30,7 +30,7 @@ export class StudentService {
     //   .set('intituteId', instituteId)
     //   .set('schemeId', schemeId)
     //   .set('studentId', studentId);
-    let url = 'http://localhost:8080/applyForScheme?instiuteId=' + instituteId + '&schemeId=' + schemeId +'&studentId=' +studentId;
+    let url = 'http://localhost:8080/applyForScheme?instituteId=' + instituteId + '&schemeId=' + schemeId +'&studentId=' +studentId;
     return this.http.post<Status>(url, form);
   }
 }

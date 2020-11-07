@@ -15,8 +15,8 @@ export class StudentSchemeapplyComponent implements OnInit {
 
   instituteId: number = 1006;
 
-  studentId: number = 2006;
-  schemeId: number =3006;
+
+  schemeId: number =1002;
   
 
   constructor(private studentService:StudentService,private router:Router) { }

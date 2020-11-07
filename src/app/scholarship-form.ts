@@ -7,11 +7,11 @@ export class ScholarshipForm {
         public familyAnnualIncome:String;
         public class10RollNumber:String;
         public class10BoardName:String;
-        public class10PassingYear:String;
+        public class10PassingYear:Date;
         public class10Percentage:String;
         public class12RollNumber:String;
         public class12BoardName:String;
-        public class12PassingYear:String;
+        public class12PassingYear:Date;
         public class12Percentage:String;
         public admissionFee:string;
         public tuitionFee:String;
