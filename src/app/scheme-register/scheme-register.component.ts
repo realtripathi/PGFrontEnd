@@ -15,6 +15,10 @@ export class SchemeRegisterComponent implements OnInit {
   scheme_for_Disabled=['Yes','No'];
   scheme_caste=['Scheduled Caste', 'Scheduled Tribe','OBC','EWS'];
 
+  schemeCasteInvalid=true;
+  schemeGenderInvalid=true;
+  schemeDisabilityInvalid=true;
+
   constructor(private schemeService: SchemeService, private router:Router) { }
 
   ngOnInit(): void {
@@ -33,4 +37,30 @@ export class SchemeRegisterComponent implements OnInit {
    })
    }
 
+   validateschemeCaste(value){
+    if(value == ''){
+      this.schemeCasteInvalid = true;
+    }
+    else{
+      this.schemeCasteInvalid = false;
+    }
+  }
+
+  validateschemeGender(value){
+    if(value == ''){
+      this.schemeGenderInvalid = true;
+    }
+    else{
+      this.schemeGenderInvalid = false;
+    }
+  }
+
+  validateschemeDisabled(value){
+    if(value == ''){
+      this.schemeDisabilityInvalid = true;
+    }
+    else{
+      this.schemeDisabilityInvalid = false;
+    }
+  }
 }

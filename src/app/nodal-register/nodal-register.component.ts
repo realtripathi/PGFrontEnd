@@ -10,6 +10,7 @@ import { Nodal } from '../nodal';
 })
 export class NodalRegisterComponent implements OnInit {
 
+  nodalStateInvalid=true;
   constructor(private ministryService: MinistryService, private router:Router) { }
 
   ngOnInit(): void {
@@ -31,6 +32,15 @@ export class NodalRegisterComponent implements OnInit {
      }
    })
    }
+
+   validateNodalState(value){
+    if(value == ''){
+      this.nodalStateInvalid = true;
+    }
+    else{
+      this.nodalStateInvalid = false;
+    }
+  }
 
  
 

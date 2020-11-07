@@ -46,10 +46,12 @@
 
       <div class="col-md-6 md-3">
         <label for="schemeCaste">Scheme Caste</label>
-        <select class="custom-select" name="schemeCaste" id="" class="form-control" [(ngModel)]="schemeModel.schemeCaste">
-          <option selected value=null>Select Caste</option>
-          <option *ngFor="let scheme_castes of scheme_caste">{{scheme_castes}}</option>
-        </select> 
+        <select required #schemeCaste="ngModel" [class.is-invalid]="schemeCaste.invalid && schemeCaste.touched"
+            (blur)="validateschemeCaste(schemeCaste.value)" (change)="validateschemeCaste(schemeCaste.value)"
+            class="custom-select" name="schemeCaste" [(ngModel)]="schemeModel.schemeCaste">
+            <option selected value="">Select Caste</option>
+            <option *ngFor="let scheme_castes of scheme_caste">{{scheme_caste}}</option>
+          </select> 
           
         </div>
 
@@ -62,11 +64,12 @@
 
       <div class="col-md-6 md-3">
         <label for="schemeGender">Scheme Gender</label>
-        <select class="custom-select" name="schemeGender" class="form-control"  [(ngModel)]="schemeModel.schemeGender">
-          <option selected value=null>Select Gender</option>
-            <option *ngFor="let scheme_gender of scheme_Gender">{{scheme_gender}}</option>
-          </select>
-          
+        <select required #schemeGender="ngModel" [class.is-invalid]="schemeGender.invalid && schemeGender.touched"
+            (blur)="validateschemeGender(schemeGender.value)" (change)="validateschemeGender(schemeGender.value)"
+            class="custom-select" name="schemeGender" [(ngModel)]="schemeModel.schemeGender">
+            <option selected value="">Select Gender</option>
+            <option *ngFor="let scheme_Genders of scheme_Gender">{{scheme_Gender}}</option>
+          </select> 
       </div>
 
       <div class="col-md-6 md-3">
@@ -79,10 +82,12 @@
 
       <div class="col-md-6 md-3">
         <label for="schemeForDisabled">Scheme For Disabled</label>
-        <select class="custom-select" name="schemeForDisabled" id="" class="form-control" [(ngModel)]="schemeModel.schemeForDisabled">
-          <option selected value=null>Select the disability criteria</option>
-            <option *ngFor="let scheme_for_disabled of scheme_for_Disabled">{{scheme_for_disabled}}</option>
-          </select>
+        <select required #schemeForDisabled="ngModel" [class.is-invalid]="schemeForDisabled.invalid && schemeForDisabled.touched"
+            (blur)="validateschemeDisabled(schemeForDisabled.value)" (change)="validateschemeDisabled(schemeForDisabled.value)"
+            class="custom-select" name="schemeForDisabled" [(ngModel)]="schemeModel.schemeForDisabled">
+            <option selected value="">Select Disability Criteria</option>
+            <option *ngFor="let scheme_for_Disable of scheme_for_Disabled">{{scheme_for_Disabled}}</option>
+          </select> 
       </div>
 
       <div class="col-md-6 md-3">
