@@ -30,6 +30,45 @@ export class InstituteRegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  instCatInvalid = true;
+  instStateInvalid = true;
+  instDistrictInvalid = true;
+  instPasswordNotMatch = true;
+
+  validateinstCat(value){
+    if(value == ''){
+      this.instCatInvalid = true;
+    }
+    else{
+      this.instCatInvalid = false;
+    }
+  }
+  validateinstState(value){
+    if(value == ''){
+      this.instStateInvalid = true;
+    }
+    else{
+      this.instStateInvalid = false;
+    }
+  }
+  validateinstDistrict(value){
+    if(value == ''){
+      this.instDistrictInvalid = true;
+    }
+    else{
+      this.instDistrictInvalid = false;
+    }
+  }
+
+  instConfirmPassword(value1,value2){
+    if(value1 == value2){
+      this.instPasswordNotMatch = true;
+    }
+    else{
+      this.instPasswordNotMatch = false;
+    }
+  }
+
   register() {
     console.log(this.instituteModel);
     this.instituteService.register(this.instituteModel).subscribe(data => {
