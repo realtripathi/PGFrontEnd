@@ -22,13 +22,13 @@
             (blur)="validateNodalState(nodalState.value)" (change)="validateNodalState(nodalState.value)"
             class="custom-select" name="inst_state" [(ngModel)]="nodalModel.nodalState">
             <option selected value="">Select Nodal State</option>
-            <option *ngFor="let nodal_state of nodalStates">{{nodalStates}}</option>
+            <option *ngFor="let nodalState of nodalStates">{{nodalState}}</option>
           </select>
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="nodalPhone">Nodal Phone Number</label>
-        <input type="number" required #phone="ngModel" pattern="\d{10}$" name="phone" [class.is-invalid]="phone.invalid && phone.touched" class="form-control" placeholder="Enter Nodal Officer Contact Number"
+        <input type="tel" required #phone="ngModel" pattern="\d{10}$" name="phone" [class.is-invalid]="phone.invalid && phone.touched" class="form-control" placeholder="Enter Nodal Officer Contact Number"
           [(ngModel)]="nodalModel.nodalPhone">
 
           <div *ngIf="phone.errors && (phone.valid || phone.touched)">
@@ -40,7 +40,7 @@
 
       <div class="col-md-6 mb-3">
         <label for="nodalEmail">Nodal Email address</label>
-        <input type="text" required #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" [class.is-invalid]="email.invalid && email.touched" class="form-control" placeholder="Enter Nodal Officer Email Id"
+        <input type="email" required #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" [class.is-invalid]="email.invalid && email.touched" class="form-control" placeholder="Enter Nodal Officer Email Id"
           [(ngModel)]="nodalModel.nodalEmail">
           <div *ngIf="email.errors && (email.valid || email.touched)">
             <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
@@ -51,7 +51,7 @@
 
       <div class="col-md-6 mb-3">
         <label for="nodalPassword">Nodal Password</label>
-        <input type="text" required #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="password" [class.is-invalid]="password.invalid && password.touched" class="form-control" placeholder="Set Nodal Officer Password"
+        <input type="password" required #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="password" [class.is-invalid]="password.invalid && password.touched" class="form-control" placeholder="Set Nodal Officer Password"
           [(ngModel)]="nodalModel.nodalPassword">
           <div *ngIf="password.errors && (password.valid || password.touched)">
             <small class="text-danger" *ngIf="password.errors.required">Password is required</small>

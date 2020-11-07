@@ -59,7 +59,6 @@ const routes: Routes = [
           { path: 'studentDetails', component: InstituteStudentVerifyComponent }
         ]
       }
-
     ]
   },
   { path: 'nodalLogin', component: NodalLoginComponent },
