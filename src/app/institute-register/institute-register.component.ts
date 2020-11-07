@@ -34,6 +34,9 @@ export class InstituteRegisterComponent implements OnInit {
   instStateInvalid = true;
   instDistrictInvalid = true;
   instPasswordNotMatch = true;
+  instTypeInvalid = true;
+  instinstaffUniStateInvalid=true;
+  instinstinstadmitYearInvalid=true;
 
   validateinstCat(value){
     if(value == ''){
@@ -66,6 +69,33 @@ export class InstituteRegisterComponent implements OnInit {
     }
     else{
       this.instPasswordNotMatch = false;
+    }
+  }
+
+  validateinstType(value){
+    if(value == ''){
+      this.instTypeInvalid= true;
+    }
+    else{
+      this.instTypeInvalid = false;
+    }
+  }
+
+  validateinstaffUniState(value){
+    if(value == ''){
+      this.instinstaffUniStateInvalid= true;
+    }
+    else{
+      this.instinstaffUniStateInvalid = false;
+    }
+  }
+
+  validateinstadmitYear(value){
+    if(value == ''){
+      this.instinstinstadmitYearInvalid= true;
+    }
+    else{
+      this.instinstinstadmitYearInvalid = false;
     }
   }
 

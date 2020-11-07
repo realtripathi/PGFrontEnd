@@ -42,6 +42,8 @@
             <option selected value="">Select Institute State</option>
             <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
           </select>
+          <small class="text-danger" [class.d-none]="!instStateInvalid || instState.untouched">Please choose a
+            State</small>
         </div>
 
         <div class="col-md-6 mb-3">
@@ -52,6 +54,8 @@
             <option selected value="">Select Institute District</option>
             <option *ngFor="let inst_district of inst_districts">{{inst_district}}</option>
           </select>
+          <small class="text-danger" [class.d-none]="!instDistrictInvalid || instDistrict.untouched">Please choose a
+            District</small>
         </div>
       </div>
 
@@ -92,20 +96,30 @@
       <div class="form-group">
         <div class="form-group">
           <label for="inst_type">Institute Type</label>
-          <select class="custom-select" name="inst_type" [(ngModel)]="instituteModel.instituteType">
-            <option selected value=null>Select Institute Type</option>
+          <select class="custom-select" required #instType="ngModel"
+            [class.is-invalid]="instType.invalid && instType.touched" (blur)="validateinstType(instType.value)"
+            (change)="validateinstType(instType.value)" name="inst_type" [(ngModel)]="instituteModel.instituteType">
+            <option selected value="">Select Institute Type</option>
             <option *ngFor="let inst_type of inst_types">{{inst_type}}</option>
           </select>
+          <small class="text-danger" [class.d-none]="!instTypeInvalid || instType.untouched">Please choose Institute
+            Type</small>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-group">
           <label for="inst_affUniState">Affiliated University State</label>
-          <select class="custom-select" name="inst_affUniState" [(ngModel)]="instituteModel.instituteUniversityState">
-            <option selected value=null>Select affilicated university state</option>
+          <select required #instaffUniState="ngModel"
+            [class.is-invalid]="instaffUniState.invalid && instaffUniState.touched"
+            (blur)="validateinstaffUniState(instaffUniState.value)"
+            (change)="validateinstaffUniState(instaffUniState.value)" class="custom-select" name="inst_affUniState"
+            [(ngModel)]="instituteModel.instituteUniversityState">
+            <option selected value="">Select affilicated university state</option>
             <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
           </select>
+          <small class="text-danger" [class.d-none]="!instinstaffUniStateInvalid || instaffUniState.untouched">Please
+            choose a State</small>
         </div>
       </div>
 
@@ -121,19 +135,25 @@
       <div class="form-group">
         <div class="form-group">
           <label for="inst_admitYear">YEAR FROM WHICH ADMISSION STARTED</label>
-          <select class="custom-select" name="inst_admitYear" [(ngModel)]="instituteModel.instituteAdmissionYear">
-            <option selected value=null>Select admission year</option>
+          <select required #instadmitYear="ngModel" [class.is-invalid]="instadmitYear.invalid && instadmitYear.touched"
+            (blur)="validateinstadmitYear(instadmitYear.value)" (change)="validateinstadmitYear(instadmitYear.value)"
+            class="custom-select" name="inst_admitYear" [(ngModel)]="instituteModel.instituteAdmissionYear">
+            <option selected value="">Select admission year</option>
             <option *ngFor="let inst_year of inst_years">{{inst_year}}</option>
           </select>
+          <small class="text-danger" [class.d-none]="!instinstinstadmitYearInvalid || instadmitYear.untouched">Please
+            choose a District</small>
         </div>
       </div>
 
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label for="inst_pwd">Set Password: </label>
-          <input type="password" pattern=".{8,}" required #instPass1="ngModel" [class.is-invalid]="instPass1.invalid && instPass1.touched" name="inst_pwd" class="form-control"
+          <input type="password" pattern=".{8,}" required #instPass1="ngModel"
+            [class.is-invalid]="instPass1.invalid && instPass1.touched" name="inst_pwd" class="form-control"
             placeholder="Enter Password" [(ngModel)]="instituteModel.institutePassword">
-            <small class="text-danger" [class.d-none]="instPass1.valid || instPass1.untouched">Please enter strong password</small>
+          <small class="text-danger" [class.d-none]="instPass1.valid || instPass1.untouched">Please enter strong
+            password</small>
         </div>
 
         <div class="col-md-6 mb-3">
@@ -143,7 +163,8 @@
             (change)="instConfirmPassword(instPass1.value, instPass2.value)"
             [class.is-invalid]="!instPasswordNotMatch && instPass2.touched" name="inst_confpwd" class="form-control"
             placeholder="Confirm Password" ngModel>
-            <small class="text-danger" [class.d-none]="instPasswordNotMatch || instPass2.untouched">Please confirm Password</small>
+          <small class="text-danger" [class.d-none]="instPasswordNotMatch || instPass2.untouched">Please confirm
+            Password</small>
         </div>
       </div>
     </fieldset>
@@ -185,6 +206,8 @@
               <option selected value=null>Select Institute State</option>
               <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
             </select>
+            <small class="text-danger" [class.d-none]="!instStateInvalid || instState.untouched">Please choose a
+              State</small>
           </div>
         </div>
 
@@ -198,6 +221,8 @@
               <option selected value=null>Select Institute District</option>
               <option *ngFor="let inst_district of inst_districts">{{inst_district}}</option>
             </select>
+            <small class="text-danger" [class.d-none]="!instDistrictInvalid || instDistrict.untouched">Please choose a
+              District</small>
           </div>
 
           <!-- <div class="col-md-6 mb-3">

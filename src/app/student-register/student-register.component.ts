@@ -23,6 +23,46 @@ export class StudentRegisterComponent implements OnInit {
 
   studentModel = new Student();
   institute_id:Number;
+  studnetstateInvalid = true;
+  studnetdistrictInvalid= true;
+  studnetGendersInvalid = true;
+  studPasswordNotMatch=true;
+
+  validatestudState(value){
+    if(value == ''){
+      this.studnetstateInvalid = true;
+    }
+    else{
+      this.studnetstateInvalid = false;
+    }
+  }
+
+  validatestudDistrict(value){
+    if(value == ''){
+      this.studnetdistrictInvalid = true;
+    }
+    else{
+      this.studnetdistrictInvalid = false;
+    }
+  }
+
+  validatestudGender(value){
+    if(value == ''){
+      this.studnetGendersInvalid = true;
+    }
+    else{
+      this.studnetGendersInvalid = false;
+    }
+  }
+
+  studConfirmPassword(value1, value2){
+    if(value1 == value2){
+      this.studPasswordNotMatch = true;
+    }
+    else{
+      this.studPasswordNotMatch = false;
+    }
+  }
 
   register() {
     console.log(this.studentModel);

@@ -2,9 +2,9 @@
 <hr>
 {{studentRegForm.value | json}}
 <hr>
-{{studentModel | json}} -->
+{{studentModel | json}} 
+<hr>-->
 
-<hr>
 <div class="container-fluid mb-5">
   <h3 style="text-align: center;">New Student Registration</h3>
   <form #studentRegForm="ngForm" (ngSubmit)="register()">
@@ -12,96 +12,122 @@
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="studentState">Domicile</label>
-        <select class="custom-select" name="studentState" id="" [(ngModel)]="studentModel.studentStateOfDomicile">
-          <option selected value=null>Select Institute State</option>
+        <select (blur)="validatestudState(studState.value)" required (change)="validatestudState(studState.value)"
+          #studState="ngModel" [class.is-invalid]="studState.invalid && studState.touched" class="custom-select"
+          name="studentState" [(ngModel)]="studentModel.studentStateOfDomicile">
+          <option selected value="">Select Institute State</option>
           <option *ngFor="let studstate of studStates">{{studstate}}</option>
         </select>
+        <small class="text-danger" [class.d-none]="!studnetstateInvalid || studState.untouched">Invalid
+          selection</small>
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studentDistrict">District</label>
-        <select class="custom-select" name="studentDistrict" id="" [(ngModel)]="studentModel.studentDistrict">
-          <option selected value=null>Select District</option>
+        <select (blur)="validatestudDistrict(studDistrict.value)" required
+          (change)="validatestudDistrict(studDistrict.value)" #studDistrict="ngModel"
+          [class.is-invalid]="studDistrict.invalid && studDistrict.touched" class="custom-select" name="studentDistrict"
+          id="" [(ngModel)]="studentModel.studentDistrict">
+          <option selected value="">Select District</option>
           <option *ngFor="let studDistrict of studDistricts">{{studDistrict}}</option>
         </select>
+        <small class="text-danger" [class.d-none]="!studnetdistrictInvalid || studDistrict.untouched">Invalid
+          selection</small>
       </div>
     </div>
 
     <div class="form-group">
       <label for="studName">Student Name</label>
-      <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" placeholder="Enter Name"
-        name="name" [(ngModel)]="studentModel.studentName">
-        <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
-        <div></div>
+      <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control"
+        placeholder="Enter Name" name="name" [(ngModel)]="studentModel.studentName">
+      <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
+      <div></div>
     </div>
 
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="studDOB">DOB</label>
-        <input type="date" name="studDOB" id="" class="form-control" placeholder="Enter Name DOB"
+        <input type="date" name="studDOB" required #studDOB="ngModel"
+          [class.is-invalid]="studDOB.invalid && studDOB.touched" class="form-control" placeholder="Enter Name DOB"
           [(ngModel)]="studentModel.studentDateOfBirth">
+        <small class="text-danger" [class.d-none]="studDOB.valid || studDOB.untouched">DOB is required</small>
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studGender">Gender</label>
-        <select class="custom-select" name="studGender" id="" [(ngModel)]="studentModel.studentGender">
-          <option selected value=null>Select Gender</option>
+        <select class="custom-select" (blur)="validatestudGender(studGender.value)" required
+          (change)="validatestudGender(studGender.value)" #studGender="ngModel"
+          [class.is-invalid]="studGender.invalid && studGender.touched" name="studGender"
+          [(ngModel)]="studentModel.studentGender">
+          <option selected value="">Select Gender</option>
           <option *ngFor="let studGender of studGenders">{{studGender}}</option>
         </select>
+        <small class="text-danger" [class.d-none]="!studnetGendersInvalid || studGender.untouched">Invalid
+          selection</small>
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studMobile">Mobile Number</label>
-        <input type="text" required #phone="ngModel" pattern="\d{10}$" name="phone" [class.is-invalid]="phone.invalid && phone.touched" class="form-control" placeholder="Enter Mobile Number"
+        <input type="text" required #phone="ngModel" pattern="\d{10}$" name="phone"
+          [class.is-invalid]="phone.invalid && phone.touched" class="form-control" placeholder="Enter Mobile Number"
           [(ngModel)]="studentModel.studentMobileNumber">
-          <div *ngIf="phone.errors && (phone.valid || phone.touched)">
-            <small class="text-danger" *ngIf="phone.errors.required">Phone number is required</small>
-            <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must be a 10 digits number</small>
-    
-          </div>
+        <div *ngIf="phone.errors && (phone.valid || phone.touched)">
+          <small class="text-danger" *ngIf="phone.errors.required">Phone number is required</small>
+          <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must be a 10 digits number</small>
+
+        </div>
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studEmail">Email</label>
-        <input type="text" required #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" [class.is-invalid]="email.invalid && email.touched" class="form-control" placeholder="Enter Email"
+        <input type="text" required #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email"
+          [class.is-invalid]="email.invalid && email.touched" class="form-control" placeholder="Enter Email"
           [(ngModel)]="studentModel.studentEmail">
-          <div *ngIf="email.errors && (email.valid || email.touched)">
-            <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
-            <small class="text-danger" *ngIf="email.errors.pattern">Please enter a valid email</small>
-    
-          </div>
+        <div *ngIf="email.errors && (email.valid || email.touched)">
+          <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
+          <small class="text-danger" *ngIf="email.errors.pattern">Please enter a valid email</small>
+
+        </div>
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studInstitue">Institute Code</label>
-        <input type="text" name="studInstitue" id="" class="form-control" placeholder="Enter Instituet Code"
-          [(ngModel)]="institute_id">
-      </div> 
+        <input type="text" required #studInstCode="ngModel"
+          [class.is-invalid]="studInstCode.invalid && studInstCode.touched" name="studInstitue" class="form-control"
+          placeholder="Enter Instituet Code" [(ngModel)]="institute_id">
+        <small class="text-danger" [class.d-none]="studInstCode.valid || studInstCode.untouched">Instituet Code is
+          required</small>
+
+      </div>
 
       <div class="col-md-6 mb-3">
         <label for="studAadhar">Aadhar Number</label>
-        <input type="text" required name="aadhar" #aadhar="ngModel" pattern="\d{12}$" [class.is-invalid]="aadhar.invalid && aadhar.touched" class="form-control" placeholder="Enter Aadhar Number"
+        <input type="text" required name="aadhar" #aadhar="ngModel" pattern="\d{12}$"
+          [class.is-invalid]="aadhar.invalid && aadhar.touched" class="form-control" placeholder="Enter Aadhar Number"
           [(ngModel)]="studentModel.studentAadharNumber">
-          <div *ngIf="aadhar.errors && (aadhar.valid || aadhar.touched)">
-            <small class="text-danger" *ngIf="aadhar.errors.required">Aadhar Number is required</small>
-            <small class="text-danger" *ngIf="aadhar.errors.pattern">Please enter a valid Aadhar Number</small>
-    
-          </div>
+        <div *ngIf="aadhar.errors && (aadhar.valid || aadhar.touched)">
+          <small class="text-danger" *ngIf="aadhar.errors.required">Aadhar Number is required</small>
+          <small class="text-danger" *ngIf="aadhar.errors.pattern">Please enter a valid Aadhar Number</small>
+
+        </div>
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studIFSC">Bank IFSC Code</label>
-        <input type="text" required #bankifsc="ngModel" [class.is-invalid]="bankifsc.invalid && bankifsc.touched" name="bankifsc" class="form-control" placeholder="Enter Bank IFSC Code"
+        <input type="text" required #bankifsc="ngModel" [class.is-invalid]="bankifsc.invalid && bankifsc.touched"
+          name="bankifsc" class="form-control" placeholder="Enter Bank IFSC Code"
           [(ngModel)]="studentModel.studentIfcsCode">
-          <small class="text-danger" [class.d-none]="bankifsc.valid || bankifsc.untouched">IFSC code is required</small>
+        <small class="text-danger" [class.d-none]="bankifsc.valid || bankifsc.untouched">IFSC code is required</small>
 
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studAccNumber">Account Number</label>
-        <input type="text" required #accountNumber="ngModel" [class.is-invalid]="accountNumber.invalid && accountNumber.touched" name="accountNumber" id="" class="form-control" placeholder="Enter Account Number"
-          [(ngModel)]="studentModel.studentBankAccountNumber">
-          <small class="text-danger" [class.d-none]="accountNumber.valid || accountNumber.untouched">Bank Account Number is required</small>
+        <input type="text" required #accountNumber="ngModel"
+          [class.is-invalid]="accountNumber.invalid && accountNumber.touched" name="accountNumber" id=""
+          class="form-control" placeholder="Enter Account Number" [(ngModel)]="studentModel.studentBankAccountNumber">
+        <small class="text-danger" [class.d-none]="accountNumber.valid || accountNumber.untouched">Bank Account Number
+          is required</small>
 
       </div>
 
@@ -109,22 +135,31 @@
 
     <div class="form-group">
       <label for="studBank">Bank Name</label>
-      <input type="text" required #bankName="ngModel" [class.is-invalid]="bankName.invalid && bankName.touched" name="bankName" id="" class="form-control" placeholder="Enter Bank Name"
+      <input type="text" required #bankName="ngModel" [class.is-invalid]="bankName.invalid && bankName.touched"
+        name="bankName" id="" class="form-control" placeholder="Enter Bank Name"
         [(ngModel)]="studentModel.studentBankName">
-        <small class="text-danger" [class.d-none]="bankName.valid || bankName.untouched">Bank Name is required</small>
+      <small class="text-danger" [class.d-none]="bankName.valid || bankName.untouched">Bank Name is required</small>
 
     </div>
 
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="studentPwd">Set Password: </label>
-        <input type="password" name="studentPwd" id="" class="form-control" placeholder="Enter Password"
-          [(ngModel)]="studentModel.studentPassword">
+        <input type="password" pattern=".{8,}" required #studPass1="ngModel"
+          [class.is-invalid]="studPass1.invalid && studPass1.touched" name="studentPwd" class="form-control"
+          placeholder="Enter Password" [(ngModel)]="studentModel.studentPassword">
+        <small class="text-danger" [class.d-none]="studPass1.valid || studPass1.untouched">Please enter strong
+          password</small>
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="studConfPwd">Confirm Password: </label>
-        <input type="password" name="studConfPwd" id="" class="form-control" placeholder="Confirm Password">
+        <input type="password" required #studPass2 (blur)="studConfirmPassword(studPass1.value, studPass2.value)"
+          (change)="studConfirmPassword(studPass1.value, studPass2.value)"
+          [class.is-invalid]="!studPasswordNotMatch && studPass2.touched" name="studConfPwd" class="form-control"
+          placeholder="Confirm Password">
+        <small class="text-danger" [class.d-none]="studPasswordNotMatch || studPass2.untouched">Please confirm
+          Password</small>
       </div>
     </div>
 
@@ -134,7 +169,8 @@
     </div>
 
     <div class="mx-auto text-center">
-      <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!studentRegForm.form.valid || !studPasswordNotMatch"
+        style="margin-left: 5%; margin-right: 5%;">Submit</button>
       <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
     </div>
 

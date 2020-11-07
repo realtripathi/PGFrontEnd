@@ -19,7 +19,7 @@
       <div class="col-md-6 mb-3">
         <label for="nodalState">State</label>
         <select required #nodalState="ngModel" [class.is-invalid]="nodalState.invalid && nodalState.touched"
-            (blur)="validateNodalState(nodalState.value)" (change)="validateNodaltState(nodalState.value)"
+            (blur)="validateNodalState(nodalState.value)" (change)="validateNodalState(nodalState.value)"
             class="custom-select" name="inst_state" [(ngModel)]="nodalModel.nodalState">
             <option selected value="">Select Nodal State</option>
             <option *ngFor="let nodal_state of nodalStates">{{nodalStates}}</option>
