@@ -11,68 +11,85 @@
 
       <div class="col-md-6 md-3">
         <label for="schemeName">Scheme Name</label>
-        <input type="text" name="schemeName" id="" class="form-control" placeholder="Enter Scheme Name"
+        <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" name="name" class="form-control" placeholder="Enter Scheme Name"
           [(ngModel)]="schemeModel.schemeName">
+          <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
       </div>
 
       <div class="col-md-6 md-3">
         <label for="schemeMinistry">Scheme Ministry Name</label>
-        <input type="text" name="schemeMinistry" id="" class="form-control" placeholder="Enter Mnistry Name"
+        <input type="text" required #schemeMinistry="ngModel" [class.is-invalid]="schemeMinistry.invalid && schemeMinistry.touched" name="schemeMinistry" class="form-control" placeholder="Enter Mnistry Name"
           [(ngModel)]="schemeModel.schemeMinistry">
+          <small class="text-danger" [class.d-none]="schemeMinistry.valid || schemeMinistry.untouched">Ministry is required</small>
       </div>
 
       <div class="col-md-6 md-3">
         <label for="schemeCourseLevel">Scheme Couse Level</label>
-        <input type="text" name="schemeCourseLevel" id="" class="form-control"
+        <input type="text" required #schemeCourseLevel="ngModel" [class.is-invalid]="schemeCourseLevel.invalid && schemeCourseLevel.touched" name="schemeCourseLevel" class="form-control"
           placeholder="Enter course level for scheme" [(ngModel)]="schemeModel.schemeCourseLevel">
+          <small class="text-danger" [class.d-none]="schemeCourseLevel.valid || schemeCourseLevel.untouched">Course Level is required</small>
       </div>
 
       <div class="col-md-6 md-3">
         <label for="scheme10ec">Scheme 10th qualification</label>
-        <input type="number" name="scheme10ec" id="" class="form-control"
+        <input type="number"required #scheme10ec="ngModel" [class.is-invalid]="scheme10ec.invalid && scheme10ec.touched" name="scheme10ec" class="form-control"
           placeholder="Enter 10th marks requirement for the scheme" [(ngModel)]="schemeModel.scheme10EC">
+          <small class="text-danger" [class.d-none]="scheme10ec.valid || scheme10ec.untouched">10th percentage is required</small>
       </div>
 
       <div class="col-md-6 md-3">
         <label for="scheme12ec">Scheme 12th qualification</label>
-        <input type="number" name="scheme12ec" id="" class="form-control"
+        <input type="number" required #scheme12ec="ngModel" [class.is-invalid]="scheme12ec.invalid && scheme12ec.touched" name="scheme12ec" id="" class="form-control"
           placeholder="Enter 12th marks requirement for the scheme" [(ngModel)]="schemeModel.scheme12EC">
-      </div>
-      <div class="col-md-6 md-3">
-        <label for="schemeCaste">Scheme Caste</label>
-        <input type="text" name="schemeCaste" id="" class="form-control"
-          placeholder="Enter the caste which can avail the scheme" [(ngModel)]="schemeModel.schemeCaste">
+          <small class="text-danger" [class.d-none]="scheme12ec.valid || scheme12ec.untouched">12th percentage is required</small>
       </div>
 
       <div class="col-md-6 md-3">
+        <label for="schemeCaste">Scheme Caste</label>
+        <select class="custom-select" name="schemeCaste" id="" class="form-control" [(ngModel)]="schemeModel.schemeCaste">
+          <option selected value=null>Select Caste</option>
+          <option *ngFor="let scheme_castes of scheme_caste">{{scheme_castes}}</option>
+        </select> 
+          
+        </div>
+
+      <div class="col-md-6 md-3">
         <label for="schemeAge">Scheme Age</label>
-        <input type="number" name="schemeAge" id="" class="form-control"
+        <input type="number" name="schemeAge" id="" class="form-control" required #schemeAge="ngModel" [class.is-invalid]="schemeAge.invalid && schemeAge.touched"
           placeholder="Enter the age of student who can avail the scheme" [(ngModel)]="schemeModel.schemeAge">
+          <small class="text-danger" [class.d-none]="schemeAge.valid || schemeAge.untouched">Age is required</small>
       </div>
 
       <div class="col-md-6 md-3">
         <label for="schemeGender">Scheme Gender</label>
-        <input type="text" name="schemeGender" id="" class="form-control"
-          placeholder="Enter the gender of student who can avail the scheme" [(ngModel)]="schemeModel.schemeGender">
+        <select class="custom-select" name="schemeGender" class="form-control"  [(ngModel)]="schemeModel.schemeGender">
+          <option selected value=null>Select Gender</option>
+            <option *ngFor="let scheme_gender of scheme_Gender">{{scheme_gender}}</option>
+          </select>
+          
       </div>
 
       <div class="col-md-6 md-3">
         <label for="schemeFamilyIncome">Scheme Family Income</label>
-        <input type="number" name="schemeFamilyIncome" id="" class="form-control"
+        <input type="number" name="schemeFamilyIncome" id="" class="form-control" required #schemeFamilyIncome="ngModel" [class.is-invalid]="schemeFamilyIncome.invalid && schemeFamilyIncome.touched"
           placeholder="Enter the family income of student who can avail the scheme"
           [(ngModel)]="schemeModel.schemeFamilyIncome">
+          <small class="text-danger" [class.d-none]="schemeFamilyIncome.valid || schemeFamilyIncome.untouched">Family Income is required</small>
       </div>
 
       <div class="col-md-6 md-3">
         <label for="schemeForDisabled">Scheme For Disabled</label>
-        <input type="text" name="schemeForDisabled" id="" class="form-control"
-          placeholder="Enter the disability criteria" [(ngModel)]="schemeModel.schemeForDisabled">
+        <select class="custom-select" name="schemeForDisabled" id="" class="form-control" [(ngModel)]="schemeModel.schemeForDisabled">
+          <option selected value=null>Select the disability criteria</option>
+            <option *ngFor="let scheme_for_disabled of scheme_for_Disabled">{{scheme_for_disabled}}</option>
+          </select>
       </div>
 
       <div class="col-md-6 md-3">
         <label for="schemeAmount">Scheme Amount</label>
-        <input type="number" name="schemeAmount" id="" class="form-control" placeholder="Enter the Amount of Scheme"
+        <input type="number" name="schemeAmount" id="" class="form-control" placeholder="Enter the Amount of Scheme" required #schemeAmount="ngModel" [class.is-invalid]="schemeAmount.invalid && schemeAmount.touched"
           [(ngModel)]="schemeModel.schemeAmount">
+          <small class="text-danger" [class.d-none]="schemeAmount.valid || schemeAmount.untouched">Scholarship Amount is required</small>
       </div>
 
     </div>
