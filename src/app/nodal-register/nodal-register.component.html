@@ -49,8 +49,13 @@
 
       <div class="col-md-6 mb-3">
         <label for="nodalPassword">Nodal Password</label>
-        <input type="text" name="nodalPassword" id="" class="form-control" placeholder="Set Nodal Officer Password"
+        <input type="text" required #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="password" [class.is-invalid]="password.invalid && password.touched" class="form-control" placeholder="Set Nodal Officer Password"
           [(ngModel)]="nodalModel.nodalPassword">
+          <div *ngIf="password.errors && (password.valid || password.touched)">
+            <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
+            <small class="text-danger" *ngIf="password.errors.pattern">Password must be 8 characters long with 1 uppercase, 1 lowercase, 1 special character and 1 digit.</small>
+    
+          </div>
       </div>
     </div>
 
