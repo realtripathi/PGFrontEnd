@@ -9,7 +9,7 @@
   <h3 style="text-align: center;">New Institute Registration</h3>
   <form #instituteForm="ngForm" (ngSubmit)="register()">
 
-    <!-- {{instituteForm.form.valid}} -->
+
     <fieldset class="">
       <legend>Basic Details</legend>
       <div class="form-group">
@@ -17,7 +17,7 @@
           <label for="inst_cat">Institute Category</label>
           <select (blur)="validateinstCat(instCat.value)" required (change)="validateinstCat(instCat.value)"
             #instCat="ngModel" [class.is-invalid]="instCat.invalid && instCat.touched" class="custom-select"
-            name="inst_cat" id="" [(ngModel)]="instituteModel.instituteCategory">
+            name="inst_cat" [(ngModel)]="instituteModel.instituteCategory">
             <option selected value="">Select Institute Category</option>
             <option *ngFor="let inst_cat of inst_cats">{{inst_cat}}</option>
           </select>
@@ -59,7 +59,7 @@
         <div class="col-md-6 mb-3">
           <label for="inst_code">INSTITUTE CODE</label>
           <input type="text" required #instCode="ngModel" [class.is-invalid]="instCode.invalid && instCode.touched"
-            name="inst_code" id="" class="form-control" placeholder="Enter Institute Name"
+            name="inst_code" class="form-control" placeholder="Enter Institute Code"
             [(ngModel)]="instituteModel.instituteCode">
           <small class="text-danger" [class.d-none]="instCode.valid || instCode.untouched">Institute Code is
             Required</small>
@@ -68,7 +68,7 @@
         <!-- <div class="col-md-6 mb-3">
           <label for="inst_dise">DISE CODE</label>
           <input type="text" required #instDise="ngModel" [class.is-invalid]="instDise.invalid && instDise.touched"
-            name="inst_dise" id="" class="form-control" placeholder="Enter Institute Name"
+            name="inst_dise" class="form-control" placeholder="Enter Institute Name"
             [(ngModel)]="instituteModel.instituteDiseCode">
           <small class="text-danger" [class.d-none]="instDise.valid || instDise.untouched">Institute DISE Code is
             Required</small>
@@ -92,7 +92,7 @@
       <div class="form-group">
         <div class="form-group">
           <label for="inst_type">Institute Type</label>
-          <select class="custom-select" name="inst_type" id="" [(ngModel)]="instituteModel.instituteType">
+          <select class="custom-select" name="inst_type" [(ngModel)]="instituteModel.instituteType">
             <option selected value=null>Select Institute Type</option>
             <option *ngFor="let inst_type of inst_types">{{inst_type}}</option>
           </select>
@@ -102,8 +102,7 @@
       <div class="form-group">
         <div class="form-group">
           <label for="inst_affUniState">Affiliated University State</label>
-          <select class="custom-select" name="inst_affUniState" id=""
-            [(ngModel)]="instituteModel.instituteUniversityState">
+          <select class="custom-select" name="inst_affUniState" [(ngModel)]="instituteModel.instituteUniversityState">
             <option selected value=null>Select affilicated university state</option>
             <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
           </select>
@@ -113,7 +112,7 @@
       <div class="form-group">
         <label for="inst_affUni">Affiliated Univeristy/Board Name: </label>
         <input type="text" required #instBoard="ngModel" [class.is-invalid]="instBoard.invalid && instBoard.touched"
-          name="inst_affUni" id="" class="form-control" placeholder="Enter Institute Name"
+          name="inst_affUni" class="form-control" placeholder="Enter Institute Board"
           [(ngModel)]="instituteModel.instituteUniversityName">
         <small class="text-danger" [class.d-none]="instBoard.valid || instBoard.untouched">Institute Board is
           Required</small>
@@ -122,7 +121,7 @@
       <div class="form-group">
         <div class="form-group">
           <label for="inst_admitYear">YEAR FROM WHICH ADMISSION STARTED</label>
-          <select class="custom-select" name="inst_admitYear" id="" [(ngModel)]="instituteModel.instituteAdmissionYear">
+          <select class="custom-select" name="inst_admitYear" [(ngModel)]="instituteModel.instituteAdmissionYear">
             <option selected value=null>Select admission year</option>
             <option *ngFor="let inst_year of inst_years">{{inst_year}}</option>
           </select>
@@ -132,14 +131,19 @@
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label for="inst_pwd">Set Password: </label>
-          <input type="password" #instPass1 name="inst_pwd" id="" class="form-control" placeholder="Enter Institute Name"
-            [(ngModel)]="instituteModel.institutePassword">
+          <input type="password" pattern=".{8,}" required #instPass1="ngModel" [class.is-invalid]="instPass1.invalid && instPass1.touched" name="inst_pwd" class="form-control"
+            placeholder="Enter Password" [(ngModel)]="instituteModel.institutePassword">
+            <small class="text-danger" [class.d-none]="instPass1.valid || instPass1.untouched">Please enter strong password</small>
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="inst_confpwd">Confirm Password: </label>
-          <input type="password" #instPass2 (blur)="instConfirmPassword(instPass1.value, instPass2.value)" (change)="instConfirmPassword(instPass1.value, instPass2.value)" [class.is-invalid]="instPass2.invalid && instPass2.touched" name="inst_confpwd" id="" class="form-control" placeholder="Enter Institute Name"
-            ngModel>
+          <input type="password" required #instPass2="ngModel"
+            (blur)="instConfirmPassword(instPass1.value, instPass2.value)"
+            (change)="instConfirmPassword(instPass1.value, instPass2.value)"
+            [class.is-invalid]="!instPasswordNotMatch && instPass2.touched" name="inst_confpwd" class="form-control"
+            placeholder="Confirm Password" ngModel>
+            <small class="text-danger" [class.d-none]="instPasswordNotMatch || instPass2.untouched">Please confirm Password</small>
         </div>
       </div>
     </fieldset>
@@ -152,15 +156,15 @@
           <div class="col-md-6 mb-3">
             <label for="inst_addressl1">Line 1: </label>
             <input type="text" required #instAddress="ngModel"
-              [class.is-invalid]="instAddress.invalid && instAddress.touched" name="inst_addressl1" id=""
-              class="form-control" placeholder="Enter Institute Name" [(ngModel)]="instituteModel.instituteAddress">
+              [class.is-invalid]="instAddress.invalid && instAddress.touched" name="inst_addressl1" class="form-control"
+              placeholder="Enter Institute Name" [(ngModel)]="instituteModel.instituteAddress">
             <small class="text-danger" [class.d-none]="instAddress.valid || instAddress.untouched">Institute Address is
               Required</small>
           </div>
 
           <!-- <div class="col-md-6 mb-3">
             <label for="inst_addressl2">Line 2: </label>
-            <input type="text" name="inst_addressl2" id="" class="form-control" placeholder="Enter Institute Name"
+            <input type="text" name="inst_addressl2" class="form-control" placeholder="Enter Institute Name"
               [(ngModel)]="instituteModel.institueAddress">
           </div>
         </div>
@@ -168,14 +172,16 @@
          <div class="form-row">
           <div class="col-md-6 mb-3">
             <label for="inst_city">City: </label>
-            <input type="text" name="inst_city" id="" class="form-control" placeholder="Enter Institute Name"
+            <input type="text" name="inst_city" class="form-control" placeholder="Enter Institute Name"
               [(ngModel)]="nstituteModel.institueAddress">
           </div>  -->
 
           <div class="col-md-6 mb-3">
             <label for="inst_addressState">State</label>
-            <select class="custom-select" required #instState="ngModel" [class.is-invalid]="instState.invalid && instState.touched"
-            (blur)="validateinstState(instState.value)" (change)="validateinstState(instState.value)" name="inst_addressState" id="" [(ngModel)]="instituteModel.instituteState">
+            <select class="custom-select" required #instState="ngModel"
+              [class.is-invalid]="instState.invalid && instState.touched" (blur)="validateinstState(instState.value)"
+              (change)="validateinstState(instState.value)" name="inst_addressState"
+              [(ngModel)]="instituteModel.instituteState">
               <option selected value=null>Select Institute State</option>
               <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
             </select>
@@ -185,9 +191,10 @@
         <div class="form-row">
           <div class="col-md-6 mb-3">
             <label for="inst_addressDistrict">District</label>
-            <select class="custom-select" required #instDistrict="ngModel" [class.is-invalid]="instDistrict.invalid && instDistrict.touched"
-            (blur)="validateinstDistrict(instDistrict.value)" (change)="validateinstDistrict(instDistrict.value)" name="inst_addressDistrict" id=""
-              [(ngModel)]="instituteModel.instituteDistrict">
+            <select class="custom-select" required #instDistrict="ngModel"
+              [class.is-invalid]="instDistrict.invalid && instDistrict.touched"
+              (blur)="validateinstDistrict(instDistrict.value)" (change)="validateinstDistrict(instDistrict.value)"
+              name="inst_addressDistrict" [(ngModel)]="instituteModel.instituteDistrict">
               <option selected value=null>Select Institute District</option>
               <option *ngFor="let inst_district of inst_districts">{{inst_district}}</option>
             </select>
@@ -195,7 +202,7 @@
 
           <!-- <div class="col-md-6 mb-3">
             <label for="inst_pincode">PIN CODE: </label>
-            <input type="text" name="inst_pincode" id="" class="form-control" placeholder="Enter Institute Name"
+            <input type="text" name="inst_pincode" class="form-control" placeholder="Enter Institute Name"
               [(ngModel)]="instituteModel.institue_Address_pincode">
           </div> -->
         </div>
@@ -208,8 +215,8 @@
       <div class="form-group">
         <label for="inst_principal">Principal Name: </label>
         <input type="text" required #instPrincipal="ngModel"
-          [class.is-invalid]="instPrincipal.invalid && instPrincipal.touched" name="inst_principal" id=""
-          class="form-control" placeholder="Enter Institute Name" [(ngModel)]="instituteModel.institutePrincipalNmae">
+          [class.is-invalid]="instPrincipal.invalid && instPrincipal.touched" name="inst_principal" class="form-control"
+          placeholder="Enter Institute Name" [(ngModel)]="instituteModel.institutePrincipalNmae">
         <small class="text-danger" [class.d-none]="instPrincipal.valid || instPrincipal.untouched">Principal Name is
           Required</small>
       </div>
@@ -227,10 +234,11 @@
 
         <div class="col-md-6 mb-3">
           <label for="inst_Email">Email: </label>
-          <input type="text" required #instEmail="ngModel"
-          [class.is-invalid]="instEmail.invalid && instEmail.touched" name="inst_Email" id="" class="form-control" placeholder="Enter Institute Name"
-            [(ngModel)]="instituteModel.instituteEmail">
-            <small class="text-danger" [class.d-none]="instEmail.valid || instEmail.untouched">Email is Required</small>
+          <input type="text" required #instEmail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            [class.is-invalid]="instEmail.invalid && instEmail.touched" name="inst_Email" class="form-control"
+            placeholder="Enter Institute Name" [(ngModel)]="instituteModel.instituteEmail">
+          <small class="text-danger" [class.d-none]="instEmail.valid || instEmail.untouched">Please enter valid
+            email</small>
         </div>
       </div>
 
@@ -241,9 +249,10 @@
       </div> -->
     </fieldset>
 
-    <!-- [disabled]="instituteForm.form.valid || instCatInvalid" -->
+    <!-- {{instituteForm.form.valid}} -->
+
     <div class="mx-auto text-center">
-      <button type="submit"  class="btn btn-primary"
+      <button type="submit" [disabled]="!instituteForm.form.valid || instCatInvalid" class="btn btn-primary"
         style="margin-left: 5%; margin-right: 5%;">Submit</button>
       <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
     </div>

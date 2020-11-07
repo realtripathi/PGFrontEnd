@@ -6,7 +6,7 @@
 <hr> -->
 <div class="container-fluid mb-5">
   <h3 style="text-align: center;">New Scholarship Form Registration</h3>
-  <form #scholarshipForm="ngForm" action="">
+  <form #scholarshipForm="ngForm" (ngSubmit)="applyScheme()">
 
     <fieldset>
       <legend>Basic Details</legend>
@@ -65,60 +65,60 @@
       <div class="form-row">
 
         <div class="col-md-6 mb-3">
-          <label for="rollNo10">10th Roll No</label>
-          <input type="text" required #rollNo10="ngModel" [class.is-invalid]="rollNo10.invalid && rollNo10.touched" name="rollNo10" class="form-control" placeholder="Enter 10th Roll No Income"
-            [(ngModel)]="scholarshipFormModel.rollNo10">
-            <small class="text-danger" [class.d-none]="rollNo10.valid || rollNo10.untouched">10th Roll Number is required</small>
+          <label for="class10RollNumber">10th Roll No</label>
+          <input type="text" required #class10RollNumber="ngModel" [class.is-invalid]="class10RollNumber.invalid && class10RollNumber.touched" name="class10RollNumber" class="form-control" placeholder="Enter 10th Roll No Income"
+            [(ngModel)]="scholarshipFormModel.class10RollNumber">
+            <small class="text-danger" [class.d-none]="class10RollNumber.valid || class10RollNumber.untouched">10th Roll Number is required</small>
         </div>
 
         <div class="col-md-6 mb-3">
-          <label for="board10">Board</label>
-          <input type="text" required #board10="ngModel" [class.is-invalid]="board10.invalid && board10.touched" name="board10" class="form-control" placeholder="Enter Board"
-            [(ngModel)]="scholarshipFormModel.board10">
-            <small class="text-danger" [class.d-none]="board10.valid || board10.untouched">10th Board is required</small>
+          <label for="class10BoardName">Board</label>
+          <input type="text" required #class10BoardName="ngModel" [class.is-invalid]="class10BoardName.invalid && class10BoardName.touched" name="class10BoardName" class="form-control" placeholder="Enter Board"
+            [(ngModel)]="scholarshipFormModel.class10BoardName">
+            <small class="text-danger" [class.d-none]="class10BoardName.valid || class10BoardName.untouched">10th Board is required</small>
         </div>
 
         <div class="col-md-6 mb-3">
-          <label for="passingYear10">Passing Year</label>
-          <input type="text" required #passingYear10="ngModel" [class.is-invalid]="passingYear10.invalid && passingYear10.touched" name="passingYear10" id="" class="form-control" placeholder="Enter the Passing Year"
-            [(ngModel)]="scholarshipFormModel.passingYear10">
-            <small class="text-danger" [class.d-none]="passingYear10.valid || passingYear10.untouched">Passing Year is required</small>
+          <label for="class10PassingYear">Passing Year</label>
+          <input type="text" required #class10PassingYear="ngModel" [class.is-invalid]="class10PassingYear.invalid && class10PassingYear.touched" name="class10PassingYear" id="" class="form-control" placeholder="Enter the Passing Year"
+            [(ngModel)]="scholarshipFormModel.class10PassingYear">
+            <small class="text-danger" [class.d-none]="class10PassingYear.valid || class10PassingYear.untouched">Passing Year is required</small>
         </div>
 
         <div class="col-md-6 mb-3">
-          <label for="marksObtained10">% Obtained</label>
-          <input type="text" required #marksObtained10="ngModel" [class.is-invalid]="marksObtained10.invalid && marksObtained10.touched" name="marksObtained10" id="" class="form-control" placeholder="Enter % marks obatined"
-            [(ngModel)]="scholarshipFormModel.marksObtained10">
-            <small class="text-danger" [class.d-none]="marksObtained10.valid || marksObtained10.untouched">10th Marks is required</small>
+          <label for="class10Percentage">% Obtained</label>
+          <input type="text" required #class10Percentage="ngModel" [class.is-invalid]="class10Percentage.invalid && class10Percentage.touched" name="class10Percentage" id="" class="form-control" placeholder="Enter % marks obatined"
+            [(ngModel)]="scholarshipFormModel.class10Percentage">
+            <small class="text-danger" [class.d-none]="class10Percentage.valid || class10Percentage.untouched">10th Marks is required</small>
         </div>
 
 
         <div class="col-md-6 mb-3">
-          <label for="rollNo12">12th Roll No</label>
-          <input type="text" required #rollNo12="ngModel" [class.is-invalid]="rollNo12.invalid && rollNo12.touched" name="rollNo12" id="" class="form-control" placeholder="Enter 12th Roll No"
-            [(ngModel)]="scholarshipFormModel.rollNo12">
-            <small class="text-danger" [class.d-none]="rollNo12.valid || rollNo12.untouched">12th Roll Number is required</small>
+          <label for="class12RollNumber">12th Roll No</label>
+          <input type="text" required #class12RollNumber="ngModel" [class.is-invalid]="class12RollNumber.invalid && class12RollNumber.touched" name="class12RollNumber" id="" class="form-control" placeholder="Enter 12th Roll No"
+            [(ngModel)]="scholarshipFormModel.class12RollNumber">
+            <small class="text-danger" [class.d-none]="class12RollNumber.valid || class12RollNumber.untouched">12th Roll Number is required</small>
         </div>
 
         <div class="col-md-6 mb-3">
-          <label for="board12">Board</label>
-          <input type="text" required #board12="ngModel" [class.is-invalid]="board12.invalid && board12.touched" name="board12" id="" class="form-control" placeholder="Enter Board"
-            [(ngModel)]="scholarshipFormModel.board12">
-            <small class="text-danger" [class.d-none]="board12.valid || board12.untouched">12th Board is required</small>
+          <label for="class12BoardName">Board</label>
+          <input type="text" required #class12BoardName="ngModel" [class.is-invalid]="class12BoardName.invalid && class12BoardName.touched" name="class12BoardName" id="" class="form-control" placeholder="Enter Board"
+            [(ngModel)]="scholarshipFormModel.class12BoardName">
+            <small class="text-danger" [class.d-none]="class12BoardName.valid || class12BoardName.untouched">12th Board is required</small>
         </div>
 
         <div class="col-md-6 mb-3">
-          <label for="passingYear12">Passing Year</label>
-          <input type="text"required #passingYear12="ngModel" [class.is-invalid]="passingYear12.invalid && passingYear12.touched" name="passingYear12" id="" class="form-control" placeholder="Enter the Passing Year"
-            [(ngModel)]="scholarshipFormModel.passingYear12">
-            <small class="text-danger" [class.d-none]="passingYear12.valid || passingYear12.untouched">Passing year is required</small>
+          <label for="class12PassingYear">Passing Year</label>
+          <input type="text"required #class12PassingYear="ngModel" [class.is-invalid]="class12PassingYear.invalid && class12PassingYear.touched" name="class12PassingYear" id="" class="form-control" placeholder="Enter the Passing Year"
+            [(ngModel)]="scholarshipFormModel.class12PassingYear">
+            <small class="text-danger" [class.d-none]="class12PassingYear.valid || class12PassingYear.untouched">Passing year is required</small>
         </div>
 
         <div class="col-md-6 mb-3">
-          <label for="marksObtained12">% Obtained</label>
-          <input type="text" required #marksObtained12="ngModel" [class.is-invalid]="marksObtained12.invalid && marksObtained12.touched" name="marksObtained12" id="" class="form-control" placeholder="Enter % marks obatined"
-            [(ngModel)]="scholarshipFormModel.marksObtained12">
-            <small class="text-danger" [class.d-none]="marksObtained12.valid || marksObtained12.untouched">12th Marks is required</small>
+          <label for="class12Percentage">% Obtained</label>
+          <input type="text" required #class12Percentage="ngModel" [class.is-invalid]="class12Percentage.invalid && class12Percentage.touched" name="class12Percentage" id="" class="form-control" placeholder="Enter % marks obatined"
+            [(ngModel)]="scholarshipFormModel.class12Percentage">
+            <small class="text-danger" [class.d-none]="class12Percentage.valid || class12Percentage.untouched">12th Marks is required</small>
         </div>
       </div>
     </fieldset>
@@ -180,22 +180,22 @@
         </div>
 
         <div class="col-md-6 mb-3">
-          <label for="fatherProfession">Father Profession</label>
-          <input type="text" required #fatherProfession="ngModel" [class.is-invalid]="fatherProfession.invalid && fatherProfession.touched" name="fatherProfession" class="form-control" placeholder="Enter Father's Profession"
-            [(ngModel)]="scholarshipFormModel.fatherProfession">
-            <small class="text-danger" [class.d-none]="fatherProfession.valid || fatherProfession.untouched">Father's profession is required</small>
+          <label for="parentProfession">Parents Profession</label>
+          <input type="text" required #parentProfession="ngModel" [class.is-invalid]="parentProfession.invalid && parentProfession.touched" name="parentProfession" class="form-control" placeholder="Enter Father's Profession"
+            [(ngModel)]="scholarshipFormModel.parentProfession">
+            <small class="text-danger" [class.d-none]="parentProfession.valid || parentProfession.untouched">Parent's profession is required</small>
         </div>
 
-        <div class="col-md-6 mb-3">
+        <!-- <div class="col-md-6 mb-3">
           <label for="motherProfession">Mother Profession</label>
           <input type="text" required #motherProfession="ngModel" [class.is-invalid]="motherProfession.invalid && motherProfession.touched" name="motherProfession" id="" class="form-control" placeholder="Enter Mother's Profession"
             [(ngModel)]="scholarshipFormModel.motherProfession">
             <small class="text-danger" [class.d-none]="motherProfession.valid || motherProfession.untouched">Mother's profession is required</small>
-        </div>
+        </div> -->
       </div>
     </fieldset>
 
-    <fieldset>
+    <!-- <fieldset>
       <legend>Contact Details</legend>
       <div class="form-row">
 
@@ -247,7 +247,7 @@
             [(ngModel)]="scholarshipFormModel.chooseScheme">
         </div>
       </div>
-    </fieldset>
+    </fieldset> -->
 
     <fieldset>
       <legend>Document Upload</legend>
