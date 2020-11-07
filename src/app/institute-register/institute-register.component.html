@@ -65,14 +65,14 @@
             Required</small>
         </div>
 
-        <div class="col-md-6 mb-3">
+        <!-- <div class="col-md-6 mb-3">
           <label for="inst_dise">DISE CODE</label>
           <input type="text" required #instDise="ngModel" [class.is-invalid]="instDise.invalid && instDise.touched"
             name="inst_dise" id="" class="form-control" placeholder="Enter Institute Name"
             [(ngModel)]="instituteModel.instituteDiseCode">
           <small class="text-danger" [class.d-none]="instDise.valid || instDise.untouched">Institute DISE Code is
             Required</small>
-        </div>
+        </div> -->
       </div>
 
       <div class="mb-3">
@@ -240,8 +240,10 @@
         <label class="form-check-label">All Details provided are correct</label>
       </div> -->
     </fieldset>
+
+    <!-- [disabled]="instituteForm.form.valid || instCatInvalid" -->
     <div class="mx-auto text-center">
-      <button type="submit" [disabled]="instituteForm.form.valid || instCatInvalid" class="btn btn-primary"
+      <button type="submit"  class="btn btn-primary"
         style="margin-left: 5%; margin-right: 5%;">Submit</button>
       <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
     </div>

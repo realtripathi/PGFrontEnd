@@ -4,7 +4,7 @@ export class Institute {
     public instituteState: String;
     public instituteDistrict: String;
     public instituteCode: String;
-    public instituteDiseCode: String;
+    //public instituteDiseCode: String;
     public instituteLocation: String;
     public instituteType: String;
     public instituteUniversityState: String;

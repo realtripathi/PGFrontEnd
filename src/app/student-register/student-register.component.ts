@@ -22,10 +22,11 @@ export class StudentRegisterComponent implements OnInit {
   studGenders = ['Male','Female', 'Other'];
 
   studentModel = new Student();
+  institute_id:Number;
 
   register() {
     console.log(this.studentModel);
-    this.studentService.register(this.studentModel).subscribe(data => {
+    this.studentService.register(this.studentModel,this.institute_id).subscribe(data => {
      //alert(JSON.stringify(data));
      if(data.status == 'SUCCESS') {
        this.router.navigate(['studentLogin']);

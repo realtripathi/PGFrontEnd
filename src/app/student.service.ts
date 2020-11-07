@@ -13,8 +13,8 @@ export class StudentService {
 
   constructor(private http:HttpClient) { }
 
-  register(student:Student): Observable<Status> {
-    let url = 'http://localhost:8080/registerStudent';
+  register(student:Student,instiute_id:Number): Observable<Status> {
+    let url = 'http://localhost:8080/registerStudent?institute_id='+instiute_id;
     return this.http.post<Status>(url, student);
   }
 
