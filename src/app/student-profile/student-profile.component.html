@@ -1,13 +1,6 @@
 <div class="jumbotron">
     <div class="container">
         <div class="row">
-            <div class="col">
-                <ul>
-                    <li>My Profile</li>
-                    <li>Check Status</li>
-                    <li>Some other option</li>
-                </ul>
-            </div>
             <div class="col-6">
                <h5>Forms to apply</h5>
                <div>
@@ -15,18 +8,19 @@
                   <li>{{it.name}}<br/>  </li>
                 </ul>
               </div>
-              <div *ngIf="selectedItem">
-               {{selectedItem.details}}<br>
-               <button type="button" class="btn btn-outline-primary">Primary</button>
+
+              <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">Guidelines</div>
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
               </div>
             </div>
             <div class="col">
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Guidelines</div>
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
+              <div *ngIf="selectedItem">
+                {{selectedItem.details}}<br>
+                <button type="button" class="btn btn-outline-primary">Apply Form</button>
+               </div>
             </div>
         </div>
 
