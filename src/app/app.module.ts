@@ -38,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InstituteService } from './institute.service';
 import {StudentService} from './student.service';
 import { SchemeService  } from "./scheme.service";
+import { NodalService } from "./nodal.service";
 
 
 @NgModule({
@@ -80,7 +81,7 @@ import { SchemeService  } from "./scheme.service";
     FormsModule,
     HttpClientModule
   ],
-  providers: [InstituteService,StudentService,SchemeService],
+  providers: [InstituteService,StudentService,SchemeService, NodalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

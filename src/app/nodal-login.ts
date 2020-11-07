@@ -1,6 +1,6 @@
 export class NodalLogin {
-    constructor(
-        public nodalUid:String,
-        public nodalPwd:String
-    ){}
+    
+        public nodalId:String;
+        public password:String;
+    
 }
