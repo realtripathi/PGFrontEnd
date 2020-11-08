@@ -24,7 +24,8 @@ export class InstituteLoginComponent implements OnInit {
     this.instituteService.login(this.instituteLogin).subscribe(data => {
       alert(JSON.stringify(data));
       if(data.status == 'SUCCESS') {
-        this.router.navigate(['instituteDashboard']);
+        sessionStorage.setItem('instituteId',String(this.instituteLogin.instituteId));
+        this.router.navigate(['instituteDashboard/profile']);
       }
       else {
         alert("EORROR");

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { InstituteService } from '../institute.service';
+import { ScholarshipForm } from '../scholarship-form';
 
 @Component({
   selector: 'app-institute-form-view',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstituteFormViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:ActivatedRoute,private route:Router,private instituteService: InstituteService) { }
+
+  public unapprovedForms: ScholarshipForm[]
+
+  instituteId: any;
 
   ngOnInit(): void {
+    this.instituteId = sessionStorage.getItem('instituteId');
+    this.instituteService.showUnapprovedForms(this.instituteId).subscribe(data => this.unapprovedForms = data);
   }
 
 }

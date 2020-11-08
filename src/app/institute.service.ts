@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { Status } from "./status";
 import { LoginStatus } from "./login-status"
 import { InstituteLogin } from './institute-login';
+import { Student } from './student';
+import { ScholarshipForm } from './scholarship-form';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +24,20 @@ export class InstituteService {
     let url = 'http://localhost:8080/instituteLogin';
     return this.http.post<LoginStatus>(url, login);
   } 
+
+  showUnapprovedStudents(instituteId: Number) {
+    let url = 'http://localhost:8080/viewUnapprovedStudents?instituteId='+instituteId;
+    return this.http.get<Student[]>(url);
+  }
+
+  showUnapprovedForms(instituteId: Number) {
+    let url = 'http://localhost:8080/viewUnapprovedFormsByInstitute?instituteId='+instituteId;
+    return this.http.get<ScholarshipForm[]>(url);
+  }
+
+  viewProfile(instituteId: number): Observable<Institute>{
+    let url = 'http://localhost:8080/fetchInstituteProfile?instituteId='+instituteId;
+    return this.http.get<Institute>(url);
+  }
   
 }

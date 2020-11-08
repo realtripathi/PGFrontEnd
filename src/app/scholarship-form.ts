@@ -1,4 +1,5 @@
 export class ScholarshipForm {
+        public formId:Number;
         public aadharNumber:Number;
         public religion:String;
         public category:String;

@@ -9,13 +9,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1234565455</th>
-        <td>John</td>
-        <td>Male</td>
-        <td>10/10/1999</td>
+      <tr *ngFor="let unaprrovedStudent of unaprrovedStudents">
+        <th scope="row">{{unaprrovedStudent.studentAadharNumber}}</th>
+        <td>{{unaprrovedStudent.studentName}}</td>
+        <td>{{unaprrovedStudent.studentGender}}</td>
+        <td>{{unaprrovedStudent.studentDateOfBirth}}</td>
         <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" (click)="viewStudentDetails()">View</a></td>
       </tr>
-      
+      <!-- {{unaprrovedStudents | json}} -->
     </tbody>
   </table>
