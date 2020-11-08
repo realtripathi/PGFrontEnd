@@ -18,11 +18,12 @@ export class StudentLoginComponent implements OnInit {
   studentLogin = new StudentLogin();
 
   login(){
-    alert(JSON.stringify(this.login));
+    //alert(JSON.stringify(this.login));
     this.studentService.login(this.studentLogin).subscribe(data => {
-      alert(JSON.stringify(data));
+      //alert(JSON.stringify(data));
       if(data.status == 'SUCCESS') {
-        this.router.navigate(['studentDashboard']);
+        this.router.navigate(['studentDashboard/profile']);
+        sessionStorage.setItem('studentId', String(this.studentLogin.studentId));
       }
       else {
         alert("ERROR");

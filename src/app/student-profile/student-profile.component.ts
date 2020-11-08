@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Student } from '../student';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'app-student-profile',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentProfileComponent implements OnInit {
 
-  constructor() { }
+  studentId: any;
+  studentModel= new Student();
+
+  constructor(private studentService: StudentService) { 
+    this.studentId = sessionStorage.getItem('studentId');
+  }
 
   ngOnInit(): void {
+    console.log(this.studentId);
+    this.studentService.showProfile(this.studentId).subscribe(data => this.studentModel = data);
+    console.log(this.studentModel.studentAadharNumber);
   }
 
   scheme:any[]=[

@@ -15,6 +15,6 @@ export class Student {
     public studentBankAccountNumber: String;
     public studentIfcsCode: String;
     public studentPassword: String;
-    // public studentStatus: Boolean;
+    public studentStatus: String;
    
 }

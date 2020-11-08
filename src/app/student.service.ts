@@ -33,4 +33,10 @@ export class StudentService {
     let url = 'http://localhost:8080/applyForScheme?instituteId=' + instituteId + '&schemeId=' + schemeId +'&studentId=' +studentId;
     return this.http.post<Status>(url, form);
   }
+
+  showProfile(studentId: number): Observable<Student>{
+    let url = 'http://localhost:8080/fetchStudentProfile?studentId='+studentId;
+    return this.http.get<Student>(url);
+  }
+
 }

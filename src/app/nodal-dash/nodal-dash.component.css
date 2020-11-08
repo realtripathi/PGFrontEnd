@@ -5,5 +5,8 @@ a:hover{
   cursor: pointer;
 }
 .col-2{
-  margin-bottom: 35%;
+  padding-bottom: 35%;
+  background-color: slategrey;
+  background-size: cover;
+  border-right: 1px solid red;
 }
