@@ -17,9 +17,7 @@ export class StudentProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.studentId);
     this.studentService.showProfile(this.studentId).subscribe(data => this.studentModel = data);
-    console.log(this.studentModel.studentAadharNumber);
   }
 
   scheme:any[]=[
