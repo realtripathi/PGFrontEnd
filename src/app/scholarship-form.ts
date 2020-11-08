@@ -21,6 +21,7 @@ export class ScholarshipForm {
         public percentOfDisability:String;
         public maritalStatus:String;
         public parentProfession:String;
+        public instituteId: String;
         //public fatherProfession:String;
         //public motherProfession:String;
         //public state:String;

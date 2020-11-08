@@ -1,9 +1,9 @@
-<!-- comment this section
+comment this section
 <hr>
 {{scholarshipForm.value |json}}
 <hr>
 {{scholarshipFormModel |json}}
-<hr> -->
+<hr>
 <div class="container-fluid mb-5">
   <h3 style="text-align: center;">New Scholarship Form Registration</h3>
   <form #scholarshipForm="ngForm" (ngSubmit)="applyScheme()">
@@ -13,7 +13,7 @@
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label for="aadharNumber">Aadhar Number</label>
-          <input type="text" required name="aadhar" #aadhar="ngModel" pattern="\d{12}$"
+          <input type="number" required name="aadhar" #aadhar="ngModel" pattern="\d{12}$"
             [class.is-invalid]="aadhar.invalid && aadhar.touched" class="form-control" placeholder="Enter Aadhar Number"
             [(ngModel)]="scholarshipFormModel.aadharNumber">
           <div *ngIf="aadhar.errors && (aadhar.valid || aadhar.touched)">
@@ -151,6 +151,12 @@
           <label for="otherFee">Other Fee</label>
           <input type="text" name="otherFee" id="" class="form-control" placeholder="Enter Other Fee"
             [(ngModel)]="scholarshipFormModel.otherFee">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="instID">Institute ID</label>
+          <input type="text" #instID="ngModel" (blur)="valueSet(instID.value)" (change)="valueSet(instID.value)" name="instID" id="" class="form-control" placeholder="Enter Other Fee"
+            [(ngModel)]="scholarshipFormModel.instituteId">
         </div>
       </div>
     </fieldset>

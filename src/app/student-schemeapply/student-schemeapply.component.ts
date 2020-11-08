@@ -20,7 +20,12 @@ export class StudentSchemeapplyComponent implements OnInit {
 
   scholarshipFormModel=new ScholarshipForm();
 
-  instituteId: number = 1006;
+  instituteID: String;
+
+  valueSet(value){
+    this.instituteID = value;
+  }
+
 
 
   schemeId: number =1002;
@@ -33,7 +38,7 @@ export class StudentSchemeapplyComponent implements OnInit {
 
   applyScheme(){
     console.log(this.scholarshipFormModel);
-    this.studentService.applyScheme(this.scholarshipFormModel,this.instituteId,this.schemeId,this.scholarshipFormModel.aadharNumber).subscribe(data => {
+    this.studentService.applyScheme(this.scholarshipFormModel,this.instituteID,this.schemeId,this.scholarshipFormModel.aadharNumber).subscribe(data => {
      //alert(JSON.stringify(data));
      if(data.status == 'SUCCESS') {
        this.router.navigate(['studentProfile']);

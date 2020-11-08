@@ -24,7 +24,7 @@ export class StudentService {
     return this.http.post<LoginStatus>(url, login);
   }
 
-  applyScheme(form : ScholarshipForm, instituteId: Number, schemeId: Number, studentId: Number) {
+  applyScheme(form : ScholarshipForm, instituteId: String, schemeId: Number, studentId: Number) {
 
     // let params = new HttpParams()
     //   .set('intituteId', instituteId)
