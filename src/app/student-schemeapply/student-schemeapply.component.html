@@ -155,8 +155,9 @@ comment this section
 
         <div class="col-md-6 mb-3">
           <label for="instID">Institute ID</label>
-          <input type="text" #instID="ngModel" (blur)="valueSet(instID.value)" (change)="valueSet(instID.value)" name="instID" id="" class="form-control" placeholder="Enter Other Fee"
+          <input type="text" required #instID="ngModel" [class.is-invalid]="instID.invalid && instID.touched" (blur)="valueSet(instID.value)" (change)="valueSet(instID.value)" name="instID" id="" class="form-control" placeholder="Enter Institute Id"
             [(ngModel)]="scholarshipFormModel.instituteId">
+            <small class="text-danger" [class.d-none]="instID.valid || instID.untouched">Institute Id is required</small> 
         </div>
       </div>
     </fieldset>
@@ -181,7 +182,7 @@ comment this section
 
         <div class="col-md-6 mb-3">
           <label for="typeOfDisability">Type of Disability</label>
-          <input type="text" required #typeOfDisability="ngModel" [class.is-invalid]="typeOfDisability.invalid && typeOfDisability.touched" name="typeOfDisability" id="" class="form-control" placeholder="Type Of Disability"
+          <input type="text" required #typeOfDisability="ngModel" [class.is-invalid]="typeOfDisability.invalid && typeOfDisability.touched" name="typeOfDisability" class="form-control" placeholder="Type Of Disability"
             [(ngModel)]="scholarshipFormModel.typeOfDisability">
             <small class="text-danger" [class.d-none]="typeOfDisability.valid || typeOfDisability.untouched">Type of Disability is required</small>
 
@@ -189,7 +190,7 @@ comment this section
 
         <div class="col-md-6 mb-3">
           <label for="percentOfDisability">% of Disability</label>
-          <input type="text" required #percentOfDisability="ngModel" [class.is-invalid]="percentOfDisability.invalid && percentOfDisability.touched"name="percentOfDisability" id="" class="form-control" placeholder="% of Disability"
+          <input type="text" required #percentOfDisability="ngModel" [class.is-invalid]="percentOfDisability.invalid && percentOfDisability.touched"name="percentOfDisability" class="form-control" placeholder="% of Disability"
             [(ngModel)]="scholarshipFormModel.percentOfDisability">
             <small class="text-danger" [class.d-none]="percentOfDisability.valid || percentOfDisability.untouched">Percentage of Disability is required</small>
         </div>
