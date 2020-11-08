@@ -1,13 +1,50 @@
 
 <div>
-  <nav class="navbar" style="background-color:#3C40C6; margin-bottom: 0%;">
-    <a class="flex-sm-fill text-sm-center nav-link" routerLink="/home" routerLinkActive="active">Home</a>
-    <a class="flex-sm-fill text-sm-center nav-link" routerLink="/aboutUs" routerLinkActive="active">About Us</a>
-    <a class="flex-sm-fill text-sm-center nav-link" routerLink="/studentLogin" routerLinkActive="active">Student Login</a>
-    <a class="flex-sm-fill text-sm-center nav-link" routerLink="/instituteLogin" routerLinkActive="active">Institute Login</a>
-    <a class="flex-sm-fill text-sm-center nav-link" routerLink="/nodalLogin" routerLinkActive="active">Nodal Login</a>
-    <a class="flex-sm-fill text-sm-center nav-link" routerLink="/ministryLogin" routerLinkActive="active">Ministry Login</a>
-    <a class="flex-sm-fill text-sm-center nav-link" style="float: right;" hidden>Log Out</a>
+  <nav class="navbar navbar-expand-lg" style="background-color:#3C40C6; margin-bottom: 0%;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/home" routerLinkActive="active">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/aboutUs" routerLinkActive="active">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/studentLogin" routerLinkActive="active" [class.d-none]="loggedIn">Student Login</a>
+        </li>
+        <li class="nav-item active">
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/instituteLogin" routerLinkActive="active" [class.d-none]="loggedIn">Institute Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/nodalLogin" routerLinkActive="active" [class.d-none]="loggedIn">Nodal Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/ministryLogin" routerLinkActive="active" [class.d-none]="loggedIn">Ministry Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="flex-sm-fill text-sm-center nav-link" style="float: right;" [class.d-none]="!loggedIn" (click)="clearSession()">Log Out</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Use Desktop for better Experience
+      </span>
+    </div>
+  </nav>
+</div>
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h4 class="text-white">Collapsed content</h4>
+      <span class="text-muted">Toggleable via the navbar brand.</span>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   </nav>
 </div>
 <router-outlet></router-outlet>

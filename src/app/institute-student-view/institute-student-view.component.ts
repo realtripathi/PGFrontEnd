@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { InstituteService } from '../institute.service';
+import { Student } from '../student';
 
 @Component({
   selector: 'app-institute-student-view',
@@ -8,9 +10,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class InstituteStudentViewComponent implements OnInit {
 
-  constructor(private router:ActivatedRoute,private route:Router) { }
+  constructor(private router:ActivatedRoute,private route:Router,private instituteService: InstituteService) { }
+
+  public unaprrovedStudents: Student[]
+
+  instituteId: any;
 
   ngOnInit(): void {
+    this.instituteId = sessionStorage.getItem('instituteId');
+    this.instituteService.showUnapprovedStudents(1041).subscribe(data => this.unaprrovedStudents = data);
   }
 
   public viewStudentDetails(){
