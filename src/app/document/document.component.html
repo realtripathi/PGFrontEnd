@@ -1,0 +1,73 @@
+<div class="container-fluid mb-5">
+  <fieldset>
+    <legend>Document Upload</legend>
+
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="domicileCertificate">Domicile Certificate</label>
+        <input type="file" name="domicileCertificate" id="" class="form-control-file"
+          placeholder="Domicile Certificate" [(ngModel)]="scholarshipFormModel.domicileCertificate">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="studentPhotograph">Student Photograph</label>
+        <input type="file" name="studentPhotograph" id="" class="form-control-file" placeholder="Student Photograph"
+          [(ngModel)]="scholarshipFormModel.studentPhotograph">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="instituteIdCard">Institute Id Card</label>
+        <input type="file" name="instituteIdCard" id="" class="form-control-file" placeholder="Institute Id Card"
+          [(ngModel)]="scholarshipFormModel.instituteIdCard">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="casteIncomeCertificate">Caste/Income Certificate</label>
+        <input type="file" name="casteIncomeCertificate" id="" class="form-control-file"
+          placeholder="Caste/Income Certificate" [(ngModel)]="scholarshipFormModel.casteIncomeCertificate">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="previousYearMarksheet">Previous Year Marksheet</label>
+        <input type="file" name="previousYearMarksheet" id="" class="form-control-file"
+          placeholder="Previous Year Marksheet" [(ngModel)]="scholarshipFormModel.previousYearMarksheet">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="feeReceiptOfCurrentYear">Fee Receipt Of Current Year</label>
+        <input type="file" name="feeReceiptOfCurrentYear" id="" class="form-control-file"
+          placeholder="Fee Receipt Of Current Year" [(ngModel)]="scholarshipFormModel.feeReceiptOfCurrentYear">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="bankPassbookFrontPage">Bank Passbook Front Page</label>
+        <input type="file" name="bankPassbookFrontPage" id="" class="form-control-file"
+          placeholder="Bank Passbook Front Page" [(ngModel)]="scholarshipFormModel.bankPassbookFrontPage">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="aadharCard">Aadhar Card</label>
+        <input type="file" name="aadharCard" id="" class="form-control-file" placeholder="Aadhar Card"
+          [(ngModel)]="scholarshipFormModel.aadharCard">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="marksheet10">10th Marksheet</label>
+        <input type="file" name="marksheet10" id="" class="form-control-file" placeholder="10th Marksheet"
+          [(ngModel)]="scholarshipFormModel.marksheet10">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="marksheet12">12th Marksheet</label>
+        <input type="file" name="marksheet12" id="" class="form-control-file" placeholder="12th Marksheet"
+          [(ngModel)]="scholarshipFormModel.marksheet12">
+      </div>
+    </div>
+  </fieldset>
+
+
+  <div class="mx-auto text-center">
+    <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">submit</button>
+    <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
+  </div>
+</div>

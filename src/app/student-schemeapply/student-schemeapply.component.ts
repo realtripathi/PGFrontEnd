@@ -74,4 +74,8 @@ export class StudentSchemeapplyComponent implements OnInit {
       this.disabilityStatusInavlid = false;
     }
   }
+
+  onSubmitClick():void{
+    this.router.navigate(['/studentDashboard/documentUpload']);
+  }
 }

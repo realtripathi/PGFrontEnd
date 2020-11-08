@@ -38,4 +38,5 @@ export class StudentProfileComponent implements OnInit {
   onApply():void{
     this.router.navigate(['/studentDashboard/applyScheme']);
   }
+  
 }

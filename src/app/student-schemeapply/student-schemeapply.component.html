@@ -287,7 +287,7 @@ comment this section
       </div>
     </fieldset> -->
 
-    <fieldset>
+   <!---<fieldset>
       <legend>Document Upload</legend>
 
       <div class="form-row">
@@ -351,11 +351,11 @@ comment this section
             [(ngModel)]="scholarshipFormModel.marksheet12">
         </div>
       </div>
-    </fieldset>
+    </fieldset>--->
 
 
     <div class="mx-auto text-center">
-      <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
+      <button type="submit" (click)="onSubmitClick()" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Next</button>
       <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
     </div>
   </form>

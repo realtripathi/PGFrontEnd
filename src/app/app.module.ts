@@ -40,6 +40,7 @@ import {StudentService} from './student.service';
 import { SchemeService  } from "./scheme.service";
 import { NodalService } from "./nodal.service";
 import { MinistryService } from "./ministry.service";
+import { DocumentComponent } from './document/document.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { MinistryService } from "./ministry.service";
     StudentDashComponent,
     StudentProfileComponent,
     StudentSchemeapplyComponent,
-    InstituteStudentVerifyComponent
+    InstituteStudentVerifyComponent,
+    DocumentComponent
   ],
   imports: [
     BrowserModule,
