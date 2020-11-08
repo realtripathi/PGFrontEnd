@@ -9,6 +9,18 @@ comment this section
   <form #scholarshipForm="ngForm" (ngSubmit)="applyScheme()">
 
     <fieldset>
+      <legend>Scheme Details</legend>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="schemeId" class="form-control">Scheme Id</label>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="schemeName" class="form-control">Scheme Name</label>
+          
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
       <legend>Basic Details</legend>
       <div class="form-row">
         <div class="col-md-6 mb-3">
