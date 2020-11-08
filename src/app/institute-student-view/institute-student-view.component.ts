@@ -18,7 +18,7 @@ export class InstituteStudentViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.instituteId = sessionStorage.getItem('instituteId');
-    this.instituteService.showUnapprovedStudents(1041).subscribe(data => this.unaprrovedStudents = data);
+    this.instituteService.showUnapprovedStudents(this.instituteId).subscribe(data => this.unaprrovedStudents = data);
   }
 
   public viewStudentDetails(){

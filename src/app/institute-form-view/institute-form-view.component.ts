@@ -18,7 +18,7 @@ export class InstituteFormViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.instituteId = sessionStorage.getItem('instituteId');
-    this.instituteService.showUnapprovedForms(1041).subscribe(data => this.unapprovedForms = data);
+    this.instituteService.showUnapprovedForms(this.instituteId).subscribe(data => this.unapprovedForms = data);
   }
 
 }
