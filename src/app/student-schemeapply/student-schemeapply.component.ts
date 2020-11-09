@@ -18,7 +18,7 @@ export class StudentSchemeapplyComponent implements OnInit {
   religionStatusInvalid=true;
   disabilityStatusInavlid=true;
 
-  scholarshipFormModel=new ScholarshipForm();
+  public scholarshipFormModel=new ScholarshipForm();
 
   instituteID: String;
 
@@ -26,26 +26,29 @@ export class StudentSchemeapplyComponent implements OnInit {
     this.instituteID = value;
   }
 
-  schemeId;
+  schemeUid;
+  
   
   constructor(private studentService:StudentService,private router:Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.schemeId = parseInt(this.route.snapshot.paramMap.get('schemeId'));
+    this.schemeUid = parseInt(this.route.snapshot.paramMap.get('schemeId'));
+    this.scholarshipFormModel.schemeUid=this.schemeUid;
+    this.scholarshipFormModel.aadharNumber=parseInt(sessionStorage.getItem('studentId'));
   }
 
-  applyScheme(){
-    console.log(this.scholarshipFormModel);
-    this.studentService.applyScheme(this.scholarshipFormModel,this.instituteID,this.schemeId,this.scholarshipFormModel.aadharNumber).subscribe(data => {
-     //alert(JSON.stringify(data));
-     if(data.status == 'SUCCESS') {
-       this.router.navigate(['studentProfile']);
-     }
-     else {
-       //this.router.navigate(['error']);
-     }
-   })
-  }
+  // applyScheme(){
+  //   console.log(this.scholarshipFormModel);
+  //   this.studentService.applyScheme(this.scholarshipFormModel,this.instituteID,this.schemeId,this.scholarshipFormModel.aadharNumber).subscribe(data => {
+  //    //alert(JSON.stringify(data));
+  //    if(data.status == 'SUCCESS') {
+  //      this.router.navigate(['studentProfile']);
+  //    }
+  //    else {
+  //      //this.router.navigate(['error']);
+  //    }
+  //  })
+  // }
   validateMaritalStatus(value){
     if(value == ''){
       this.maritalStatusInvalid = true;
@@ -74,6 +77,7 @@ export class StudentSchemeapplyComponent implements OnInit {
   }
 
   onSubmitClick():void{
+    sessionStorage.setItem('form',JSON.stringify(this.scholarshipFormModel));
     this.router.navigate(['/studentDashboard/documentUpload']);
   }
 }

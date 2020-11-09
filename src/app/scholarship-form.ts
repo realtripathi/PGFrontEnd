@@ -23,6 +23,7 @@ export class ScholarshipForm {
         public maritalStatus:String;
         public parentProfession:String;
         public instituteId: String;
+        public schemeUid: Number;
         //public fatherProfession:String;
         //public motherProfession:String;
         //public state:String;

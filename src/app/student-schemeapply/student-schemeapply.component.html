@@ -4,23 +4,19 @@ comment this section
 <hr>
 {{scholarshipFormModel |json}}
 <hr>
-<div class="container-fluid mb-5">
+<div class="container-fluid mb-5" >
   <h3 style="text-align: center;">New Scholarship Form Registration</h3>
-  <form #scholarshipForm="ngForm" (ngSubmit)="applyScheme()">
+  <form #scholarshipForm="ngForm">
 
     <fieldset>
       <legend>Scheme Details</legend>
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label for="schemeId">schemeId</label>
-          <input type="number" required name="schemeId" class="form-control" placeholder="{{schemeId}}" value="{{schemeId}}" disabled>
+          <input type="number" required name="schemeId" class="form-control" value="{{schemeUid}}" disabled>
 
         </div>
-        <div class="col-md-6 mb-3">
-          <label for="schemeId">schemeId</label>
-          <input type="number" required name="schemeId" class="form-control" placeholder="{{schemeId}}" value="{{schemeId}}" disabled>
-          
-        </div>
+  
       </div>
     </fieldset>
     <fieldset>
@@ -30,7 +26,7 @@ comment this section
           <label for="aadharNumber">Aadhar Number</label>
           <input type="number" required name="aadhar" #aadhar="ngModel" pattern="\d{12}$"
             [class.is-invalid]="aadhar.invalid && aadhar.touched" class="form-control" placeholder="Enter Aadhar Number"
-            [(ngModel)]="scholarshipFormModel.aadharNumber">
+            [(ngModel)]="scholarshipFormModel.aadharNumber" disabled>
           <div *ngIf="aadhar.errors && (aadhar.valid || aadhar.touched)">
             <small class="text-danger" *ngIf="aadhar.errors.required">Aadhar Number is required</small>
             <small class="text-danger" *ngIf="aadhar.errors.pattern">Please enter a valid Aadhar Number</small>
