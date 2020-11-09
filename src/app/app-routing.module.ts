@@ -46,7 +46,7 @@ const routes: Routes = [
     component: StudentDashComponent,
     children: [
       { path: 'profile', component: StudentProfileComponent },
-      { path: 'applyScheme', component: StudentSchemeapplyComponent },
+      { path: 'applyScheme/:schemeId', component: StudentSchemeapplyComponent },
       {path:'documentUpload', component:DocumentComponent}
 
     ]

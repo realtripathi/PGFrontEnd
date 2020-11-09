@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ScholarshipForm } from "../scholarship-form";
 import { StudentService } from '../student.service'
 
@@ -26,14 +26,12 @@ export class StudentSchemeapplyComponent implements OnInit {
     this.instituteID = value;
   }
 
-
-
-  schemeId: number =1002;
+  schemeId;
   
-
-  constructor(private studentService:StudentService,private router:Router) { }
+  constructor(private studentService:StudentService,private router:Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.schemeId = parseInt(this.route.snapshot.paramMap.get('schemeId'));
   }
 
   applyScheme(){

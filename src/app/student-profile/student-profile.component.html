@@ -4,8 +4,8 @@
             <div class="col-6">
                <h5>Forms to apply</h5>
                <div>
-                <ul class="items" *ngFor="let it of scheme" (click)="onSelect(it)">
-                  <li>{{it.name}}<br/>  </li>
+                <ul class="items" *ngFor="let scheme of schemes" (click)="onSelect(scheme)">
+                  <li>{{scheme.schemeId}} -- {{scheme.name}}</li>
                 </ul>
               </div>
 
@@ -17,9 +17,9 @@
               </div>
             </div>
             <div class="col">
-              <div *ngIf="selectedItem">
-                {{selectedItem.details}}<br>
-                <button type="button" (click)="onApply()" class="btn btn-outline-primary">Apply Form</button>
+              <div *ngIf="scheme">
+                {{scheme.details}}<br>
+                <button type="button" (click)="onApply(scheme.schemeId)" class="btn btn-outline-primary">Apply Form</button>
                </div>
             </div>
         </div>
