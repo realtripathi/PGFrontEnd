@@ -21,6 +21,7 @@ export class NodalLoginComponent implements OnInit {
     this.nodalService.login(this.nodalForm).subscribe(data => {
       alert(JSON.stringify(data));
       if(data.status == 'SUCCESS') {
+        sessionStorage.setItem('nodalId',String(this.nodalForm.nodalId));
         this.router.navigate(['nodalDashboard']);
       }
       else {
