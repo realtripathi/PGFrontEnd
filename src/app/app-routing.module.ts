@@ -33,6 +33,8 @@ import { combineLatest } from 'rxjs';
 import { InstituteStudentVerifyComponent } from './institute-student-verify/institute-student-verify.component';
 import { DocumentComponent } from './document/document.component';
 import { InstituteFormVerifyComponent } from './institute-form-verify/institute-form-verify.component';
+import { NodalFormVerifyComponent } from './nodal-form-verify/nodal-form-verify.component';
+import { NodalInstituteVerifyComponent} from './nodal-institute-verify/nodal-institute-verify.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: "full" },
@@ -70,7 +72,9 @@ const routes: Routes = [
     children: [
       { path: 'profile', component: NodalProfileComponent },
       { path: 'formVerification', component: NodalFormViewComponent },
-      { path: 'instituteVerification', component: NodalInstituteViewComponent }
+      { path: 'instituteVerification', component: NodalInstituteViewComponent },
+      { path: 'formVerification/formDetails/:id', component: NodalFormVerifyComponent },
+      { path: 'instituteVerification/instituteDetails/:id', component: NodalInstituteVerifyComponent }
     ]
   },
   { path: 'ministryLogin', component: MinistryLoginComponent },
