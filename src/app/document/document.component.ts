@@ -23,10 +23,13 @@ export class DocumentComponent implements OnInit {
     this.studentService.applyScheme(this.scholarForm, this.scholarForm.instituteId, this.scholarForm.schemeUid, this.scholarForm.aadharNumber).subscribe(data => {
       //alert(JSON.stringify(data));
       if (data.status == 'SUCCESS') {
-        this.router.navigate(['studentProfile']);
+        this.studentService.fetchformId(parseInt(sessionStorage.getItem('studentId'))).subscribe(data => this.formId=data);
+     this.upload();
+       this.router.navigate(['studentProfile']);
       }
       else {
         //this.router.navigate(['error']);
+
       }
     })
   }
@@ -89,7 +92,7 @@ export class DocumentComponent implements OnInit {
     formData.append('instituteIdCard', this.doc8)
     formData.append('casteIncomeCertificate', this.doc9)
     formData.append('feeReceiptOfCurrentYear', this.doc10)
-    //console.log(formData.get('profilePic'));
+    console.log(formData.get('studentPic'));
 
     this.studentService.uploadDocument(formData).subscribe(data => {
       alert(JSON.stringify(data));
@@ -98,8 +101,7 @@ export class DocumentComponent implements OnInit {
 
   finalCall(){
     this.applyScheme();
-    this.studentService.fetchformId(parseInt(sessionStorage.getItem('studentId'))).subscribe(data => this.formId=data);
-    this.upload();
+   // 
   }
 
 }

@@ -34,15 +34,15 @@ export class ScholarshipForm {
         //public pincode:String;
         //public chooseScheme:String;
         public domicileCertificate:String;
-        public studentPhotograph:String;
+        public studentPic:String;
         public instituteIdCard:String;
         public casteIncomeCertificate:String;
-        public previousYearMarksheet:String;
+        public prevYearMarksheet:String;
         public feeReceiptOfCurrentYear:String;
-        public bankPassbookFrontPage:String;
+        public bankPassbook:String;
         public aadharCard:String;
-        public marksheet10:String;
-        public marksheet12:String;
+        public class10Marksheet:String;
+        public class12Marksheet:String;
         //public formStatus:boolean;
     
 }
