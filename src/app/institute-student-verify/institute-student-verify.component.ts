@@ -23,11 +23,11 @@ export class InstituteStudentVerifyComponent implements OnInit {
   }
 
   approveStudent(){
-    this.instituteService.approveStudent("APPROVE").subscribe()
+    this.instituteService.approveStudent("Approved", this.studentId).subscribe()
   }
 
   rejectStudent(){
-    this.instituteService.rejectStudent("REJECT").subscribe()
+    this.instituteService.rejectStudent("Rejected", this.studentId).subscribe()
   }
 
 }

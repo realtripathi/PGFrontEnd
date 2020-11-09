@@ -40,13 +40,13 @@ export class InstituteService {
     return this.http.get<Institute>(url);
   }
 
-  approveStudent(Status: String): Observable<Status>{
-    let url = '';
+  approveStudent(Status: String,studentId: number): Observable<Status>{
+    let url = 'http://localhost:8080/instituteUpdatesStudent?studentId='+studentId+'&status='+Status;
     return this.http.post<Status>(url, Status);
   }
 
-  rejectStudent(Status: String): Observable<Status>{
-    let url = '';
+  rejectStudent(Status: String,studentId:number): Observable<Status>{
+    let url = 'http://localhost:8080/instituteUpdatesStudent?studentId='+studentId+'&status='+Status;
     return this.http.post<Status>(url, Status);
   }
 
