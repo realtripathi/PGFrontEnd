@@ -1,20 +1,22 @@
 <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Form_ID</th>
-        <th scope="col">Student Aadhar Number</th>
-        <th scope="col">Form religion</th>
-        <th scope="col">Form category</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let unapprovedForm of unapprovedForms">
-        <th scope="row">{{unapprovedForm.formId}}</th>
-        <td>{{unapprovedForm.aadharNumber}}</td>
-        <td>{{unapprovedForm.religion}}</td>
-        <td>{{unapprovedForm.category}}</td>
-        <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">Form_ID</th>
+      <th scope="col">Student Aadhar Number</th>
+      <th scope="col">Form religion</th>
+      <th scope="col">Form category</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let unapprovedForm of unapprovedForms">
+      <th scope="row">{{unapprovedForm.formId}}</th>
+      <td>{{unapprovedForm.aadharNumber}}</td>
+      <td>{{unapprovedForm.religion}}</td>
+      <td>{{unapprovedForm.category}}</td>
+      <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+          (click)="viewFormDetails(unapprovedForm)">View</a></td>
+    </tr>
+  </tbody>
+</table>
+<!-- {{unapprovedForm | json}} -->

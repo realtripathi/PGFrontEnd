@@ -21,4 +21,8 @@ export class InstituteFormViewComponent implements OnInit {
     this.instituteService.showUnapprovedForms(this.instituteId).subscribe(data => this.unapprovedForms = data);
   }
 
+  viewFormDetails(unapprovedForm){
+    this.route.navigate(['formDetails',unapprovedForm.formId],{relativeTo: this.router});
+  }
+
 }

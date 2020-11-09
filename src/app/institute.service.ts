@@ -49,5 +49,15 @@ export class InstituteService {
     let url = '';
     return this.http.post<Status>(url, Status);
   }
+
+  approveForm(Status: String): Observable<Status>{
+    let url = '';
+    return this.http.post<Status>(url, Status);
+  }
+
+  rejectForm(Status: String): Observable<Status>{
+    let url = '';
+    return this.http.post<Status>(url, Status);
+  }
   
 }

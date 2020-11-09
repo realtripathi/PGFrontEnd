@@ -41,6 +41,7 @@ import { SchemeService  } from "./scheme.service";
 import { NodalService } from "./nodal.service";
 import { MinistryService } from "./ministry.service";
 import { DocumentComponent } from './document/document.component';
+import { InstituteFormVerifyComponent } from './institute-form-verify/institute-form-verify.component';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { DocumentComponent } from './document/document.component';
     StudentProfileComponent,
     StudentSchemeapplyComponent,
     InstituteStudentVerifyComponent,
-    DocumentComponent
+    DocumentComponent,
+    InstituteFormVerifyComponent
   ],
   imports: [
     BrowserModule,

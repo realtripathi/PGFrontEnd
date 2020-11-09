@@ -32,6 +32,7 @@ import { InstituteFormViewComponent } from './institute-form-view/institute-form
 import { combineLatest } from 'rxjs';
 import { InstituteStudentVerifyComponent } from './institute-student-verify/institute-student-verify.component';
 import { DocumentComponent } from './document/document.component';
+import { InstituteFormVerifyComponent } from './institute-form-verify/institute-form-verify.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: "full" },
@@ -57,6 +58,7 @@ const routes: Routes = [
     children: [
       { path: 'profile', component: InstituteProfileComponent },
       { path: 'formVerification', component: InstituteFormViewComponent },
+      { path: 'formVerification/formDetails/:id', component: InstituteFormVerifyComponent },
       { path: 'studentVerification', component: InstituteStudentViewComponent },
       { path: 'studentVerification/studentDetails/:id', component: InstituteStudentVerifyComponent }
     ]
