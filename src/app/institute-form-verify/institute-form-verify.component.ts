@@ -23,11 +23,11 @@ export class InstituteFormVerifyComponent implements OnInit {
   }
 
   approveForm(){
-    this.instituteService.approveForm("APPROVE").subscribe()
+    this.instituteService.approveForm("Approved",this.formId).subscribe()
   }
 
   rejectForm(){
-    this.instituteService.rejectForm("REJECT").subscribe()
+    this.instituteService.rejectForm("Rejected",this.formId).subscribe()
   }
 
 }

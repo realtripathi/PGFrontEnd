@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Institute } from './institute';
 import { Scheme } from './scheme';
 import { ScholarshipForm } from './scholarship-form';
 import { Status } from "./Status";
@@ -22,4 +23,8 @@ export class SchemeService {
     return this.http.get<ScholarshipForm>(url);
   }
 
+  showInstitute(instituteId:number): Observable<Institute>{
+    let url = '';
+    return this.http.get<Institute>(url);
+  }
 }

@@ -46,13 +46,15 @@ export class NodalService {
     return this.http.post<Status>(url, Status);
   }
 
-  approveForm(Status: String): Observable<Status>{
-    let url = '';
+  approveForm(Status: String,formId:number): Observable<Status>{
+    let url = 'http://localhost:8080/nodalUpdateForm?formId='+formId+'&status='+Status;
     return this.http.post<Status>(url, Status);
   }
 
-  rejectForm(Status: String): Observable<Status>{
-    let url = '';
+  rejectForm(Status: String,formId:number): Observable<Status>{
+    let url = 'http://localhost:8080/nodalUpdateForm?formId='+formId+'&status='+Status;;
     return this.http.post<Status>(url, Status);
   }
+
+  
 }
