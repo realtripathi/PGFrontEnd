@@ -42,16 +42,35 @@ export class DocumentComponent implements OnInit {
   doc9: any
   doc10: any
 
-  onFileChange(event) {
+  onFileChange1(event) {
     this.doc1 = event.target.files[0];
+  }
+  
+  onFileChange2(event) {
     this.doc2 = event.target.files[0];
+  }
+  onFileChange3(event) {
     this.doc3 = event.target.files[0];
+  }
+  onFileChange4(event) {
     this.doc4 = event.target.files[0];
+  }
+  onFileChange5(event) {
     this.doc5 = event.target.files[0];
+  }
+  onFileChange6(event) {
     this.doc6 = event.target.files[0];
+  }
+  onFileChange7(event) {
     this.doc7 = event.target.files[0];
+  }
+  onFileChange8(event) {
     this.doc8 = event.target.files[0];
+  }
+  onFileChange9(event) {
     this.doc9 = event.target.files[0];
+  }
+  onFileChange10(event) {
     this.doc10 = event.target.files[0];
   }
 
@@ -79,7 +98,7 @@ export class DocumentComponent implements OnInit {
 
   finalCall(){
     this.applyScheme();
-    this.studentService.fetchformId(parseInt(sessionStorage.getItem('stidentId'))).subscribe(data => this.formId=data);
+    this.studentService.fetchformId(parseInt(sessionStorage.getItem('studentId'))).subscribe(data => this.formId=data);
     this.upload();
   }
 

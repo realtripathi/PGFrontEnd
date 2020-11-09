@@ -1,64 +1,64 @@
 {{scholarForm | json}}
 
 <div class="container-fluid mb-5">
-  <form (ngSubmit)="finalCall()">
+  <form (ngSubmit)="finalCall()" enctype="multipart/form-data">
     <fieldset>
       <legend>Document Upload</legend>
 
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label for="domicileCertificate">Domicile Certificate</label>
-          <input type="file" name="domicileCertificate" id="" class="form-control-file"
+          <input type="file" name="domicileCertificate" id="" class="form-control-file" (change)="onFileChange1($event)"
             placeholder="Domicile Certificate">
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="studentPhotograph">Student Photograph</label>
-          <input type="file" name="studentPhotograph" id="" class="form-control-file" placeholder="Student Photograph">
+          <input type="file" name="studentPhotograph" id="" class="form-control-file" (change)="onFileChange2($event)" placeholder="Student Photograph"> 
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="instituteIdCard">Institute Id Card</label>
-          <input type="file" name="instituteIdCard" id="" class="form-control-file" placeholder="Institute Id Card">
+          <input type="file" name="instituteIdCard" id="" class="form-control-file" (change)="onFileChange3($event)" placeholder="Institute Id Card">
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="casteIncomeCertificate">Caste/Income Certificate</label>
-          <input type="file" name="casteIncomeCertificate" id="" class="form-control-file"
+          <input type="file" name="casteIncomeCertificate" id="" class="form-control-file" (change)="onFileChange4($event)"
             placeholder="Caste/Income Certificate">
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="previousYearMarksheet">Previous Year Marksheet</label>
-          <input type="file" name="previousYearMarksheet" id="" class="form-control-file"
+          <input type="file" name="previousYearMarksheet" id="" class="form-control-file" (change)="onFileChange5($event)"
             placeholder="Previous Year Marksheet">
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="feeReceiptOfCurrentYear">Fee Receipt Of Current Year</label>
-          <input type="file" name="feeReceiptOfCurrentYear" id="" class="form-control-file"
+          <input type="file" name="feeReceiptOfCurrentYear" id="" class="form-control-file" (change)="onFileChange6($event)"
             placeholder="Fee Receipt Of Current Year">
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="bankPassbookFrontPage">Bank Passbook Front Page</label>
-          <input type="file" name="bankPassbookFrontPage" id="" class="form-control-file"
+          <input type="file" name="bankPassbookFrontPage" id="" class="form-control-file" (change)="onFileChange7($event)"
             placeholder="Bank Passbook Front Page">
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="aadharCard">Aadhar Card</label>
-          <input type="file" name="aadharCard" id="" class="form-control-file" placeholder="Aadhar Card">
+          <input type="file" name="aadharCard" id="" class="form-control-file" (change)="onFileChange8($event)" placeholder="Aadhar Card">
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="marksheet10">10th Marksheet</label>
-          <input type="file" name="marksheet10" id="" class="form-control-file" placeholder="10th Marksheet">
+          <input type="file" name="marksheet10" id="" class="form-control-file" (change)="onFileChange9($event)" placeholder="10th Marksheet">
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="marksheet12">12th Marksheet</label>
-          <input type="file" name="marksheet12" id="" class="form-control-file" placeholder="12th Marksheet">
+          <input type="file" name="marksheet12" id="" class="form-control-file" (change)="onFileChange10($event)" placeholder="12th Marksheet">
         </div>
       </div>
     </fieldset>
