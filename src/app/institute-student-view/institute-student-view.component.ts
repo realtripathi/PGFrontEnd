@@ -21,8 +21,8 @@ export class InstituteStudentViewComponent implements OnInit {
     this.instituteService.showUnapprovedStudents(this.instituteId).subscribe(data => this.unaprrovedStudents = data);
   }
 
-  public viewStudentDetails(){
-    this.route.navigate(['studentDetails'],{relativeTo: this.router});
+  viewStudentDetails(unaprrovedStudent){
+    this.route.navigate(['studentDetails',unaprrovedStudent.studentAadharNumber],{relativeTo: this.router});
   }
 
 }

@@ -39,5 +39,15 @@ export class InstituteService {
     let url = 'http://localhost:8080/fetchInstituteProfile?instituteId='+instituteId;
     return this.http.get<Institute>(url);
   }
+
+  approveStudent(Status: String): Observable<Status>{
+    let url = '';
+    return this.http.post<Status>(url, Status);
+  }
+
+  rejectStudent(Status: String): Observable<Status>{
+    let url = '';
+    return this.http.post<Status>(url, Status);
+  }
   
 }

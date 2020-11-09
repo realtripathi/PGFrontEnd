@@ -57,11 +57,8 @@ const routes: Routes = [
     children: [
       { path: 'profile', component: InstituteProfileComponent },
       { path: 'formVerification', component: InstituteFormViewComponent },
-      {
-        path: 'studentVerification', component: InstituteStudentViewComponent, children: [
-          { path: 'studentDetails', component: InstituteStudentVerifyComponent }
-        ]
-      }
+      { path: 'studentVerification', component: InstituteStudentViewComponent },
+      { path: 'studentVerification/studentDetails/:id', component: InstituteStudentVerifyComponent }
     ]
   },
   { path: 'nodalLogin', component: NodalLoginComponent },
