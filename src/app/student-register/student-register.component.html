@@ -18,8 +18,7 @@
           <option selected value="">Select Institute State</option>
           <option *ngFor="let studstate of studStates">{{studstate}}</option>
         </select>
-        <small class="text-danger" [class.d-none]="!studnetstateInvalid || studState.untouched">Invalid
-          selection</small>
+        <small class="text-danger" [class.d-none]="studState.valid || studState.untouched">Please select a State</small>
       </div>
 
       <div class="col-md-6 mb-3">
@@ -31,8 +30,8 @@
           <option selected value="">Select District</option>
           <option *ngFor="let studDistrict of studDistricts">{{studDistrict}}</option>
         </select>
-        <small class="text-danger" [class.d-none]="!studnetdistrictInvalid || studDistrict.untouched">Invalid
-          selection</small>
+        <small class="text-danger" [class.d-none]="studDistrict.valid || studDistrict.untouched">Please select a District
+          </small>
       </div>
     </div>
 
@@ -62,8 +61,7 @@
           <option selected value="">Select Gender</option>
           <option *ngFor="let studGender of studGenders">{{studGender}}</option>
         </select>
-        <small class="text-danger" [class.d-none]="!studnetGendersInvalid || studGender.untouched">Invalid
-          selection</small>
+        <small class="text-danger" [class.d-none]="studGender.valid || studGender.untouched">Please choose a Gender</small>
       </div>
 
       <div class="col-md-6 mb-3">
@@ -72,8 +70,8 @@
           [class.is-invalid]="phone.invalid && phone.touched" class="form-control" placeholder="Enter Mobile Number"
           [(ngModel)]="studentModel.studentMobileNumber">
         <div *ngIf="phone.errors && (phone.valid || phone.touched)">
-          <small class="text-danger" *ngIf="phone.errors.required">Phone number is required</small>
-          <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must be a 10 digits number</small>
+          <small class="text-danger" *ngIf="phone.errors.required">Mobile number is required</small>
+          <small class="text-danger" *ngIf="phone.errors.pattern">Mobile number must be a 10 digits number</small>
 
         </div>
       </div>
@@ -94,8 +92,8 @@
         <label for="studInstitue">Institute Code</label>
         <input type="text" required #studInstCode="ngModel"
           [class.is-invalid]="studInstCode.invalid && studInstCode.touched" name="studInstitue" class="form-control"
-          placeholder="Enter Instituet Code" [(ngModel)]="institute_id">
-        <small class="text-danger" [class.d-none]="studInstCode.valid || studInstCode.untouched">Instituet Code is
+          placeholder="Enter Institute Code" [(ngModel)]="institute_id">
+        <small class="text-danger" [class.d-none]="studInstCode.valid || studInstCode.untouched">Institute Code is
           required</small>
 
       </div>
