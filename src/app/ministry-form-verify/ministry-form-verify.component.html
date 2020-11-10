@@ -1,11 +1,64 @@
-<p>ministry-form-verify works!</p>
+<!-- <p>ministry-form-verify works!</p>
 
 <h3>Form Details = {{formId}}</h3>
-
+ -->
 
 <h5>
     {{formModel | json}}
 </h5>
 
-<button (click)="approveForm()" >Approve</button>
-<button (click)="rejectForm()" >Reject</button>
+<!-- <h3>Nodal Details = {{nodalUid}}</h3>
+ -->
+<!-- {{formModel | json}} -->
+
+
+<div class="main">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                {{formModel.formId}}
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class=" col-md-9 col-lg-9 ">
+                    <table class="table table-user-information">
+                        <tbody>
+                            <tr>
+                                <th>Form Id</th>
+                                <td> {{formModel.formId}} </td>
+                            </tr>
+                            <tr>
+                                <th>Aadhar Number</th>
+                                <td> {{formModel.aadharNumber}} </td>
+                            </tr>
+                            <tr>
+                                <th>Family Annual Income</th>
+                                <td> {{formModel.familyAnnualIncome}} </td>
+                            </tr>
+                            <tr>
+                                <th>Class 10th Percentage</th>
+                                <td> {{formModel.class10Percentage}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute Id</th>
+                                <td> {{formModel.instituteId}} </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto text-center">
+        <button (click)="approveForm()" type="button" class="btn btn-success"
+            style="margin-left: 5%; margin-right: 5%;">Approve</button>
+        <button (click)="rejectForm()" type="button" class="btn btn-danger"
+            style="margin-left: 5%; margin-right: 5%;">Reject</button>
+    </div>
+</div>
+
+
+<!-- <button (click)="approveForm()" >Approve</button>
+<button (click)="rejectForm()" >Reject</button> -->

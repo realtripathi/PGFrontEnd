@@ -1,10 +1,54 @@
-<h3>Nodal Details = {{nodalUid}}</h3>
+<!-- <h3>Nodal Details = {{nodalUid}}</h3>
+ -->
+<!-- {{nodalModel | json}} -->
 
 
-<h5>
-    {{nodalModel | json}}
-</h5>
+<div class="main">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                {{nodalModel.nodalName}}
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class=" col-md-9 col-lg-9 ">
+                    <table class="table table-user-information">
+                        <tbody>
+                            <tr>
+                                <th>Nodal Uid</th>
+                                <td> {{nodalModel.nodalUid}} </td>
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <td> {{nodalModel.nodalName}} </td>
+                            </tr>
+                            <tr>
+                                <th>State</th>
+                                <td> {{nodalModel.nodalState}} </td>
+                            </tr>
+                            <tr>
+                                <th>Contact Number</th>
+                                <td> {{nodalModel.nodalPhone}} </td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td> {{nodalModel.nodalEmail}} </td>
+                            </tr>
 
-<button (click)="approveNodal()" >Approve</button>
-<button (click)="rejectNodal()" >Reject</button>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto text-center">
+        <button (click)="approveNodal()" type="button" class="btn btn-success"
+            style="margin-left: 5%; margin-right: 5%;">Approve</button>
+        <button (click)="rejectNodal()" type="button" class="btn btn-danger"
+            style="margin-left: 5%; margin-right: 5%;">Reject</button>
+    </div>
+</div>
 
+<!-- <button (click)="approveNodal()" >Approve</button>
+<button (click)="rejectNodal()" >Reject</button> -->
