@@ -15,17 +15,29 @@
         <li class="nav-item">
           <a class="flex-sm-fill text-sm-center nav-link" routerLink="/studentLogin" routerLinkActive="active" [class.d-none]="loggedIn">Student Login</a>
         </li>
+        <li class="nav-item">
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/studentDashboard/profile" routerLinkActive="active" [class.d-none]="!loggedIn || !student">Student Dashboard</a>
+        </li>
         <li class="nav-item active">
           <a class="flex-sm-fill text-sm-center nav-link" routerLink="/instituteLogin" routerLinkActive="active" [class.d-none]="loggedIn">Institute Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/instituteDashboard/profile" routerLinkActive="active" [class.d-none]="!loggedIn || !institute">Institute Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="flex-sm-fill text-sm-center nav-link" routerLink="/nodalLogin" routerLinkActive="active" [class.d-none]="loggedIn">Nodal Login</a>
         </li>
         <li class="nav-item">
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/nodalDashboard/profile" routerLinkActive="active" [class.d-none]="!loggedIn || !nodal">Nodal Dashboard</a>
+        </li>
+        <li class="nav-item">
           <a class="flex-sm-fill text-sm-center nav-link" routerLink="/ministryLogin" routerLinkActive="active" [class.d-none]="loggedIn">Ministry Login</a>
         </li>
         <li class="nav-item">
-          <a class="flex-sm-fill text-sm-center nav-link" style="float: right;" [class.d-none]="!loggedIn" (click)="clearSession()">Log Out</a>
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/ministryDashboard/profile" routerLinkActive="active" [class.d-none]="!loggedIn || !ministry">Ministry Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="flex-sm-fill text-sm-center nav-link" routerLink="/home" style="float: right;" [class.d-none]="!loggedIn" (click)="clearSession()">Log Out</a>
         </li>
       </ul>
       <span class="navbar-text">
@@ -34,7 +46,7 @@
     </div>
   </nav>
 </div>
-<div class="pos-f-t">
+<!-- <div class="pos-f-t">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
       <h4 class="text-white">Collapsed content</h4>
@@ -46,5 +58,5 @@
       <span class="navbar-toggler-icon"></span>
     </button>
   </nav>
-</div>
+</div> -->
 <router-outlet></router-outlet>

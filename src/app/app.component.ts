@@ -6,40 +6,67 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnChanges {
+export class AppComponent implements OnInit {
 
-  constructor(){
-    this.studentId = sessionStorage.getItem('studentId');
-    this.instituteId = sessionStorage.getItem('instituteId');
-    this.nodalId = sessionStorage.getItem('nodalId');
-    this.ministryId = sessionStorage.getItem('ministryId');
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    this.checkSession
+  constructor() {
+
   }
 
   loggedIn = false;
+  student = false;
+  institute = false;
+  nodal = false;
+  ministry = false;
 
   ngOnInit(): void {
+    this.userType = sessionStorage.getItem('userType');
     this.checkSession();
   }
 
   title = 'PG2';
 
-  studentId: any;
-  instituteId: any;
-  nodalId: any;
-  ministryId: any;
+  userType: String;
 
-  checkSession(){
-    if(this.studentId!=null || this.instituteId!=null || this.nodalId!=null || this.ministryId!=null){
-      this.loggedIn=true;
+  checkSession() {
+    if (this.userType != null) {
+      if (this.userType == "student") {
+        this.loggedIn = true;
+        this.student = true;
+        this.institute = false;
+        this.nodal = false;
+        this.ministry = false;
+      }
+      if (this.userType == "institute") {
+        this.loggedIn = true;
+        this.student = false;
+        this.institute = true;
+        this.nodal = false;
+        this.ministry = false;
+      }
+      if (this.userType == "nodal") {
+        this.loggedIn = true;
+        this.student = false;
+        this.institute = false;
+        this.nodal = true;
+        this.ministry = false;
+      }
+      if (this.userType == "ministry") {
+        this.loggedIn = true;
+        this.student = true;
+        this.institute = false;
+        this.nodal = false;
+        this.ministry = true;
+      }
     }
   }
 
-  clearSession(){
+  clearSession() {
     sessionStorage.clear();
     this.loggedIn = false;
+    this.student = false;
+    this.institute = false;
+    this.nodal = false;
+    this.ministry = false;
   }
 
 }

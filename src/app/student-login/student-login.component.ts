@@ -2,17 +2,21 @@ import { StudentLogin } from './../student-login';
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-student-login',
   templateUrl: './student-login.component.html',
   styleUrls: ['./student-login.component.css']
 })
-export class StudentLoginComponent implements OnInit {
+export class StudentLoginComponent extends AppComponent implements OnInit {
 
-  constructor(private studentService:StudentService,private router:Router) { }
+  constructor(private studentService:StudentService,private router:Router, private appComponent: AppComponent) {
+    super();
+  }
 
   ngOnInit(): void {
+    sessionStorage.clear();
   }
 
   studentLogin = new StudentLogin();
@@ -22,8 +26,10 @@ export class StudentLoginComponent implements OnInit {
     this.studentService.login(this.studentLogin).subscribe(data => {
       //alert(JSON.stringify(data));
       if(data.status == 'SUCCESS') {
-        this.router.navigate(['studentDashboard/profile']);
+        sessionStorage.setItem('userType','student');
+        this.appComponent.ngOnInit();
         sessionStorage.setItem('studentId', String(this.studentLogin.studentId));
+        this.router.navigate(['studentDashboard/profile']);
       }
       else {
         alert("ERROR");

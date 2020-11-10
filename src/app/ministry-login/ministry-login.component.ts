@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 import { MinistryLogin } from "../ministry-login";
 
 @Component({
@@ -6,13 +7,16 @@ import { MinistryLogin } from "../ministry-login";
   templateUrl: './ministry-login.component.html',
   styleUrls: ['./ministry-login.component.css']
 })
-export class MinistryLoginComponent implements OnInit {
+export class MinistryLoginComponent extends AppComponent implements OnInit {
 
 ministryForm = new MinistryLogin(null,null);
 
-  constructor() { }
+  constructor(private appComponent: AppComponent) {
+    super();
+  }
 
   ngOnInit(): void {
+    sessionStorage.clear();
   }
 
 }
