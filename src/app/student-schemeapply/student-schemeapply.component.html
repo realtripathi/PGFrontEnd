@@ -41,8 +41,9 @@
             class="custom-select" name="religion" [(ngModel)]="scholarshipFormModel.religion">
             <option selected value="">Select Religion</option>
             <option *ngFor="let religion_category of religionCategory">{{religion_category}}</option>
-          
           </select>
+          <small class="text-danger" [class.d-none]="religion.valid || religion.untouched">Please select a Religion
+          </small>
         </div>
 
         <div class="col-md-6 mb-3">
@@ -83,7 +84,7 @@
 
         <div class="col-md-6 mb-3">
           <label for="class10RollNumber">10th Roll No</label>
-          <input type="text" required #class10RollNumber="ngModel" [class.is-invalid]="class10RollNumber.invalid && class10RollNumber.touched" name="class10RollNumber" class="form-control" placeholder="Enter 10th Roll No Income"
+          <input type="text" required #class10RollNumber="ngModel" [class.is-invalid]="class10RollNumber.invalid && class10RollNumber.touched" name="class10RollNumber" class="form-control" placeholder="Enter 10th Roll No"
             [(ngModel)]="scholarshipFormModel.class10RollNumber">
             <small class="text-danger" [class.d-none]="class10RollNumber.valid || class10RollNumber.untouched">10th Roll Number is required</small>
         </div>
@@ -188,7 +189,8 @@
             <option *ngFor="let disability_category of disabilityCategory">{{disability_category}}</option>
           
           </select>
-
+          <small class="text-danger" [class.d-none]="isDisabled.valid || isDisabled.untouched">Please select Disability Criteria
+          </small>
         </div>
 
         <div class="col-md-6 mb-3">
@@ -214,6 +216,8 @@
             <option selected value="">Select Marital Status</option>
             <option *ngFor="let marital_status of maritalStatusCategory">{{marital_status}}</option>
           </select>
+          <small class="text-danger" [class.d-none]="maritalStatus.valid || maritalStatus.untouched">Please select Marital Status
+          </small>
         </div>
 
         <div class="col-md-6 mb-3">

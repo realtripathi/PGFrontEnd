@@ -1,9 +1,9 @@
 
-<hr>
+<!-- <hr>
 {{instituteForm.value | json}}
 <hr>
 {{instituteModel | json}}
-<hr>
+<hr> -->
 
 <div class="container-fluid mb-5">
   <h3 style="text-align: center;">New Institute Registration</h3>
@@ -21,8 +21,8 @@
             <option selected value="">Select Institute Category</option>
             <option *ngFor="let inst_cat of inst_cats">{{inst_cat}}</option>
           </select>
-          <small class="text-danger" [class.d-none]="!instCatInvalid || instCat.untouched">Please choose a
-            Category</small>
+          <small class="text-danger" [class.d-none]="instCat.valid || instCat.untouched">Please select a valid
+            Category</small>    
         </div>
       </div>
 
@@ -42,7 +42,7 @@
             <option selected value="">Select Institute State</option>
             <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
           </select>
-          <small class="text-danger" [class.d-none]="!instStateInvalid || instState.untouched">Please choose a
+          <small class="text-danger" [class.d-none]="instState.valid || instState.untouched">Please select a
             State</small>
         </div>
 
@@ -54,7 +54,7 @@
             <option selected value="">Select Institute District</option>
             <option *ngFor="let inst_district of inst_districts">{{inst_district}}</option>
           </select>
-          <small class="text-danger" [class.d-none]="!instDistrictInvalid || instDistrict.untouched">Please choose a
+          <small class="text-danger" [class.d-none]="instDistrict.valid || instDistrict.untouched">Please select a
             District</small>
         </div>
       </div>
@@ -102,7 +102,7 @@
             <option selected value="">Select Institute Type</option>
             <option *ngFor="let inst_type of inst_types">{{inst_type}}</option>
           </select>
-          <small class="text-danger" [class.d-none]="!instTypeInvalid || instType.untouched">Please choose Institute
+          <small class="text-danger" [class.d-none]="instType.valid || instType.untouched">Please select Institute
             Type</small>
         </div>
       </div>
@@ -118,8 +118,8 @@
             <option selected value="">Select affilicated university state</option>
             <option *ngFor="let inst_state of inst_states">{{inst_state}}</option>
           </select>
-          <small class="text-danger" [class.d-none]="!instinstaffUniStateInvalid || instaffUniState.untouched">Please
-            choose a State</small>
+          <small class="text-danger" [class.d-none]="instaffUniState.valid || instaffUniState.untouched">Please
+            select Affiliation State</small>
         </div>
       </div>
 
@@ -141,8 +141,8 @@
             <option selected value="">Select admission year</option>
             <option *ngFor="let inst_year of inst_years">{{inst_year}}</option>
           </select>
-          <small class="text-danger" [class.d-none]="!instinstinstadmitYearInvalid || instadmitYear.untouched">Please
-            choose a District</small>
+          <small class="text-danger" [class.d-none]="instadmitYear.valid || instadmitYear.untouched">Please
+            select a year</small>
         </div>
       </div>
 
@@ -199,7 +199,7 @@
 
           <div class="col-md-6 mb-3">
             <label for="inst_addressState">State</label>
-            <select class="custom-select" required #instState="ngModel"
+            <select class="custom-select" disabled required #instState="ngModel"
               [class.is-invalid]="instState.invalid && instState.touched" (blur)="validateinstState(instState.value)"
               (change)="validateinstState(instState.value)" name="inst_addressState"
               [(ngModel)]="instituteModel.instituteState">
@@ -214,7 +214,7 @@
         <div class="form-row">
           <div class="col-md-6 mb-3">
             <label for="inst_addressDistrict">District</label>
-            <select class="custom-select" required #instDistrict="ngModel"
+            <select class="custom-select" disabled required #instDistrict="ngModel"
               [class.is-invalid]="instDistrict.invalid && instDistrict.touched"
               (blur)="validateinstDistrict(instDistrict.value)" (change)="validateinstDistrict(instDistrict.value)"
               name="inst_addressDistrict" [(ngModel)]="instituteModel.instituteDistrict">
@@ -253,8 +253,11 @@
           <input type="tel" required #mobileNumber="ngModel" pattern="^\d{10}$"
             [class.is-invalid]="mobileNumber.invalid && mobileNumber.touched" name="inst_mobile" class="form-control"
             placeholder="Enter Institute Name" [(ngModel)]="instituteModel.institutePhoneNumber">
-          <small class="text-danger" [class.d-none]="mobileNumber.valid || mobileNumber.untouched">Number is Required
-            and must be 10 digits</small>
+            <div *ngIf="mobileNumber.errors && mobileNumber.touched">
+              <small class="text-danger" *ngIf="mobileNumber.errors.required">Mobile Number is required</small>
+              <small class="text-danger" *ngIf="mobileNumber.errors.pattern">Mobile Number must be a 10 digits number</small>
+    
+            </div>
         </div>
 
         <div class="col-md-6 mb-3">
@@ -262,8 +265,11 @@
           <input type="text" required #instEmail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             [class.is-invalid]="instEmail.invalid && instEmail.touched" name="inst_Email" class="form-control"
             placeholder="Enter Institute Name" [(ngModel)]="instituteModel.instituteEmail">
-          <small class="text-danger" [class.d-none]="instEmail.valid || instEmail.untouched">Please enter valid
-            email</small>
+            <div *ngIf="instEmail.errors && instEmail.touched">
+              <small class="text-danger" *ngIf="instEmail.errors.required">Email is required</small>
+              <small class="text-danger" *ngIf="instEmail.errors.pattern">Please enter a valid email</small>
+    
+            </div>
         </div>
       </div>
 
