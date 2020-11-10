@@ -65,7 +65,7 @@ export class StudentRegisterComponent implements OnInit {
   }
 
   register() {
-    console.log(this.studentModel);
+    //console.log(this.studentModel);
     this.studentService.register(this.studentModel,this.institute_id).subscribe(data => {
      //alert(JSON.stringify(data));
      if(data.status == 'SUCCESS') {

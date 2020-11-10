@@ -22,9 +22,9 @@ export class NodalLoginComponent extends AppComponent implements OnInit {
   nodalForm=new NodalLogin();
 
   login(){
-    alert(JSON.stringify(this.login));
+    //alert(JSON.stringify(this.login));
     this.nodalService.login(this.nodalForm).subscribe(data => {
-      alert(JSON.stringify(data));
+      //alert(JSON.stringify(data));
       if(data.status == 'SUCCESS') {
         sessionStorage.setItem('userType','nodal');
         this.appComponent.ngOnInit();

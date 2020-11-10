@@ -25,7 +25,7 @@ export class SchemeRegisterComponent implements OnInit {
   }
 
   register() {
-    console.log(this.schemeModel);
+    //console.log(this.schemeModel);
     this.schemeService.register(this.schemeModel).subscribe(data => {
      //alert(JSON.stringify(data));
      if(data.status == 'SUCCESS') {

@@ -120,13 +120,12 @@ export class DocumentComponent implements OnInit {
     console.log(formData.get('studentPic'));
 
     this.studentService.uploadDocument(formData).subscribe(data => {
-      alert(JSON.stringify(data));
+      //alert(JSON.stringify(data));
     })
   }
 
   finalCall(){
     this.applyScheme();
-   // 
   }
 
 }

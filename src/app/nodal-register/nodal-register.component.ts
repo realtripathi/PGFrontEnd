@@ -42,7 +42,7 @@ export class NodalRegisterComponent implements OnInit {
   }
 
   register() {
-    console.log(this.nodalModel);
+    //console.log(this.nodalModel);
     this.ministryService.registerNodal(this.nodalModel).subscribe(data => {
      //alert(JSON.stringify(data));
      if(data.status == 'SUCCESS') {

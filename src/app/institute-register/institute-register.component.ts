@@ -132,7 +132,6 @@ export class InstituteRegisterComponent implements OnInit {
        this.instituteId = data.instituteId;
        alert(this.instituteId);
        this.upload();
-
        this.router.navigate(['instituteLogin']);
      }
      else {
@@ -146,7 +145,6 @@ export class InstituteRegisterComponent implements OnInit {
     this.instituteService.register(this.instituteModel).subscribe(data => {
      //alert(JSON.stringify(data));
      if(data.status == 'SUCCESS') {
-
        this.router.navigate(['instituteLogin']);
      }
      else {

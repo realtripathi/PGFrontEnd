@@ -22,9 +22,9 @@ export class InstituteLoginComponent extends AppComponent implements OnInit {
   instituteLogin = new InstituteLogin();
 
   login(){
-    alert(JSON.stringify(this.login));
+    //alert(JSON.stringify(this.login));
     this.instituteService.login(this.instituteLogin).subscribe(data => {
-      alert(JSON.stringify(data));
+      //alert(JSON.stringify(data));
       if(data.status == 'SUCCESS') {
         sessionStorage.setItem('userType','institute');
         this.appComponent.ngOnInit();

@@ -1,11 +1,91 @@
-<p>ministry-institute-verify works!</p>
+<!-- {{instituteModel | json}} -->
 
-<h3>Institute Details = {{instituteId}}</h3>
-
-
-<h5>
-    {{instituteModel | json}}
-</h5>
-
-<button (click)="approveInstitute()" routeLink="ministryDashboard/formInstitute" >Approve</button>
-<button (click)="rejectInstitute()" >Reject</button>
+<div class="main">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                {{instituteModel.instituteId}}
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class=" col-md-9 col-lg-9 ">
+                    <table class="table table-user-information">
+                        <tbody>
+                            <tr>
+                                <th>Institute ID</th>
+                                <td> {{instituteModel.instituteId}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute Category</th>
+                                <td> {{instituteModel.instituteCategory}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute Name</th>
+                                <td> {{instituteModel.instituteName}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute State</th>
+                                <td> {{instituteModel.instituteState}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute District</th>
+                                <td> {{instituteModel.instituteDistrict}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute Code</th>
+                                <td> {{instituteModel.instituteCode}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute Location</th>
+                                <td> {{instituteModel.instituteLocation}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute Type</th>
+                                <td> {{instituteModel.instituteType}} </td>
+                            </tr>
+                            <tr>
+                                <th>institute Affiliated University State</th>
+                                <td> {{instituteModel.instituteUniversityState}} </td>
+                            </tr>
+                            <tr>
+                                <th>institute Affiliated University Name</th>
+                                <td> {{instituteModel.instituteUniversityName}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute Admission Year</th>
+                                <td> {{instituteModel.instituteAdmissionYear}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute Address</th>
+                                <td> {{instituteModel.instituteAddress}} </td>
+                            </tr>
+                            <tr>
+                                <th>PIN Code</th>
+                                <td> {{instituteModel.instituteAddresspincode}} </td>
+                            </tr>
+                            <tr>
+                                <th>Principal Name</th>
+                                <td> {{instituteModel.institutePrincipalNmae}} </td>
+                            </tr>
+                            <tr>
+                                <th>Contact Number</th>
+                                <td> {{instituteModel.institutePhoneNumber}} </td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td> {{instituteModel.instituteEmail}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto text-center">
+        <button (click)="approveInstitute()" type="button" class="btn btn-success"
+            style="margin-left: 5%; margin-right: 5%;">Approve</button>
+        <button (click)="rejectInstitute()" type="button" class="btn btn-danger"
+            style="margin-left: 5%; margin-right: 5%;">Reject</button>
+    </div>
+</div>
