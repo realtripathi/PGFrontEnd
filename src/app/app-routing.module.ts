@@ -35,6 +35,8 @@ import { DocumentComponent } from './document/document.component';
 import { InstituteFormVerifyComponent } from './institute-form-verify/institute-form-verify.component';
 import { NodalFormVerifyComponent } from './nodal-form-verify/nodal-form-verify.component';
 import { NodalInstituteVerifyComponent} from './nodal-institute-verify/nodal-institute-verify.component';
+import { MinistryInstituteVerifyComponent } from './ministry-institute-verify/ministry-institute-verify.component';
+import { MinistryFormVerifyComponent } from './ministry-form-verify/ministry-form-verify.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: "full" },
@@ -86,8 +88,10 @@ const routes: Routes = [
       { path: 'freshNodal', component: NodalRegisterComponent },
       { path: 'freshScheme', component: SchemeRegisterComponent },
       { path: 'formVerification', component: MinistryFormVerificationComponent },
+      {path: 'formVerification/formDetails/:id', component:MinistryFormVerifyComponent},
       { path: 'viewNodalOfficers', component: MinistryViewNodalComponent },
-      { path: 'formInstitue', component: MinistryViewInstituteComponent }
+      { path: 'formInstitute', component: MinistryViewInstituteComponent },
+      {path: 'formInstitute/instituteDetails/:id', component: MinistryInstituteVerifyComponent}
     ]
   },
   { path: 'forgotPassword', component: ForgotPasswordComponent },

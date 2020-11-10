@@ -30,7 +30,7 @@ export class MinistryDashComponent implements OnInit {
   }
 
   viewInstitute(){
-    this.router.navigate(['formInstitue'],{relativeTo: this.route});
+    this.router.navigate(['formInstitute'],{relativeTo: this.route});
   }
 
   viewNodal(){

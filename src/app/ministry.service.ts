@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Status } from './status';
 import { Nodal } from './nodal';
+import { Institute } from './institute';
+import { ScholarshipForm } from './scholarship-form';
 
 
 @Injectable({
@@ -15,6 +17,16 @@ export class MinistryService {
   registerNodal(nodal: Nodal): Observable<Status> {
     let url = 'http://localhost:8080/registerNodal';
     return this.http.post<Status>(url, nodal);
+  }
+
+  showUnapprovedInstitutes() {
+    let url = 'http://localhost:8080/viewUnapprovedInstitutesByMinistry';
+    return this.http.get<Institute[]>(url);
+  }
+
+  showUnapprovedForms() {
+    let url = 'http://localhost:8080/viewUnapprovedFormsByMinistry';
+    return this.http.get<ScholarshipForm[]>(url);
   }
 
   approveForm(Status: String,formId:number): Observable<Status>{
