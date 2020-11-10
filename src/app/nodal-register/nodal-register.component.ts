@@ -16,9 +16,30 @@ export class NodalRegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  nodalStates = ['Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa','Gujarat','Haryana','Himachal Pradesh','Jammu and Kashmir','Jharkhand','Karnataka','Kerala','Madhya Pradesh','Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana','Tripura','Uttarakhand','Uttar Pradesh','West Bengal','Andaman and Nicobar Islands','Chandigarh','Dadra and Nagar Haveli','Daman and Diu','Delhi','Lakshadweep','Puducherry'];
+  nodalDistricts = ['Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa','Gujarat','Haryana','Himachal Pradesh','Jammu and Kashmir','Jharkhand','Karnataka','Kerala','Madhya Pradesh','Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana','Tripura','Uttarakhand','Uttar Pradesh','West Bengal','Andaman and Nicobar Islands','Chandigarh','Dadra and Nagar Haveli','Daman and Diu','Delhi','Lakshadweep','Puducherry'];
 
   nodalModel= new Nodal();
+
+  nodaldistrictInvalid= true;
+  nodalPasswordNotMatch=true;
+
+  validatenodalDistrict(value){
+    if(value == ''){
+      this.nodaldistrictInvalid = true;
+    }
+    else{
+      this.nodaldistrictInvalid = false;
+    }
+  }
+
+  nodalConfirmPassword(value1, value2){
+    if(value1 == value2){
+      this.nodalPasswordNotMatch = true;
+    }
+    else{
+      this.nodalPasswordNotMatch = false;
+    }
+  }
 
   register() {
     console.log(this.nodalModel);

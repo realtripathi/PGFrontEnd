@@ -1,71 +1,103 @@
-{{scholarForm | json}}
+<!-- {{scholarForm | json}} -->
 
 <div class="container-fluid mb-5">
-  <form (ngSubmit)="finalCall()" enctype="multipart/form-data">
+  <form #documentUpload="ngForm" (ngSubmit)="finalCall()" enctype="multipart/form-data">
     <fieldset>
       <legend>Document Upload</legend>
 
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label for="domicileCertificate">Domicile Certificate</label>
-          <input type="file" name="domicileCertificate" id="" class="form-control-file" (change)="onFileChange1($event)"
-            placeholder="Domicile Certificate">
+          <input type="file" name="domicileCertificate" required #DomCerti
+            [class.is-invalid]="DomCerti.invalid && DomCerti.touched" class="form-control-file"
+            (change)="onFileChange1($event)" placeholder="Domicile Certificate">
+          <small class="text-danger" [class.d-none]="udoc1 || DomCerti.untouched">Documnet is Required</small>
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="studentPhotograph">Student Photograph</label>
-          <input type="file" name="studentPhotograph" id="" class="form-control-file" (change)="onFileChange2($event)" placeholder="Student Photograph"> 
+          <input type="file" name="studentPhotograph" required #studentPic
+            [class.is-invalid]="studentPic.invalid && studentPic.touched" class="form-control-file"
+            (change)="onFileChange2($event)" placeholder="Student Photograph">
+          <small class="text-danger" [class.d-none]="udoc2 || studentPic.untouched">Documnet is
+            Required</small>
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="instituteIdCard">Institute Id Card</label>
-          <input type="file" name="instituteIdCard" id="" class="form-control-file" (change)="onFileChange3($event)" placeholder="Institute Id Card">
+          <input type="file" name="instituteIdCard" required #instICard
+            [class.is-invalid]="instICard.invalid && instICard.touched" class="form-control-file"
+            (change)="onFileChange3($event)" placeholder="Institute Id Card">
+          <small class="text-danger" [class.d-none]="udoc3 || instICard.untouched">Documnet is
+            Required</small>
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="casteIncomeCertificate">Caste/Income Certificate</label>
-          <input type="file" name="casteIncomeCertificate" id="" class="form-control-file" (change)="onFileChange4($event)"
-            placeholder="Caste/Income Certificate">
+          <input type="file" name="casteIncomeCertificate" required #castCerti
+            [class.is-invalid]="castCerti.invalid && castCerti.touched" class="form-control-file"
+            (change)="onFileChange4($event)" placeholder="Caste/Income Certificate">
+          <small class="text-danger" [class.d-none]="udoc4 || castCerti.untouched">Documnet is
+            Required</small>
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="previousYearMarksheet">Previous Year Marksheet</label>
-          <input type="file" name="previousYearMarksheet" id="" class="form-control-file" (change)="onFileChange5($event)"
-            placeholder="Previous Year Marksheet">
+          <input type="file" name="previousYearMarksheet" required #prevMarksheet
+            [class.is-invalid]="prevMarksheet.invalid && prevMarksheet.touched" class="form-control-file"
+            (change)="onFileChange5($event)" placeholder="Previous Year Marksheet">
+          <small class="text-danger" [class.d-none]="udoc5 || prevMarksheet.untouched">Documnet is
+            Required</small>
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="feeReceiptOfCurrentYear">Fee Receipt Of Current Year</label>
-          <input type="file" name="feeReceiptOfCurrentYear" id="" class="form-control-file" (change)="onFileChange6($event)"
-            placeholder="Fee Receipt Of Current Year">
+          <input type="file" name="feeReceiptOfCurrentYear" required #feeReceipt
+            [class.is-invalid]="feeReceipt.invalid && feeReceipt.touched" class="form-control-file"
+            (change)="onFileChange6($event)" placeholder="Fee Receipt Of Current Year">
+          <small class="text-danger" [class.d-none]="udoc6 || feeReceipt.untouched">Documnet is
+            Required</small>
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="bankPassbookFrontPage">Bank Passbook Front Page</label>
-          <input type="file" name="bankPassbookFrontPage" id="" class="form-control-file" (change)="onFileChange7($event)"
-            placeholder="Bank Passbook Front Page">
+          <input type="file" name="bankPassbookFrontPage" required #bankPassBook
+            [class.is-invalid]="bankPassBook.invalid && bankPassBook.touched" class="form-control-file"
+            (change)="onFileChange7($event)" placeholder="Bank Passbook Front Page">
+          <small class="text-danger" [class.d-none]="udoc7 || bankPassBook.untouched">Documnet is
+            Required</small>
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="aadharCard">Aadhar Card</label>
-          <input type="file" name="aadharCard" id="" class="form-control-file" (change)="onFileChange8($event)" placeholder="Aadhar Card">
+          <input type="file" name="aadharCard" required #aadharCard
+            [class.is-invalid]="aadharCard.invalid && aadharCard.touched" class="form-control-file"
+            (change)="onFileChange8($event)" placeholder="Aadhar Card">
+          <small class="text-danger" [class.d-none]="udoc8 || aadharCard.untouched">Documnet is
+            Required</small>
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="marksheet10">10th Marksheet</label>
-          <input type="file" name="marksheet10" id="" class="form-control-file" (change)="onFileChange9($event)" placeholder="10th Marksheet">
+          <input type="file" name="marksheet10" required #TEMS [class.is-invalid]="TEMS.invalid && TEMS.touched"
+            class="form-control-file" (change)="onFileChange9($event)" placeholder="10th Marksheet">
+          <small class="text-danger" [class.d-none]="udoc9 || TEMS.untouched">Documnet is
+            Required</small>
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="marksheet12">12th Marksheet</label>
-          <input type="file" name="marksheet12" id="" class="form-control-file" (change)="onFileChange10($event)" placeholder="12th Marksheet">
+          <input type="file" name="marksheet12" required #TWMS [class.is-invalid]="TWMS.invalid && TWMS.touched"
+            class="form-control-file" (change)="onFileChange10($event)" placeholder="12th Marksheet">
+          <small class="text-danger" [class.d-none]="udoc10 || TWMS.untouched">Documnet is
+            Required</small>
         </div>
       </div>
     </fieldset>
 
 
     <div class="mx-auto text-center">
-      <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">submit</button>
+      <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;" [disabled]="!documentUpload.form.valid || !udoc10 || !udoc1 || !udoc2 || !udoc3 || !udoc4 || !udoc5 || !udoc6 || !udoc7 || !udoc8 || !udoc9" routerLink="/studentDashboard/profile">submit</button>
       <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
     </div>
   </form>

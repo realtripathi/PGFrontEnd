@@ -49,36 +49,57 @@ export class DocumentComponent implements OnInit {
   doc9: any
   doc10: any
 
+  udoc1= false;
+  udoc2= false;
+  udoc3= false ;
+  udoc4= false;
+  udoc5= false;
+  udoc6= false;
+  udoc7= false;
+  udoc8= false;
+  udoc9= false;
+  udoc10= false;
+
   onFileChange1(event) {
     this.doc1 = event.target.files[0];
+    this.udoc1 = true
   }
   
   onFileChange2(event) {
     this.doc2 = event.target.files[0];
+    this.udoc2 = true
   }
   onFileChange3(event) {
     this.doc3 = event.target.files[0];
+    this.udoc3 = true
   }
   onFileChange4(event) {
     this.doc4 = event.target.files[0];
+    this.udoc4 = true
   }
   onFileChange5(event) {
     this.doc5 = event.target.files[0];
+    this.udoc5 = true
   }
   onFileChange6(event) {
     this.doc6 = event.target.files[0];
+    this.udoc6 = true
   }
   onFileChange7(event) {
     this.doc7 = event.target.files[0];
+    this.udoc7 = true
   }
   onFileChange8(event) {
     this.doc8 = event.target.files[0];
+    this.udoc8 = true
   }
   onFileChange9(event) {
     this.doc9 = event.target.files[0];
+    this.udoc9 = true
   }
   onFileChange10(event) {
     this.doc10 = event.target.files[0];
+    this.udoc10 = true
   }
 
   formId: any
