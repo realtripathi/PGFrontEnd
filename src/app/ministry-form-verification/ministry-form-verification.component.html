@@ -1,42 +1,21 @@
 <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Form_ID</th>
-        <th scope="col">Student Aadhar Number</th>
-        <th scope="col">Student Name</th>
-        <th scope="col">Scholarship Scheme</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>221542652</td>
-        <td>John</td>
-        <td>Scheme 1</td>
-        <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View</a></td>
-      </tr>
-      <tr>
-        <th scope="row">1</th>
-        <td>221542652</td>
-        <td>John</td>
-        <td>Scheme 1</td>
-        <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View</a></td>
-      </tr>
-      <tr>
-        <th scope="row">1</th>
-        <td>221542652</td>
-        <td>John</td>
-        <td>Scheme 1</td>
-        <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View</a></td>
-      </tr>
-      <tr>
-        <th scope="row">1</th>
-        <td>221542652</td>
-        <td>John</td>
-        <td>Scheme 1</td>
-        <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View</a></td>
-      </tr>
-    </tbody>
-  </table>
-
+  <thead>
+    <tr>
+      <th scope="col">Form_Id</th>
+      <th scope="col">Aadhar number</th>
+      <th scope="col">Category</th>
+      <th scope="col">Family Annual Income</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let unapprovedForm of unapprovedForms">
+      <th scope="row">{{unapprovedForm.formId}}</th>
+      <td>{{unapprovedForm.aadharNumber}}</td>
+      <td>{{unapprovedForm.category}}</td>
+      <td>{{unapprovedForm.familyAnnualIncome}}</td>
+      <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+        (click)=" viewFormDetails(unapprovedForm)">View</a></td>
+    </tr>
+  </tbody>
+</table>

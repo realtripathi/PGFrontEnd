@@ -1,41 +1,21 @@
 <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Institute_Id</th>
-        <th scope="col">Institute Name</th>
-        <th scope="col">Institute State</th>
-        <th scope="col">Institute City</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1001</th>
-        <td>VIT</td>
-        <td>Maharashtara</td>
-        <td>Pune</td>
-        <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View</a></td>
-      </tr>
-      <tr>
-        <th scope="row">1002</th>
-        <td>IIT Delhi</td>
-        <td>Delhi</td>
-        <td>Delhi 1</td>
-        <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View</a></td>
-      </tr>
-      <tr>
-        <th scope="row">2001</th>
-        <td>NIT Patna</td>
-        <td>Bihar</td>
-        <td>Patna</td>
-        <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View</a></td>
-      </tr>
-      <tr>
-        <th scope="row">2007</th>
-        <td>VJTI</td>
-        <td>Maharashtra</td>
-        <td>Mumbai</td>
-        <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">Institute_Id</th>
+      <th scope="col">Institute Name</th>
+      <th scope="col">Institute State</th>
+      <th scope="col">Institute Type</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let unapprovedInstitute of unapprovedInstitutes">
+      <th scope="row">{{unapprovedInstitute.instituteId}}</th>
+      <td>{{unapprovedInstitute.instituteName}}</td>
+      <td>{{unapprovedInstitute.instituteState}}</td>
+      <td>{{unapprovedInstitute.instituteType}}</td>
+      <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+        (click)=" viewInstituteDetails(unapprovedInstitute)">View</a></td>
+    </tr>
+  </tbody>
+</table>
