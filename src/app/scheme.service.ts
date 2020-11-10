@@ -33,4 +33,9 @@ export class SchemeService {
     let url = 'http://localhost:8080/viewNodalList';
     return this.http.get<Nodal[]>(url);
   }
+
+  documentDownload(formId){
+      let url = 'http://localhost:8080/documentsDownload?formId='+formId;
+      return this.http.get(url);
+  }
 }
