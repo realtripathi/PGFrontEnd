@@ -1,13 +1,13 @@
-<!-- 
+
 <hr>
 {{instituteForm.value | json}}
 <hr>
 {{instituteModel | json}}
-<hr> -->
+<hr>
 
 <div class="container-fluid mb-5">
   <h3 style="text-align: center;">New Institute Registration</h3>
-  <form #instituteForm="ngForm" (ngSubmit)="register()">
+  <form #instituteForm="ngForm" >
 
 
     <fieldset class="">
@@ -283,4 +283,32 @@
     </div>
 
   </form>
+  <div class="container-fluid mb-5">
+    <form (ngSubmit)="register2()"  enctype="multipart/form-data">
+      <fieldset>
+        <legend>Document Upload</legend>
+  
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="registrationCertificate">Registration Certificate</label>
+            <input type="file" name="registrationCertificate" id="" class="form-control-file" (change)="onFileChange1($event)"
+              placeholder="Domicile Certificate">
+          </div>
+  
+          <div class="col-md-6 mb-3">
+            <label for="affiliationCertificate">Affiliation Certificate</label>
+            <input type="file" name="affiliationCertificate" id="" class="form-control-file" (change)="onFileChange2($event)" placeholder="Student Photograph"> 
+          </div>
+  
+         
+          
+        </div>
+      </fieldset>
+  
+  
+      <div class="mx-auto text-center">
+        <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">submit</button>
+        <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
+      </div>
+    </form>
 </div>

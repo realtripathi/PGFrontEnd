@@ -99,11 +99,54 @@ export class InstituteRegisterComponent implements OnInit {
     }
   }
 
+  instituteId:any;
+  doc1: any;
+  doc2: any;
+
+  onFileChange1(event) {
+    this.doc1 = event.target.files[0];
+  }
+  
+  onFileChange2(event) {
+    this.doc2 = event.target.files[0];
+  }
+
+  upload() {
+    let formData: FormData = new FormData();
+    formData.append('instituteId', this.instituteId);
+    formData.append('registrationCertificate', this.doc1)
+    formData.append('affiliationCertificate', this.doc2)
+
+    console.log(formData.get('affiliationCertificate'));
+
+    this.instituteService.uploadInsDocument(formData).subscribe(data => {
+      alert(JSON.stringify(data));
+    })
+  }
+
+  register2(){
+    console.log(this.instituteModel);
+    this.instituteService.registerAndfetchInstituteId(this.instituteModel).subscribe(data => {
+     //alert(JSON.stringify(data));
+     if(data.status == 'SUCCESS') {
+       this.instituteId = data.instituteId;
+       alert(this.instituteId);
+       this.upload();
+
+       this.router.navigate(['instituteLogin']);
+     }
+     else {
+       //this.router.navigate(['error']);
+     }
+   })
+  }
+
   register() {
     console.log(this.instituteModel);
     this.instituteService.register(this.instituteModel).subscribe(data => {
      //alert(JSON.stringify(data));
      if(data.status == 'SUCCESS') {
+
        this.router.navigate(['instituteLogin']);
      }
      else {
