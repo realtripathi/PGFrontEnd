@@ -23,8 +23,12 @@ export class DocumentComponent implements OnInit {
     this.studentService.applyScheme(this.scholarForm, this.scholarForm.instituteId, this.scholarForm.schemeUid, this.scholarForm.aadharNumber).subscribe(data => {
       //alert(JSON.stringify(data));
       if (data.status == 'SUCCESS') {
-        this.studentService.fetchformId(parseInt(sessionStorage.getItem('studentId'))).subscribe(data => this.formId=data);
-     this.upload();
+        this.studentService.fetchformId(parseInt(sessionStorage.getItem('studentId'))).subscribe(data => {
+          this.formId=data;
+          alert(this.formId);
+          this.upload();
+        });
+     
        this.router.navigate(['studentProfile']);
       }
       else {
