@@ -1,1 +1,22 @@
-<p>ministry-view-nodal works!</p>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nodal Id</th>
+        <th scope="col">Nodal Name</th>
+        <th scope="col">Nodal State</th>
+        <th scope="col">Nodal Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let unapprovedNodal of unapprovedNodals">
+        <th scope="row">{{unapprovedNodal.nodalUid}}</th>
+        <td>{{unapprovedNodal.nodalName}}</td>
+        <td>{{unapprovedNodal.nodalState}}</td>
+        <td>{{unapprovedNodal.nodalEmail}}</td>
+        <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+          (click)=" viewNodalDetails(unapprovedNodal)">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+  

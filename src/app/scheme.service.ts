@@ -5,6 +5,7 @@ import { Institute } from './institute';
 import { Scheme } from './scheme';
 import { ScholarshipForm } from './scholarship-form';
 import { Status } from "./Status";
+import { Nodal } from "./nodal";
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,10 @@ export class SchemeService {
   showInstitute(instituteId:number): Observable<Institute>{
     let url = '';
     return this.http.get<Institute>(url);
+  }
+
+  showNodals() {
+    let url = 'http://localhost:8080/viewNodalList';
+    return this.http.get<Nodal[]>(url);
   }
 }

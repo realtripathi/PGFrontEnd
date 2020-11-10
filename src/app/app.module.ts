@@ -46,6 +46,7 @@ import { NodalFormVerifyComponent } from './nodal-form-verify/nodal-form-verify.
 import { NodalInstituteVerifyComponent } from './nodal-institute-verify/nodal-institute-verify.component';
 import { MinistryFormVerifyComponent } from './ministry-form-verify/ministry-form-verify.component';
 import { MinistryInstituteVerifyComponent } from './ministry-institute-verify/ministry-institute-verify.component';
+import { MinistryNodalVerifyComponent } from './ministry-nodal-verify/ministry-nodal-verify.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { MinistryInstituteVerifyComponent } from './ministry-institute-verify/mi
     NodalFormVerifyComponent,
     NodalInstituteVerifyComponent,
     MinistryFormVerifyComponent,
-    MinistryInstituteVerifyComponent
+    MinistryInstituteVerifyComponent,
+    MinistryNodalVerifyComponent
   ],
   imports: [
     BrowserModule,

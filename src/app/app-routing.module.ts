@@ -37,6 +37,7 @@ import { NodalFormVerifyComponent } from './nodal-form-verify/nodal-form-verify.
 import { NodalInstituteVerifyComponent} from './nodal-institute-verify/nodal-institute-verify.component';
 import { MinistryInstituteVerifyComponent } from './ministry-institute-verify/ministry-institute-verify.component';
 import { MinistryFormVerifyComponent } from './ministry-form-verify/ministry-form-verify.component';
+import { MinistryNodalVerifyComponent } from "./ministry-nodal-verify/ministry-nodal-verify.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: "full" },
@@ -90,6 +91,7 @@ const routes: Routes = [
       { path: 'formVerification', component: MinistryFormVerificationComponent },
       {path: 'formVerification/formDetails/:id', component:MinistryFormVerifyComponent},
       { path: 'viewNodalOfficers', component: MinistryViewNodalComponent },
+      {path:'viewNodalOfficers/nodalDetails/:id', component: MinistryNodalVerifyComponent},      //
       { path: 'formInstitute', component: MinistryViewInstituteComponent },
       {path: 'formInstitute/instituteDetails/:id', component: MinistryInstituteVerifyComponent}
     ]

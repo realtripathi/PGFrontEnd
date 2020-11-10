@@ -56,5 +56,8 @@ export class NodalService {
     return this.http.post<Status>(url, Status);
   }
 
-  
+  showProfile(nodalUid:number): Observable<Nodal>{
+    let url = 'http://localhost:8080/fetchNodalProfile?nodalUid='+nodalUid;
+    return this.http.get<Nodal>(url);
+  }
 }

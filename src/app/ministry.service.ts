@@ -24,6 +24,11 @@ export class MinistryService {
     return this.http.get<Institute[]>(url);
   }
 
+  showNodals() {
+    let url = 'http://localhost:8080/viewNodalList';
+    return this.http.get<Nodal[]>(url);
+  }
+
   showUnapprovedForms() {
     let url = 'http://localhost:8080/viewUnapprovedFormsByMinistry';
     return this.http.get<ScholarshipForm[]>(url);
@@ -48,4 +53,6 @@ export class MinistryService {
     let url = 'http://localhost:8080/ministryUpdateInstitute?instituteId='+instituteId+'&status='+Status;
     return this.http.post<Status>(url, Status);
   }
+
+  
 }
