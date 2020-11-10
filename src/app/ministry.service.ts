@@ -54,5 +54,15 @@ export class MinistryService {
     return this.http.post<Status>(url, Status);
   }
 
+
+  approveNodal(Status: String, nodalUid: number): Observable<Status>{
+    let url = 'http://localhost:8080/ministryUpdatesNodal?nodalUid='+nodalUid+'&status='+Status;
+    return this.http.post<Status>(url, Status);
+  }
+
+  rejectNodal(Status: String, nodalUid: number): Observable<Status>{
+    let url = 'http://localhost:8080/ministryUpdatesNodal?nodalUid='+nodalUid+'&status='+Status;
+    return this.http.post<Status>(url, Status);
+  }
   
 }

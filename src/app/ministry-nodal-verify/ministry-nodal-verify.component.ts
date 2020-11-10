@@ -12,7 +12,7 @@ import { NodalService } from '../nodal.service' ;
 })
 export class MinistryNodalVerifyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private nodalService:NodalService) { }
+  constructor(private route: ActivatedRoute, private nodalService:NodalService,private ministryService:MinistryService) { }
 
   public nodalUid;
   nodalModel=new Nodal();
@@ -24,11 +24,11 @@ export class MinistryNodalVerifyComponent implements OnInit {
   }
 
   approveNodal(){
-    //this.nodalService.approveForm("Approved",this.formId).subscribe()
+    this.ministryService.approveNodal("Approved",this.nodalUid).subscribe()
   }
 
   rejectNodal(){
-    //this.nodalService.rejectForm("Rejected",this.formId).subscribe()
+    this.ministryService.rejectNodal("Rejected",this.nodalUid).subscribe()
   }
 
 
