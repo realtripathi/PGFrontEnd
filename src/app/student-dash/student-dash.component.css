@@ -3,7 +3,10 @@ a:hover{
 }
 .col-2{
     padding-bottom: 35%;
-    background-color: slategrey;
+    background-color:#99AAAB;
     background-size: cover;
     border-right: 1px solid red;
+}
+a{
+    color: white;
 }

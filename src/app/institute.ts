@@ -1,5 +1,5 @@
 export class Institute {
-    public institeId : String;
+    public instituteId : String;
     public instituteCategory: String; 
     public instituteName: String;
     public instituteState: String;

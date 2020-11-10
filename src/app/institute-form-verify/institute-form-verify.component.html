@@ -1,16 +1,110 @@
-<p>institute-form-verify works!</p>
+<!-- {{formModel | json}} -->
+<div class="main">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                {{formModel.aadharNumber}}
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class=" col-md-9 col-lg-9 ">
+                    <table class="table table-user-information">
+                        <tbody>
+                            <tr>
+                                <th>Aadhar Number</th>
+                                <td> {{formModel.formId}} </td>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <td> {{formModel.religion}} </td>
+                            </tr>
+                            <tr>
+                                <th>Date of Birth</th>
+                                <td> {{formModel.category}} </td>
+                            </tr>
+                            <tr>
+                                <th>Contact Number</th>
+                                <td> {{formModel.fatherName}} </td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td> {{formModel.motherName}} </td>
+                            </tr>
+                            <tr>
+                                <th>Domicile</th>
+                                <td> {{formModel.familyAnnualIncome}} </td>
+                            </tr>
+                            <tr>
+                                <th>Domicile</th>
+                                <td> {{formModel.schemeUid}} </td>
+                            </tr>
+                            <tr>
+                                <th>Contact Number</th>
+                                <td> {{formModel.class10RollNumber}} </td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td> {{formModel.class10BoardName}} </td>
+                            </tr>
+                            <tr>
+                                <th>Domicile</th>
+                                <td> {{formModel.class10PassingYear}} </td>
+                            </tr>
+                            <tr>
+                                <th>Domicile</th>
+                                <td> {{formModel.class10Percentage}} </td>
+                            </tr>
+                            <tr>
+                                <th>Contact Number</th>
+                                <td> {{formModel.class12RollNumber}} </td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td> {{formModel.class12BoardName}} </td>
+                            </tr>
+                            <tr>
+                                <th>Domicile</th>
+                                <td> {{formModel.class12PassingYear}} </td>
+                            </tr>
+                            <tr>
+                                <th>Domicile</th>
+                                <td> {{formModel.class12Percentage}} </td>
+                            </tr>
+                            <tr>
+                                <th>Domicile</th>
+                                <td> {{formModel.admissionFee}} </td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td> {{formModel.otherFee}} </td>
+                            </tr>
+                            <tr>
+                                <th>Domicile</th>
+                                <td> {{formModel.isDisabled}} </td>
+                            </tr>
+                            <tr>
+                                <th>Domicile</th>
+                                <td> {{formModel.maritalStatus}} </td>
+                            </tr>
+                            <tr>
+                                <th>Contact Number</th>
+                                <td> {{formModel.parentProfession}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto text-center">
+        <button (click)="approveForm()" type="button" class="btn btn-success" style="margin-left: 5%; margin-right: 5%;">Approve</button>
+        <button (click)="rejectForm()" type="button" class="btn btn-danger" style="margin-left: 5%; margin-right: 5%;">Reject</button>
+    </div>
+</div>
 
-<h3>Form Details = {{formId}}</h3>
-
-
-<h5>
-    {{formModel | json}}
-</h5>
 
 <img src="http://localhost:8080/downloads/{{formModel.domicileCertificate}}">
 <img src="http://localhost:8080/downloads/{{formModel.instituteIdCard}}">
 <img src="http://localhost:8080/downloads/{{formModel.domicileCertificate}}">
 <img src="http://localhost:8080/downloads/{{formModel.domicileCertificate}}">
-
-<button (click)="approveForm()" >Approve</button>
-<button (click)="rejectForm()" >Reject</button>

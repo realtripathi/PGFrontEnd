@@ -1,12 +1,12 @@
-.row{
-  min-height: 100px;
-}
 a:hover{
   cursor: pointer;
 }
 .col-2{
   padding-bottom: 35%;
-  background-color: slategrey;
+  background-color:#99AAAB;
   background-size: cover;
   border-right: 1px solid red;
+}
+a{
+  color: white;
 }
