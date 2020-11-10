@@ -19,7 +19,7 @@ export class SchemeService {
   }
 
   showForm(formId: number): Observable<ScholarshipForm>{
-    let url = '';
+    let url = 'http://localhost:8080/fetchScholarshipFormByNodal?formId='+formId;
     return this.http.get<ScholarshipForm>(url);
   }
 
