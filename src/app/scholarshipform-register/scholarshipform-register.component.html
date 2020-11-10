@@ -19,13 +19,15 @@
         </div>
       </div>
 
-      <div class="col">
-        <div *ngIf="scheme">
+      <div class="col" >
+        <div *ngIf="scheme" >
           {{scheme.details}}<br>
-          <button type="button" (click)="onApply(scheme.schemeId)" class="btn btn-outline-primary" [disabled]="!formExits">Apply Form</button>
+          <div class="mx-auto text-center" >
+            <button type="button" style=" margin-top: 5%;" (click)="onApply(scheme.schemeId)" class="btn btn-outline-primary" [disabled]="formExits || !genderNotMatch">Apply Form</button>
         </div>
+          </div>
       </div>
     </div>
   </div>
 </div>
-<!-- {{studentModel | json}} -->
+ {{studentModel | json}} 
