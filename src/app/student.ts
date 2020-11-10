@@ -16,5 +16,6 @@ export class Student {
     public studentIfcsCode: String;
     public studentPassword: String;
     public studentStatus: String;
+    public form: any;
    
 }

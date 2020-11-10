@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
 
@@ -14,7 +14,6 @@ export class StudentProfileComponent implements OnInit {
   studentModel= new Student();
 
   constructor(private studentService: StudentService,
-    private activatedRoute:ActivatedRoute,
     private router:Router) { 
     this.studentId = sessionStorage.getItem('studentId');
   }

@@ -1,36 +1,31 @@
-{{scholarshipForm.value |json}}
-<hr>
-{{scholarshipFormModel |json}}
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h5>Forms to apply</h5>
 
-<h3>New Scholarship Form Registration</h3>
-<form #scholarshipForm="ngForm" action="">
+        <div>
+          <ul class="items" *ngFor="let scheme of schemes" (click)="onSelect(scheme)">
+            <li>{{scheme.schemeId}} -- {{scheme.name}}</li>
+          </ul>
+        </div>
 
-    <label for="aadharNumber">Aadhar Number</label>
-    <input type="text" name="aadharNumber" id="" class="form-control" placeholder="Enter Aadhar Number"
-      [(ngModel)]="scholarshipFormModel.aadharNumber">
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-header">Guidelines</div>
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+        </div>
+      </div>
 
-      <label for="religion">Religion</label>
-    <input type="text" name="religion" id="" class="form-control" placeholder="Enter Religion"
-      [(ngModel)]="scholarshipFormModel.religion">
-
-      <label for="category">Category</label>
-    <input type="text" name="category" id="" class="form-control" placeholder="Enter Category"
-      [(ngModel)]="scholarshipFormModel.category">
-
-      <label for="fatherName">Father's Name</label>
-    <input type="text" name="fatherName" id="" class="form-control" placeholder="Enter Father's Name"
-      [(ngModel)]="scholarshipFormModel.fatherName">
-
-      <label for="motherName">Mother's Name</label>
-    <input type="text" name="motherName" id="" class="form-control" placeholder="Enter Mother's Name"
-      [(ngModel)]="scholarshipFormModel.motherName">
-
-      <label for="familyAnnualIncome">Family Annual Income</label>
-    <input type="text" name="familyAnnualIncome" id="" class="form-control" placeholder="Enter Annual Income"
-      [(ngModel)]="scholarshipFormModel.familyAnnualIncome">
-
-     
-
-    <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
-    <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
-            
+      <div class="col">
+        <div *ngIf="scheme">
+          {{scheme.details}}<br>
+          <button type="button" (click)="onApply(scheme.schemeId)" class="btn btn-outline-primary" [disabled]="!formExits">Apply Form</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- {{studentModel | json}} -->

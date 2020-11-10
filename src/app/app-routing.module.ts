@@ -51,6 +51,7 @@ const routes: Routes = [
     component: StudentDashComponent,
     children: [
       { path: 'profile', component: StudentProfileComponent },
+      { path: 'applyScheme', component: ScholarshipformRegisterComponent },
       { path: 'applyScheme/:schemeId', component: StudentSchemeapplyComponent },
       {path:'documentUpload', component:DocumentComponent}
 
@@ -97,7 +98,6 @@ const routes: Routes = [
     ]
   },
   { path: 'forgotPassword', component: ForgotPasswordComponent },
-  { path: 'scholarshipForm', component: ScholarshipformRegisterComponent },
   { path: '**', component: PageNotFoundComponent } //Put this always in last 
 ];
 
