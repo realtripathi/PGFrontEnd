@@ -1,81 +1,88 @@
-<!-- {{instituteModel | json}} -->
+<p>nodal-institute-verify works!</p>
+
+<h3>Institute Details = {{instituteId}}</h3>
+
+
+<h5>
+    {{instituteModel | json}}
+</h5>
 
 <div class="main">
     <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                {{instituteModel.instituteId}}
-            </h3>
-        </div>
         <div class="panel-body">
             <div class="row">
                 <div class=" col-md-9 col-lg-9 ">
                     <table class="table table-user-information">
                         <tbody>
                             <tr>
-                                <th>Institute ID</th>
+                                <th>Institute Id:</th>
                                 <td> {{instituteModel.instituteId}} </td>
                             </tr>
                             <tr>
-                                <th>Institute Category</th>
-                                <td> {{instituteModel.instituteCategory}} </td>
-                            </tr>
-                            <tr>
-                                <th>Institute Name</th>
+                                <th>Institute Name:</th>
                                 <td> {{instituteModel.instituteName}} </td>
                             </tr>
                             <tr>
-                                <th>Institute State</th>
-                                <td> {{instituteModel.instituteState}} </td>
+                                <th>Institute Category:</th>
+                                <td> {{instituteModel.instituteCategory}} </td>
                             </tr>
                             <tr>
-                                <th>Institute District</th>
-                                <td> {{instituteModel.instituteDistrict}} </td>
-                            </tr>
-                            <tr>
-                                <th>Institute Code</th>
+                                <th>Institute Code:</th>
                                 <td> {{instituteModel.instituteCode}} </td>
                             </tr>
                             <tr>
-                                <th>Institute Location</th>
+                                <th>Institute State:</th>
+                                <td> {{instituteModel.instituteState}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute District:</th>
+                                <td> {{instituteModel.instituteDistrict}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute Location:</th>
                                 <td> {{instituteModel.instituteLocation}} </td>
                             </tr>
                             <tr>
-                                <th>Institute Type</th>
+                                <th>Institute Type:</th>
                                 <td> {{instituteModel.instituteType}} </td>
                             </tr>
                             <tr>
-                                <th>institute Affiliated University State</th>
+                                <th>Institute University State:</th>
                                 <td> {{instituteModel.instituteUniversityState}} </td>
                             </tr>
                             <tr>
-                                <th>institute Affiliated University Name</th>
+                                <th>Institute University Name:</th>
                                 <td> {{instituteModel.instituteUniversityName}} </td>
                             </tr>
                             <tr>
-                                <th>Institute Admission Year</th>
+                                <th>Institute Admission Year:</th>
                                 <td> {{instituteModel.instituteAdmissionYear}} </td>
                             </tr>
                             <tr>
-                                <th>Institute Address</th>
+                                <th>Institute Password:</th>
+                                <td> {{instituteModel.institutePassword}} </td>
+                            </tr>
+                            <tr>
+                                <th>Institute Address:</th>
                                 <td> {{instituteModel.instituteAddress}} </td>
                             </tr>
                             <tr>
-                                <th>PIN Code</th>
+                                <th>Institute Address Pincode:</th>
                                 <td> {{instituteModel.instituteAddresspincode}} </td>
                             </tr>
                             <tr>
-                                <th>Principal Name</th>
+                                <th>Institute Principal's Name:</th>
                                 <td> {{instituteModel.institutePrincipalNmae}} </td>
                             </tr>
                             <tr>
-                                <th>Contact Number</th>
+                                <th>Institute Phone No.:</th>
                                 <td> {{instituteModel.institutePhoneNumber}} </td>
                             </tr>
                             <tr>
-                                <th>Email</th>
+                                <th>Institute Email:</th>
                                 <td> {{instituteModel.instituteEmail}} </td>
                             </tr>
+                           
                         </tbody>
                     </table>
                 </div>
@@ -83,12 +90,7 @@
         </div>
     </div>
     <div class="mx-auto text-center">
-        <button (click)="approveInstitute()" type="button" class="btn btn-success"
-            style="margin-left: 5%; margin-right: 5%;">Approve</button>
-        <button (click)="rejectInstitute()" type="button" class="btn btn-danger"
-            style="margin-left: 5%; margin-right: 5%;">Reject</button>
+        <button (click)="approveInstitute()" type="button" class="btn btn-success" style="margin-left: 5%; margin-right: 5%;">Approve</button>
+        <button (click)="rejectInstitute()" type="button" class="btn btn-danger" style="margin-left: 5%; margin-right: 5%;">Reject</button>
     </div>
 </div>
-
-<!-- <button (click)="approveInstitute()" >Approve</button>
-<button (click)="rejectInstitute()" >Reject</button> -->

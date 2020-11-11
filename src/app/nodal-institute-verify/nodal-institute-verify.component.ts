@@ -20,6 +20,7 @@ export class NodalInstituteVerifyComponent implements OnInit {
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.instituteId = id;
     this.schemeService.showInstitute(this.instituteId).subscribe(data => this.instituteModel = data);
+    alert(JSON.stringify(this.instituteModel));
   }
 
   approveInstitute(){
@@ -32,3 +33,4 @@ export class NodalInstituteVerifyComponent implements OnInit {
 
 
 }
+
