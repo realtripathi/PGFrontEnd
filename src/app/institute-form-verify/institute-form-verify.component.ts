@@ -19,8 +19,12 @@ export class InstituteFormVerifyComponent implements OnInit {
   ngOnInit(): void {
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.formId = id;
-    this.schemeService.documentDownload(this.formId).subscribe();
-    this.schemeService.showForm(this.formId).subscribe(data => this.formModel = data);
+    this.schemeService.documentDownload(this.formId).subscribe(
+      x=>{
+        this.schemeService.showForm(this.formId).subscribe(data => this.formModel = data);
+      }
+    );
+   
 
   }
 

@@ -5,6 +5,8 @@ import { Status } from './status';
 import { Nodal } from './nodal';
 import { Institute } from './institute';
 import { ScholarshipForm } from './scholarship-form';
+import { MinistryLogin } from './ministry-login';
+import { LoginStatus } from './login-status';
 
 
 @Injectable({
@@ -64,5 +66,10 @@ export class MinistryService {
     let url = 'http://localhost:8080/ministryUpdatesNodal?nodalUid='+nodalUid+'&status='+Status;
     return this.http.post<Status>(url, Status);
   }
+  login(login: MinistryLogin): Observable<LoginStatus> {
+    let url = 'http://localhost:8080/ministryLogin';
+    return this.http.post<LoginStatus>(url, login);
+  }
+
   
 }

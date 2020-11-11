@@ -38,11 +38,8 @@ export class ScholarshipformRegisterComponent implements OnInit {
   scheme: any;
   onSelect(i: any) {
     this.scheme = i;
-    if(this.studentModel.form == null){
+    if(this.studentModel.form == null && this.studentModel.studentStatus === "Approved"){
       this.formExits =false;
-    }
-    if(this.studentModel.studentGender=='Male' && i.schemeId==1002){
-      this.genderNotMatch=false;
     }
     //console.log(`aaaa=${JSON.stringify(this.selectedItem)}`);
   }
