@@ -24,32 +24,35 @@
 </div> -->
 
 
-<h3>Unapproved Forms</h3>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Form_ID</th>
-      <th scope="col">Student Aadhar Number</th>
-      <th scope="col">Form religion</th>
-      <th scope="col">Form category</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let unapprovedForm of unapprovedForms">
-      <th scope="row">{{unapprovedForm.formId}}</th>
-      <td>{{unapprovedForm.aadharNumber}}</td>
-      <td>{{unapprovedForm.religion}}</td>
-      <td>{{unapprovedForm.category}}</td>
-      <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
-          (click)="viewFormDetails(unapprovedForm)">View</a></td>
-    </tr>
-  </tbody>
-</table>
+<h3 style="text-align: center;color: #1287A5;">Unapproved Forms</h3>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th scope="col">Form_ID</th>
+        <th scope="col">Student Aadhar Number</th>
+        <th scope="col">Form religion</th>
+        <th scope="col">Form category</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let unapprovedForm of unapprovedForms">
+        <th scope="row">{{unapprovedForm.formId}}</th>
+        <td>{{unapprovedForm.aadharNumber}}</td>
+        <td>{{unapprovedForm.religion}}</td>
+        <td>{{unapprovedForm.category}}</td>
+        <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+            (click)="viewFormDetails(unapprovedForm)">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <!-- {{unapprovedForm | json}} -->
 
-<h3>Approved Forms</h3>
-<table class="table table-hover">
+<h3 style="color: darkgreen; text-align: center;">Approved Forms</h3>
+<div class="table-wrapper">
+  <table class="fl-table">
   <thead>
     <tr>
       <th scope="col">Form_ID</th>
@@ -70,9 +73,11 @@
     </tr>
   </tbody>
 </table>
+</div>
 
-<h3>Rejected Forms</h3>
-<table class="table table-hover">
+<h3 style="text-align: center; color: red;">Rejected Forms</h3>
+<div class="table-wrapper">
+  <table class="fl-table">
   <thead>
     <tr>
       <th scope="col">Form_ID</th>
@@ -93,3 +98,4 @@
     </tr>
   </tbody>
 </table>
+</div>
