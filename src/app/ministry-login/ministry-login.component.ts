@@ -22,7 +22,7 @@ export class MinistryLoginComponent extends AppComponent implements OnInit {
     sessionStorage.clear();
   }
   ministryUid:string;
-  ministryPwd:string;
+  ministryPassword:string;
   ministryForm=new MinistryLogin();
 
   login(){
@@ -33,7 +33,7 @@ export class MinistryLoginComponent extends AppComponent implements OnInit {
         sessionStorage.setItem('userType','ministry');
         this.appComponent.ngOnInit();
         sessionStorage.setItem('ministryUid',String(this.ministryForm.ministryUid));
-        this.router.navigate(['ministryDashboard/profile']);
+        this.router.navigate(['/ministryDashboard/profile']);
       }
       else {
         alert("ERROR");
