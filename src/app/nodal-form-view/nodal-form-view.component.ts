@@ -13,10 +13,16 @@ export class NodalFormViewComponent implements OnInit {
   constructor(private router:ActivatedRoute,private route:Router,private nodalService: NodalService) { }
 
   public unapprovedForms: ScholarshipForm[];
+  public approvedForms: ScholarshipForm[];
+  public rejectedForms: ScholarshipForm[];
 
   ngOnInit(): void {
     if(sessionStorage.getItem('userType')=="nodal" && sessionStorage.getItem('nodalId')!=null){
-    this.nodalService.showUnapprovedForms().subscribe(data => this.unapprovedForms = data);
+    //this.nodalService.showUnapprovedForms().subscribe(data => this.unapprovedForms = data);
+    this.nodalService.viewFormsByNodalStatus("Not Approved").subscribe(data => this.unapprovedForms = data);
+    this.nodalService.viewFormsByNodalStatus("Approved").subscribe(data => this.approvedForms = data);
+    this.nodalService.viewFormsByNodalStatus("Rejected").subscribe(data => this.rejectedForms = data);
+    
   }
   else{
     sessionStorage.clear();

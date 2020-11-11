@@ -13,13 +13,18 @@ export class InstituteFormViewComponent implements OnInit {
   constructor(private router:ActivatedRoute,private route:Router,private instituteService: InstituteService) { }
 
   public unapprovedForms: ScholarshipForm[]
+  public approvedForms: ScholarshipForm[]
+  public rejectedForms: ScholarshipForm[]
 
   instituteId: any;
 
   ngOnInit(): void {
     if(sessionStorage.getItem('userType')=="institute" && sessionStorage.getItem('instituteId')!=null){
     this.instituteId = sessionStorage.getItem('instituteId');
-    this.instituteService.showUnapprovedForms(this.instituteId).subscribe(data => this.unapprovedForms = data);
+    //this.instituteService.showUnapprovedForms(this.instituteId).subscribe(data => this.unapprovedForms = data);
+    this.instituteService.viewFormsByInstituteStatus(this.instituteId,"Not Approved").subscribe(data => this.unapprovedForms = data);
+    this.instituteService.viewFormsByInstituteStatus(this.instituteId,"Approved").subscribe(data => this.approvedForms = data);
+    this.instituteService.viewFormsByInstituteStatus(this.instituteId,"Rejected").subscribe(data => this.rejectedForms = data);
     }
     else{
       sessionStorage.clear();

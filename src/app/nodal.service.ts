@@ -60,4 +60,16 @@ export class NodalService {
     let url = 'http://localhost:8080/fetchNodalProfile?nodalUid='+nodalUid;
     return this.http.get<Nodal>(url);
   }
+
+  viewFormsByNodalStatus(status: string) {
+    let url = 'http://localhost:8080/viewFormsByNodalStatus?status='+status;
+    return this.http.get<ScholarshipForm[]>(url);
+  }
+
+  viewInstitutesByNodalStatus(status: string) {
+    let url = 'http://localhost:8080/viewInstitutesByNodalStatus?status='+status;
+    return this.http.get<Institute[]>(url);
+  }
+
+  
 }

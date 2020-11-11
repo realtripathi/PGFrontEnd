@@ -75,5 +75,10 @@ export class InstituteService {
     let url = 'http://localhost:8080/viewStudentsByStatus?instituteId='+instituteId+"&status="+status;
     return this.http.get<Student[]>(url);
   }
+
+  viewFormsByInstituteStatus(instituteId: Number, status: string) {
+    let url = 'http://localhost:8080/viewFormsByInstituteStatus?instituteId='+instituteId+"&status="+status;
+    return this.http.get<ScholarshipForm[]>(url);
+  }
   
 }

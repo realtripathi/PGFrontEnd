@@ -1,4 +1,4 @@
-<h2>Responsive Table</h2>
+<!-- <h2>Responsive Table</h2>
 <div class="table-wrapper">
     <table class="fl-table">
         <thead>
@@ -21,10 +21,10 @@
           </tr>
         </tbody>
     </table>
-</div>
+</div> -->
 
 
-
+<h3>Unapproved Forms</h3>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -47,3 +47,49 @@
   </tbody>
 </table>
 <!-- {{unapprovedForm | json}} -->
+
+<h3>Approved Forms</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Form_ID</th>
+      <th scope="col">Student Aadhar Number</th>
+      <th scope="col">Form religion</th>
+      <th scope="col">Form category</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let approvedForm of approvedForms">
+      <th scope="row">{{approvedForm.formId}}</th>
+      <td>{{approvedForm.aadharNumber}}</td>
+      <td>{{approvedForm.religion}}</td>
+      <td>{{approvedForm.category}}</td>
+      <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+          (click)="viewFormDetails(approvedForm)">View</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Rejected Forms</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Form_ID</th>
+      <th scope="col">Student Aadhar Number</th>
+      <th scope="col">Form religion</th>
+      <th scope="col">Form category</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rejectedForm of rejectedForms">
+      <th scope="row">{{rejectedForm.formId}}</th>
+      <td>{{rejectedForm.aadharNumber}}</td>
+      <td>{{rejectedForm.religion}}</td>
+      <td>{{rejectedForm.category}}</td>
+      <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+          (click)="viewFormDetails(rejectedForm)">View</a></td>
+    </tr>
+  </tbody>
+</table>

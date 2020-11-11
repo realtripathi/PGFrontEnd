@@ -13,13 +13,18 @@ export class MinistryFormVerificationComponent implements OnInit {
   constructor(private router:ActivatedRoute,private route:Router,private ministryService: MinistryService) { }
 
   public unapprovedForms: ScholarshipForm[];
+  public approvedForms: ScholarshipForm[];
+  public rejectedForms: ScholarshipForm[];
 
   ministryId: any;
 
   ngOnInit(): void {
     if(sessionStorage.getItem('userType')=="ministry" && sessionStorage.getItem('ministryId')!=null){
     this.ministryId = sessionStorage.getItem('ministryId');
-    this.ministryService.showUnapprovedForms().subscribe(data => this.unapprovedForms = data);
+    //this.ministryService.showUnapprovedForms().subscribe(data => this.unapprovedForms = data);
+    this.ministryService.viewFormsByMinistryStatus("Not Approved").subscribe(data => this.unapprovedForms = data);
+    this.ministryService.viewFormsByMinistryStatus("Approved").subscribe(data => this.approvedForms = data);
+    this.ministryService.viewFormsByMinistryStatus("Rejected").subscribe(data => this.rejectedForms = data);
     }
     else{
       sessionStorage.clear();

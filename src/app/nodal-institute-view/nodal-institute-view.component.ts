@@ -13,6 +13,8 @@ export class NodalInstituteViewComponent implements OnInit {
   constructor(private router:ActivatedRoute,private route:Router,private nodalService: NodalService) { }
 
   public unapprovedInstitutes: Institute[];
+  public approvedInstitutes: Institute[];
+  public rejectedInstitutes: Institute[];
 
 
   nodalId: any;
@@ -20,7 +22,10 @@ export class NodalInstituteViewComponent implements OnInit {
   ngOnInit(): void {
     if(sessionStorage.getItem('userType')=="nodal" && sessionStorage.getItem('nodalId')!=null){
     this.nodalId = sessionStorage.getItem('nodalId');
-    this.nodalService.showUnapprovedInstitutes().subscribe(data => this.unapprovedInstitutes = data)
+    //this.nodalService.showUnapprovedInstitutes().subscribe(data => this.unapprovedInstitutes = data)
+    this.nodalService.viewInstitutesByNodalStatus("Not Approved").subscribe(data => this.unapprovedInstitutes = data);
+    this.nodalService.viewInstitutesByNodalStatus("Approved").subscribe(data => this.approvedInstitutes = data);
+    this.nodalService.viewInstitutesByNodalStatus("Rejected").subscribe(data => this.rejectedInstitutes = data)
     }
     else{
       sessionStorage.clear();

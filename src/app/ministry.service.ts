@@ -80,4 +80,14 @@ export class MinistryService {
     let url='http://localhost:8080/studentForgotPassword?studentId='+studentId+'&email='+email;
     return this.http.get(url);
   }
+
+ viewInstitutesByMinistryStatus(status:string) {
+    let url = 'http://localhost:8080/viewInstitutesByMinistryStatus?status='+status;
+    return this.http.get<Institute[]>(url);
+  }
+
+  viewFormsByMinistryStatus(status:string) {
+    let url = 'http://localhost:8080/viewFormsByMinistryStatus?status='+status;
+    return this.http.get<ScholarshipForm[]>(url);
+  }
 }

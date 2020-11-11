@@ -1,3 +1,5 @@
+<h2>Unapproved Institutes</h2>
+
 <table class="table table-hover">
   <thead>
     <tr>
@@ -16,6 +18,52 @@
       <td>{{unapprovedInstitute.instituteType}}</td>
       <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
         (click)=" viewInstituteDetails(unapprovedInstitute)">View</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Approved Institutes</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Institute_Id</th>
+      <th scope="col">Institute Name</th>
+      <th scope="col">Institute State</th>
+      <th scope="col">Institute Type</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let approvedInstitute of approvedInstitutes">
+      <th scope="row">{{approvedInstitute.instituteId}}</th>
+      <td>{{approvedInstitute.instituteName}}</td>
+      <td>{{approvedInstitute.instituteState}}</td>
+      <td>{{approvedInstitute.instituteType}}</td>
+      <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+        (click)=" viewInstituteDetails(approvedInstitute)">View</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Rejected Institutes</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Institute_Id</th>
+      <th scope="col">Institute Name</th>
+      <th scope="col">Institute State</th>
+      <th scope="col">Institute Type</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rejectedInstitute of rejectedInstitutes">
+      <th scope="row">{{rejectedInstitute.instituteId}}</th>
+      <td>{{rejectedInstitute.instituteName}}</td>
+      <td>{{rejectedInstitute.instituteState}}</td>
+      <td>{{rejectedInstitute.instituteType}}</td>
+      <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+        (click)=" viewInstituteDetails(rejectedInstitute)">View</a></td>
     </tr>
   </tbody>
 </table>
