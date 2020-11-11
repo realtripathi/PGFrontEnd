@@ -1,3 +1,30 @@
+<h2>Responsive Table</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Form_ID</th>
+            <th>Student Aadhar Number</th>
+            <th>Student religion</th>
+            <th>Form category</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let unapprovedForm of unapprovedForms">
+            <th scope="row">{{unapprovedForm.formId}}</th>
+            <td>{{unapprovedForm.aadharNumber}}</td>
+            <td>{{unapprovedForm.religion}}</td>
+            <td>{{unapprovedForm.category}}</td>
+            <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+                (click)="viewFormDetails(unapprovedForm)">View</a></td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
 <table class="table table-hover">
   <thead>
     <tr>

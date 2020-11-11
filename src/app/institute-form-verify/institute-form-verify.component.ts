@@ -21,11 +21,7 @@ export class InstituteFormVerifyComponent implements OnInit {
     if(sessionStorage.getItem('userType')=="institute" && sessionStorage.getItem('instituteId')!=null){
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.formId = id;
-    this.schemeService.documentDownload(this.formId).subscribe(
-      x=>{
-        this.schemeService.showForm(this.formId).subscribe(data => this.formModel = data);
-      }
-    );
+    this.schemeService.showForm(this.formId).subscribe(data => this.formModel = data);
     }
     else{
       sessionStorage.clear();
