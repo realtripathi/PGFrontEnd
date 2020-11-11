@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MinistryService} from '../ministry.service'
 import { Nodal } from '../nodal';
 import { NodalService } from '../nodal.service' ;
@@ -12,7 +12,7 @@ import { NodalService } from '../nodal.service' ;
 })
 export class MinistryNodalVerifyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private nodalService:NodalService,private ministryService:MinistryService) { }
+  constructor(private route: ActivatedRoute, private nodalService:NodalService,private ministryService:MinistryService, private router: Router) { }
 
   public nodalUid;
   nodalModel=new Nodal();
@@ -24,11 +24,13 @@ export class MinistryNodalVerifyComponent implements OnInit {
   }
 
   approveNodal(){
-    this.ministryService.approveNodal("Approved",this.nodalUid).subscribe()
+    this.ministryService.approveNodal("Approved",this.nodalUid).subscribe();
+    this.router.navigate(['ministryDashboard/viewNodalOfficers']);
   }
 
   rejectNodal(){
-    this.ministryService.rejectNodal("Rejected",this.nodalUid).subscribe()
+    this.ministryService.rejectNodal("Rejected",this.nodalUid).subscribe();
+    this.router.navigate(['ministryDashboard/viewNodalOfficers']);
   }
 
 

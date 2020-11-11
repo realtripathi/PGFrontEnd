@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Institute } from '../institute';
+import { InstituteService } from '../institute.service';
 import { NodalService } from '../nodal.service';
 import { SchemeService } from '../scheme.service';
 
@@ -11,24 +12,26 @@ import { SchemeService } from '../scheme.service';
 })
 export class NodalInstituteVerifyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private schemeService : SchemeService, private nodalService:NodalService) { }
+  constructor(private route: ActivatedRoute, private instituteService: InstituteService, private nodalService: NodalService, private router: Router) { }
 
-  public instituteId:number;
-  instituteModel=new Institute();
+  public instituteId: number;
+  instituteModel = new Institute();
 
   ngOnInit(): void {
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.instituteId = id;
-    this.schemeService.showInstitute(this.instituteId).subscribe(data => this.instituteModel = data);
+    this.instituteService.viewProfile(this.instituteId).subscribe(data => this.instituteModel = data);
     alert(JSON.stringify(this.instituteModel));
   }
 
-  approveInstitute(){
-    this.nodalService.approveInstitute("Approved",this.instituteId).subscribe()
+  approveInstitute() {
+    this.nodalService.approveInstitute("Approved", this.instituteId).subscribe();
+    this.router.navigate(['nodalDashboard/instituteVerification']);
   }
 
-  rejectInstitute(){
-    this.nodalService.rejectInstitute("Rejected",this.instituteId).subscribe()
+  rejectInstitute() {
+    this.nodalService.rejectInstitute("Rejected", this.instituteId).subscribe();
+    this.router.navigate(['nodalDashboard/instituteVerification']);
   }
 
 

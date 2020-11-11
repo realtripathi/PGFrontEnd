@@ -24,11 +24,6 @@ export class SchemeService {
     return this.http.get<ScholarshipForm>(url);
   }
 
-  showInstitute(instituteId:number): Observable<Institute>{
-    let url = '';
-    return this.http.get<Institute>(url);
-  }
-
   showNodals() {
     let url = 'http://localhost:8080/viewNodalList';
     return this.http.get<Nodal[]>(url);

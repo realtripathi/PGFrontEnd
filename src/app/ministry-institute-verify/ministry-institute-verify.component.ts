@@ -1,8 +1,9 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Institute } from '../institute';
+import { InstituteService } from '../institute.service';
 import { MinistryService } from '../ministry.service';
-import { SchemeService } from '../scheme.service';
 
 @Component({
   selector: 'app-ministry-institute-verify',
@@ -11,7 +12,7 @@ import { SchemeService } from '../scheme.service';
 })
 export class MinistryInstituteVerifyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private schemeService : SchemeService, private ministryService:MinistryService) { }
+  constructor(private route: ActivatedRoute,private instituteService : InstituteService, private ministryService:MinistryService, private router: Router) { }
 
   public instituteId:number;
   instituteModel=new Institute();
@@ -19,15 +20,18 @@ export class MinistryInstituteVerifyComponent implements OnInit {
   ngOnInit(): void {
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.instituteId = id;
-    this.schemeService.showInstitute(this.instituteId).subscribe(data => this.instituteModel = data);
+    this.instituteService.viewProfile(this.instituteId).subscribe(data => this.instituteModel = data);
   }
 
   approveInstitute(){
-    this.ministryService.approveInstitute("Approved",this.instituteId).subscribe()
+    this.ministryService.approveInstitute("Approved",this.instituteId).subscribe();
+    this.router.navigate(['ministryDashboard/formInstitute']);
+
   }
 
   rejectInstitute(){
-    this.ministryService.rejectInstitute("Rejected",this.instituteId).subscribe()
+    this.ministryService.rejectInstitute("Rejected",this.instituteId).subscribe();
+    this.router.navigate(['ministryDashboard/formInstitute']);
   }
 
 }
