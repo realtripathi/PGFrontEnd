@@ -58,12 +58,12 @@ export class MinistryService {
 
 
   approveNodal(Status: String, nodalUid: number): Observable<Status>{
-    let url = 'http://localhost:8080/ministryUpdatesNodal?nodalUid='+nodalUid+'&status='+Status;
+    let url = 'http://localhost:8080/ministryUpdateNodal?nodalId='+nodalUid+'&status='+Status;
     return this.http.post<Status>(url, Status);
   }
 
   rejectNodal(Status: String, nodalUid: number): Observable<Status>{
-    let url = 'http://localhost:8080/ministryUpdatesNodal?nodalUid='+nodalUid+'&status='+Status;
+    let url = 'http://localhost:8080/ministryUpdateNodal?nodalId='+nodalUid+'&status='+Status;
     return this.http.post<Status>(url, Status);
   }
   login(login: MinistryLogin): Observable<LoginStatus> {

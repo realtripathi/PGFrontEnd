@@ -29,11 +29,11 @@ export class MinistryFormVerifyComponent implements OnInit {
   }
 
   approveForm(){
-    this.ministryService.approveForm("Approved",this.formId).subscribe()
+    this.ministryService.approveForm("Approved",this.formId).subscribe();
   }
 
   rejectForm(){
-    this.ministryService.rejectForm("Rejected",this.formId).subscribe()
+    this.ministryService.rejectForm("Rejected",this.formId).subscribe();
   }
 
 }

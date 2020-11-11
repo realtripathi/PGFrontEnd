@@ -31,6 +31,7 @@ export class MinistryNodalVerifyComponent implements OnInit {
 
   approveNodal(){
     this.ministryService.approveNodal("Approved",this.nodalUid).subscribe();
+    alert("approve nodal");
     this.router.navigate(['ministryDashboard/viewNodalOfficers']);
   }
 
