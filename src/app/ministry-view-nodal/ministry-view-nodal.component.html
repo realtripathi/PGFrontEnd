@@ -6,6 +6,7 @@
         <th scope="col">Nodal Name</th>
         <th scope="col">Nodal State</th>
         <th scope="col">Nodal Email</th>
+        <th scope="col">Current Status</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -15,6 +16,7 @@
         <td>{{unapprovedNodal.nodalName}}</td>
         <td>{{unapprovedNodal.nodalState}}</td>
         <td>{{unapprovedNodal.nodalEmail}}</td>
+        <td>{{unapprovedNodal.nodalStatus}}</td>
         <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
           (click)=" viewNodalDetails(unapprovedNodal)">View</a></td>
       </tr>
