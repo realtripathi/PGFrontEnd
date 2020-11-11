@@ -15,7 +15,13 @@ export class DocumentComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private studentService: StudentService) { }
 
   ngOnInit(): void {
-    this.scholarForm = JSON.parse(sessionStorage.getItem('form'));
+    if (sessionStorage.getItem('userType') == "student" && sessionStorage.getItem('studentId') != null) {
+      this.scholarForm = JSON.parse(sessionStorage.getItem('form'));
+    }
+    else {
+      sessionStorage.clear();
+      this.router.navigate(['studentLogin']);
+    }
   }
 
   applyScheme() {
@@ -24,16 +30,14 @@ export class DocumentComponent implements OnInit {
       //alert(JSON.stringify(data));
       if (data.status == 'SUCCESS') {
         this.studentService.fetchformId(parseInt(sessionStorage.getItem('studentId'))).subscribe(data => {
-          this.formId=data;
+          this.formId = data;
           alert(this.formId);
           this.upload();
         });
-     
-       this.router.navigate(['studentProfile']);
+        this.router.navigate(['studentDashboard/profile']);
       }
       else {
         //this.router.navigate(['error']);
-
       }
     })
   }
@@ -49,22 +53,22 @@ export class DocumentComponent implements OnInit {
   doc9: any
   doc10: any
 
-  udoc1= false;
-  udoc2= false;
-  udoc3= false ;
-  udoc4= false;
-  udoc5= false;
-  udoc6= false;
-  udoc7= false;
-  udoc8= false;
-  udoc9= false;
-  udoc10= false;
+  udoc1 = false;
+  udoc2 = false;
+  udoc3 = false;
+  udoc4 = false;
+  udoc5 = false;
+  udoc6 = false;
+  udoc7 = false;
+  udoc8 = false;
+  udoc9 = false;
+  udoc10 = false;
 
   onFileChange1(event) {
     this.doc1 = event.target.files[0];
     this.udoc1 = true
   }
-  
+
   onFileChange2(event) {
     this.doc2 = event.target.files[0];
     this.udoc2 = true
@@ -124,7 +128,7 @@ export class DocumentComponent implements OnInit {
     })
   }
 
-  finalCall(){
+  finalCall() {
     this.applyScheme();
   }
 

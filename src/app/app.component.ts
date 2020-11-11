@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
       }
       if (this.userType == "ministry") {
         this.loggedIn = true;
-        this.student = true;
+        this.student = false;
         this.institute = false;
         this.nodal = false;
         this.ministry = true;

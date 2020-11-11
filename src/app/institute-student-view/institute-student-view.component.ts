@@ -10,25 +10,25 @@ import { Student } from '../student';
 })
 export class InstituteStudentViewComponent implements OnInit {
 
-  constructor(private router:ActivatedRoute,private route:Router,private instituteService: InstituteService) { }
+  constructor(private router: ActivatedRoute, private route: Router, private instituteService: InstituteService) { }
 
   public unaprrovedStudents: Student[]
 
   instituteId: any;
 
   ngOnInit(): void {
-    if(sessionStorage.getItem('userType')=="institute" && sessionStorage.getItem('instituteId')!=null){
-    this.instituteId = sessionStorage.getItem('instituteId');
-    this.instituteService.showUnapprovedStudents(this.instituteId).subscribe(data => this.unaprrovedStudents = data);
+    if (sessionStorage.getItem('userType') == "institute" && sessionStorage.getItem('instituteId') != null) {
+      this.instituteId = sessionStorage.getItem('instituteId');
+      this.instituteService.showUnapprovedStudents(this.instituteId).subscribe(data => this.unaprrovedStudents = data);
     }
-    else{
+    else {
       sessionStorage.clear();
       this.route.navigate(['instituteLogin']);
     }
   }
 
-  viewStudentDetails(unaprrovedStudent){
-    this.route.navigate(['studentDetails',unaprrovedStudent.studentAadharNumber],{relativeTo: this.router});
+  viewStudentDetails(unaprrovedStudent) {
+    this.route.navigate(['studentDetails', unaprrovedStudent.studentAadharNumber], { relativeTo: this.router });
   }
 
 }

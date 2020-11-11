@@ -19,13 +19,7 @@ export class MinistryLoginComponent extends AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(sessionStorage.getItem('userType')=="<ministry>" && sessionStorage.getItem('<ministryId>')!=null){
-    sessionStorage.clear();
-    }
-    else{
       sessionStorage.clear();
-      this.router.navigate(['<ministryLogin>']);
-    }
   }
   ministryUid:string;
   ministryPassword:string;
@@ -38,8 +32,8 @@ export class MinistryLoginComponent extends AppComponent implements OnInit {
       if(data.status == 'SUCCESS') {
         sessionStorage.setItem('userType','ministry');
         this.appComponent.ngOnInit();
-        sessionStorage.setItem('ministryUid',String(this.ministryForm.ministryUid));
-        this.router.navigate(['/ministryDashboard/profile']);
+        sessionStorage.setItem('ministryId',String(this.ministryForm.ministryUid));
+        this.router.navigate(['ministryDashboard/profile']);
       }
       else {
         alert("ERROR");

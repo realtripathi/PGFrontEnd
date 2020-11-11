@@ -12,7 +12,7 @@ export class NodalProfileComponent implements OnInit {
 
   ngOnInit(): void {
     if(sessionStorage.getItem("userType")=='nodal' && sessionStorage.getItem("nodalId")!=null){
-      this.router.navigate(['instituteDashboard/profile']);
+      this.router.navigate(['nodalDashboard/profile']);
     }else{
       sessionStorage.clear();
       this.router.navigate(['nodalLogin']);

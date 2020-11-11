@@ -18,5 +18,4 @@ export class MinistryProfileComponent implements OnInit {
       this.router.navigate(['ministryLogin']);
     }
   }
-
 }
