@@ -17,4 +17,6 @@ export class Institute {
     public institutePrincipalNmae: String;
     public institutePhoneNumber: String;
     public instituteEmail: String;
+    public registrationCertificate:string;
+    public affiliationCertificate:string;
 }
