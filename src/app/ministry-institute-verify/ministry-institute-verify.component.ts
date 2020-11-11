@@ -18,9 +18,15 @@ export class MinistryInstituteVerifyComponent implements OnInit {
   instituteModel=new Institute();
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="ministry" && sessionStorage.getItem('ministryId')!=null){
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.instituteId = id;
     this.instituteService.viewProfile(this.instituteId).subscribe(data => this.instituteModel = data);
+    }
+    else{
+      sessionStorage.clear();
+      this.router.navigate(['ministryLogin']);
+    }
   }
 
   approveInstitute(){

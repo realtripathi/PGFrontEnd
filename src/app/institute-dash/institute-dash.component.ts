@@ -11,6 +11,12 @@ export class InstituteDashComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("userType")=='institute' && sessionStorage.getItem("instituteId")!=null){
+      this.router.navigate(['instituteDashboard/profile']);
+    }else{
+      sessionStorage.clear();
+      this.router.navigate(['instituteLogin']);
+    }
   }
 
   viewProfile(){

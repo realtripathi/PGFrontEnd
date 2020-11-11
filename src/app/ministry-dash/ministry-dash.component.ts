@@ -11,6 +11,12 @@ export class MinistryDashComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("userType")=='ministry' && sessionStorage.getItem("ministryId")!=null){
+      this.router.navigate(['ministryDashboard/profile']);
+    }else{
+      sessionStorage.clear();
+      this.router.navigate(['ministryLogin']);
+    }
   }
 
   viewProfile(){

@@ -19,7 +19,13 @@ export class StudentProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="student" && sessionStorage.getItem('studentId')!=null){
     this.studentService.showProfile(this.studentId).subscribe(data => this.studentModel = data);
+    }
+    else{
+      sessionStorage.clear();
+      this.router.navigate(['studentLogin']);
+    }
   }
 
   schemes:any[]=[

@@ -17,9 +17,15 @@ export class InstituteStudentVerifyComponent implements OnInit {
   studentModel= new Student();
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="institute" && sessionStorage.getItem('instituteId')!=null){
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.studentId = id;
     this.studentService.showProfile(this.studentId).subscribe(data => this.studentModel = data);
+    }
+    else{
+      sessionStorage.clear();
+      this.router.navigate(['instituteLogin']);
+    }
   }
 
   approveStudent(){

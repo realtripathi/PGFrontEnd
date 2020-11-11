@@ -18,6 +18,7 @@ export class InstituteFormVerifyComponent implements OnInit {
   formModel = new ScholarshipForm();
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="institute" && sessionStorage.getItem('instituteId')!=null){
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.formId = id;
     this.schemeService.documentDownload(this.formId).subscribe(
@@ -25,6 +26,11 @@ export class InstituteFormVerifyComponent implements OnInit {
         this.schemeService.showForm(this.formId).subscribe(data => this.formModel = data);
       }
     );
+    }
+    else{
+      sessionStorage.clear();
+      this.router.navigate(['instituteLogin']);
+    }
    
 
   }

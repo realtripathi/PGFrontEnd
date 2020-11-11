@@ -17,8 +17,14 @@ export class InstituteFormViewComponent implements OnInit {
   instituteId: any;
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="institute" && sessionStorage.getItem('instituteId')!=null){
     this.instituteId = sessionStorage.getItem('instituteId');
     this.instituteService.showUnapprovedForms(this.instituteId).subscribe(data => this.unapprovedForms = data);
+    }
+    else{
+      sessionStorage.clear();
+      this.route.navigate(['instituteLogin']);
+    }
   }
 
   viewFormDetails(unapprovedForm){

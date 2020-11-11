@@ -17,8 +17,14 @@ export class InstituteStudentViewComponent implements OnInit {
   instituteId: any;
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="institute" && sessionStorage.getItem('instituteId')!=null){
     this.instituteId = sessionStorage.getItem('instituteId');
     this.instituteService.showUnapprovedStudents(this.instituteId).subscribe(data => this.unaprrovedStudents = data);
+    }
+    else{
+      sessionStorage.clear();
+      this.route.navigate(['instituteLogin']);
+    }
   }
 
   viewStudentDetails(unaprrovedStudent){

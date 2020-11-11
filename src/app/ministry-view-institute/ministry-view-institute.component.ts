@@ -17,8 +17,14 @@ export class MinistryViewInstituteComponent implements OnInit {
   ministryId: any;
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="ministry" && sessionStorage.getItem('ministryId')!=null){
     this.ministryId = sessionStorage.getItem('ministryId');
-    this.ministryService.showUnapprovedInstitutes().subscribe(data => this.unapprovedInstitutes = data)
+    this.ministryService.showUnapprovedInstitutes().subscribe(data => this.unapprovedInstitutes = data);
+    }
+    else{
+      sessionStorage.clear();
+      this.route.navigate(['ministryLogin']);
+    }
   }
 
   viewInstituteDetails(unapprovedInstitute){

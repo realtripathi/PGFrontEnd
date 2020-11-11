@@ -11,6 +11,12 @@ export class StudentDashComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router : Router) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("userType")=='student' && sessionStorage.getItem("studentId")!=null){
+      this.router.navigate(['studentDashboard/profile']);
+    }else{
+      sessionStorage.clear();
+      this.router.navigate(['studentLogin']);
+    }
   }
 
   viewProfile(){

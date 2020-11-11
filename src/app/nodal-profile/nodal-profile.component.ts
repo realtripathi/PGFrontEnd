@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nodal-profile',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NodalProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("userType")=='nodal' && sessionStorage.getItem("nodalId")!=null){
+      this.router.navigate(['instituteDashboard/profile']);
+    }else{
+      sessionStorage.clear();
+      this.router.navigate(['nodalLogin']);
+    }
   }
 
 }

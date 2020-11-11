@@ -22,6 +22,13 @@ export class SchemeRegisterComponent implements OnInit {
   constructor(private schemeService: SchemeService, private router:Router) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="ministry" && sessionStorage.getItem('ministryId')!=null){
+      this.router.navigate(['ministryDashboard/freshScheme']);
+    }
+    else{
+      sessionStorage.clear();
+      this.router.navigate(['ministryLogin']);
+    }
   }
 
   register() {

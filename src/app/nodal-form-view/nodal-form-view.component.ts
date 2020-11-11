@@ -15,7 +15,13 @@ export class NodalFormViewComponent implements OnInit {
   public unapprovedForms: ScholarshipForm[];
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="nodal" && sessionStorage.getItem('nodalId')!=null){
     this.nodalService.showUnapprovedForms().subscribe(data => this.unapprovedForms = data);
+  }
+  else{
+    sessionStorage.clear();
+    this.route.navigate(['nodalLogin']);
+  }
   }
 
   viewFormDetails(unapprovedForm){

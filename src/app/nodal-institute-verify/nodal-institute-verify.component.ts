@@ -18,10 +18,16 @@ export class NodalInstituteVerifyComponent implements OnInit {
   instituteModel = new Institute();
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="nodal" && sessionStorage.getItem('nodalId')!=null){
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.instituteId = id;
     this.instituteService.viewProfile(this.instituteId).subscribe(data => this.instituteModel = data);
     alert(JSON.stringify(this.instituteModel));
+  }
+  else{
+    sessionStorage.clear();
+    this.router.navigate(['nodalLogin']);
+  }
   }
 
   approveInstitute() {

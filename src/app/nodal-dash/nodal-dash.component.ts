@@ -11,6 +11,12 @@ export class NodalDashComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("userType")=='nodal' && sessionStorage.getItem("nodalId")!=null){
+      this.router.navigate(['nodalDashboard/profile']);
+    }else{
+      sessionStorage.clear();
+      this.router.navigate(['nodalLogin']);
+    }
   }
 
   viewProfile(){

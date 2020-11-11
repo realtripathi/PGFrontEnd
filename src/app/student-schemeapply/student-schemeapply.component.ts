@@ -32,9 +32,15 @@ export class StudentSchemeapplyComponent implements OnInit {
   constructor(private studentService:StudentService,private router:Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="student" && sessionStorage.getItem('studentId')!=null){
     this.schemeUid = parseInt(this.route.snapshot.paramMap.get('schemeId'));
     this.scholarshipFormModel.schemeUid=this.schemeUid;
     this.scholarshipFormModel.aadharNumber=parseInt(sessionStorage.getItem('studentId'));
+    }
+    else{
+      sessionStorage.clear();
+      this.router.navigate(['studentLogin']);
+    }
   }
 
   // applyScheme(){

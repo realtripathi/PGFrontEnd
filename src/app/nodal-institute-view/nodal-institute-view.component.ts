@@ -18,8 +18,14 @@ export class NodalInstituteViewComponent implements OnInit {
   nodalId: any;
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="nodal" && sessionStorage.getItem('nodalId')!=null){
     this.nodalId = sessionStorage.getItem('nodalId');
     this.nodalService.showUnapprovedInstitutes().subscribe(data => this.unapprovedInstitutes = data)
+    }
+    else{
+      sessionStorage.clear();
+      this.route.navigate(['nodalLogin']);
+    }
   }
 
   viewInstituteDetails(unapprovedInstitute){

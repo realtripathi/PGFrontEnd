@@ -18,9 +18,15 @@ export class MinistryNodalVerifyComponent implements OnInit {
   nodalModel=new Nodal();
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="ministry" && sessionStorage.getItem('ministryId')!=null){
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.nodalUid = id;
     this.nodalService.showProfile(this.nodalUid).subscribe(data => this.nodalModel = data);
+    }
+    else{
+      sessionStorage.clear();
+      this.router.navigate(['ministryLogin']);
+    }
   }
 
   approveNodal(){

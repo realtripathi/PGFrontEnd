@@ -17,8 +17,14 @@ export class MinistryViewNodalComponent implements OnInit {
   ministryId: any;
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="ministry" && sessionStorage.getItem('ministryId')!=null){
     this.ministryId = sessionStorage.getItem('ministryId');
-    this.ministryService.showNodals().subscribe(data => this.unapprovedNodals = data)
+    this.ministryService.showNodals().subscribe(data => this.unapprovedNodals = data);
+    }
+    else{
+      sessionStorage.clear();
+      this.route.navigate(['ministryLogin']);
+    }
   }
 
   viewNodalDetails(unapprovedNodal){

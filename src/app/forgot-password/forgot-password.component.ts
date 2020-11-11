@@ -12,6 +12,7 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(private ministryService:MinistryService) { }
 
   ngOnInit(): void {
+    sessionStorage.clear();
   }  
 
   forgotPasswordModel = new ForgotPassword();

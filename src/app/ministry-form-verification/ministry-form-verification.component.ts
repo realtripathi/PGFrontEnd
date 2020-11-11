@@ -17,8 +17,14 @@ export class MinistryFormVerificationComponent implements OnInit {
   ministryId: any;
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('userType')=="ministry" && sessionStorage.getItem('ministryId')!=null){
     this.ministryId = sessionStorage.getItem('ministryId');
     this.ministryService.showUnapprovedForms().subscribe(data => this.unapprovedForms = data);
+    }
+    else{
+      sessionStorage.clear();
+      this.route.navigate(['ministryLogin']);
+    }
   }
 
   viewFormDetails(unapprovedForm){
