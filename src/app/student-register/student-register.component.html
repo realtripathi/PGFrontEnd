@@ -30,8 +30,9 @@
           <option selected value="">Select District</option>
           <option *ngFor="let studDistrict of studDistricts">{{studDistrict}}</option>
         </select>
-        <small class="text-danger" [class.d-none]="studDistrict.valid || studDistrict.untouched">Please select a District
-          </small>
+        <small class="text-danger" [class.d-none]="studDistrict.valid || studDistrict.untouched">Please select a
+          District
+        </small>
       </div>
     </div>
 
@@ -46,7 +47,7 @@
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="studDOB">DOB</label>
-        <input type="date" name="studDOB" required #studDOB="ngModel"
+        <input type="date" max="{{ maxDate | date:'yyyy-MM-dd'}}" min="{{ minDate | date:'yyyy-MM-dd'}}" name="studDOB" required #studDOB="ngModel"
           [class.is-invalid]="studDOB.invalid && studDOB.touched" class="form-control" placeholder="Enter Name DOB"
           [(ngModel)]="studentModel.studentDateOfBirth">
         <small class="text-danger" [class.d-none]="studDOB.valid || studDOB.untouched">DOB is required</small>
@@ -61,7 +62,8 @@
           <option selected value="">Select Gender</option>
           <option *ngFor="let studGender of studGenders">{{studGender}}</option>
         </select>
-        <small class="text-danger" [class.d-none]="studGender.valid || studGender.untouched">Please choose a Gender</small>
+        <small class="text-danger" [class.d-none]="studGender.valid || studGender.untouched">Please choose a
+          Gender</small>
       </div>
 
       <div class="col-md-6 mb-3">
@@ -116,7 +118,6 @@
           name="bankifsc" class="form-control" placeholder="Enter Bank IFSC Code"
           [(ngModel)]="studentModel.studentIfcsCode">
         <small class="text-danger" [class.d-none]="bankifsc.valid || bankifsc.untouched">IFSC code is required</small>
-
       </div>
 
       <div class="col-md-6 mb-3">
@@ -152,11 +153,10 @@
 
       <div class="col-md-6 mb-3">
         <label for="studConfPwd">Confirm Password: </label>
-        <input type="password" required #studPass2 (blur)="studConfirmPassword(studPass1.value, studPass2.value)"
-          (change)="studConfirmPassword(studPass1.value, studPass2.value)"
+        <input type="password" required #studPass2 (change)="studConfirmPassword(studPass1.value, studPass2.value)"
           [class.is-invalid]="!studPasswordNotMatch && studPass2.touched" name="studConfPwd" class="form-control"
           placeholder="Confirm Password">
-        <small class="text-danger" [class.d-none]="studPasswordNotMatch || studPass2.untouched">Please confirm
+        <small class="text-danger" [class.d-none]="!studPasswordNotMatch || studPass2.touched">Please confirm
           Password</small>
       </div>
     </div>
@@ -167,7 +167,7 @@
     </div>
 
     <div class="mx-auto text-center">
-      <button type="submit" class="btn btn-primary" [disabled]="!studentRegForm.form.valid || !studPasswordNotMatch"
+      <button type="submit" class="btn btn-primary" [disabled]="!studentRegForm.form.valid || studPasswordNotMatch"
         style="margin-left: 5%; margin-right: 5%;">Submit</button>
       <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
     </div>

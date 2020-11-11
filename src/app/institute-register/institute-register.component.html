@@ -279,33 +279,32 @@
     </fieldset>
 
     <!-- {{instituteForm.form.valid}} -->
+    <fieldset>
+      <legend>Document Upload</legend>
 
-    <div class="container-fluid mb-5">
-      <fieldset>
-        <legend>Document Upload</legend>
-
-        <div class="form-row">
-          <div class="col-md-6 mb-3">
-            <label for="registrationCertificate">Registration Certificate</label>
-            <input type="file" name="registrationCertificate" required class="form-control-file"
-              (change)="onFileChange1($event)" placeholder="Domicile Certificate">
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <label for="affiliationCertificate">Affiliation Certificate</label>
-            <input type="file" name="affiliationCertificate" required class="form-control-file"
-              (change)="onFileChange2($event)" placeholder="Student Photograph">
-          </div>
-
-
-
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="registrationCertificate">Registration Certificate</label>
+          <input type="file" name="registrationCertificate" required #regCerti
+            [class.is-invalid]="regCerti.invalid && regCerti.touched" class="form-control-file"
+            (change)="onFileChange1($event)">
+          <small class="text-danger" [class.d-none]="udoc1 || regCerti.untouched">Documnet is Required</small>
         </div>
-      </fieldset>
-    </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="affiliationCertificate">Affiliation Certificate</label>
+          <input type="file" name="affiliationCertificate" required #affCerti
+            [class.is-invalid]="affCerti.invalid && affCerti.touched" class="form-control-file"
+            (change)="onFileChange2($event)" placeholder="Student Photograph">
+          <small class="text-danger" [class.d-none]="udoc2 || affCerti.untouched">Documnet is Required</small>
+        </div>
+
+      </div>
+    </fieldset>
 
     <div class="mx-auto text-center">
-      <button type="submit" [disabled]="!instituteForm.form.valid || instCatInvalid" class="btn btn-primary"
-        style="margin-left: 5%; margin-right: 5%;">Submit</button>
+      <button type="submit" [disabled]="!instituteForm.form.valid || instCatInvalid || !udoc1 || !udoc2"
+        class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Submit</button>
       <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
     </div>
 

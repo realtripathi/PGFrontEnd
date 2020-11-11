@@ -23,7 +23,7 @@
         <div *ngIf="scheme" >
           {{scheme.details}}<br>
           <div class="mx-auto text-center" >
-            <button type="button" style=" margin-top: 5%;" (click)="onApply(scheme.schemeId)" class="btn btn-outline-primary" [disabled]="formExits">Apply Form</button>
+            <button type="button" style=" margin-top: 5%;" (click)="onApply(scheme.schemeId)" class="btn btn-outline-primary" [disabled]="formExits || !genderNotMatch">Apply Form</button>
         </div>
           </div>
       </div>

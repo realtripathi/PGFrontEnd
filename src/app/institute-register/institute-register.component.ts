@@ -37,6 +37,12 @@ export class InstituteRegisterComponent implements OnInit {
   instTypeInvalid = true;
   instinstaffUniStateInvalid=true;
   instinstinstadmitYearInvalid=true;
+  instituteId:any;
+  doc1: any;
+  doc2: any;
+
+  udoc1 = false;
+  udoc2 = false;
 
   validateinstCat(value){
     if(value == ''){
@@ -99,16 +105,14 @@ export class InstituteRegisterComponent implements OnInit {
     }
   }
 
-  instituteId:any;
-  doc1: any;
-  doc2: any;
-
   onFileChange1(event) {
     this.doc1 = event.target.files[0];
+    this.udoc1 = true;
   }
   
   onFileChange2(event) {
     this.doc2 = event.target.files[0];
+    this.udoc2 = true;
   }
 
   upload() {

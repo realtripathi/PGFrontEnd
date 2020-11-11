@@ -18,12 +18,10 @@ export class ScholarshipformRegisterComponent implements OnInit {
   }
 
   formExits = true;
-  genderNotMatch=true;
+  genderNotMatch = true;
 
   ngOnInit(): void {
     this.studentService.showProfile(this.studentId).subscribe(data => this.studentModel = data);
-    
-    
   }
 
   studentId: any;
@@ -40,6 +38,12 @@ export class ScholarshipformRegisterComponent implements OnInit {
     this.scheme = i;
     if(this.studentModel.form == null && this.studentModel.studentStatus === "Approved"){
       this.formExits =false;
+      if(this.scheme.schemeId == "1002" && this.studentModel.studentGender == "Male"){
+        this.genderNotMatch = false;
+      }
+      else{
+        this.genderNotMatch = true;
+      }
     }
     //console.log(`aaaa=${JSON.stringify(this.selectedItem)}`);
   }

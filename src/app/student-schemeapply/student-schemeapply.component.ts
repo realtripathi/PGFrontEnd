@@ -27,7 +27,8 @@ export class StudentSchemeapplyComponent implements OnInit {
   }
 
   schemeUid;
-  
+  maxDate = new Date(); 
+  minDate = new Date("01-01-2000")
   
   constructor(private studentService:StudentService,private router:Router,private route: ActivatedRoute) { }
 
