@@ -70,5 +70,10 @@ export class InstituteService {
     let url = 'http://localhost:8080/registerInstitute2';
     return this.http.post<InstituteRegisterDto>(url, institute);
   }
+
+  viewStudentsByInstituteStatus(instituteId: Number, status:string) {
+    let url = 'http://localhost:8080/viewStudentsByStatus?instituteId='+instituteId+"&status="+status;
+    return this.http.get<Student[]>(url);
+  }
   
 }

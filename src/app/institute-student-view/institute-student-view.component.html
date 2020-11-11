@@ -19,4 +19,74 @@
     </tr>
   </tbody>
 </table>
+<!-- {{unaprrovedStudents | json}} --><h2>Unapproved Students</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Student Aadhar Number</th>
+      <th scope="col">Student Name</th>
+      <th scope="col">Student Gender</th>
+      <th scope="col">Student Date of Birth</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let unaprrovedStudent of unaprrovedStudents">
+      <th scope="row">{{unaprrovedStudent.studentAadharNumber}}</th>
+      <td>{{unaprrovedStudent.studentName}}</td>
+      <td>{{unaprrovedStudent.studentGender}}</td>
+      <td>{{unaprrovedStudent.studentDateOfBirth}}</td>
+      <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+          (click)="viewStudentDetails(unaprrovedStudent)">View</a></td>
+    </tr>
+  </tbody>
+</table>
 <!-- {{unaprrovedStudents | json}} -->
+
+<h2>Approved Students</h2>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Student Aadhar Number</th>
+      <th scope="col">Student Name</th>
+      <th scope="col">Student Gender</th>
+      <th scope="col">Student Date of Birth</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of approvedStudents">
+      <th scope="row">{{student.studentAadharNumber}}</th>
+      <td>{{student.studentName}}</td>
+      <td>{{student.studentGender}}</td>
+      <td>{{student.studentDateOfBirth}}</td>
+      <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+          (click)="viewStudentDetails(student)">Change Status</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Rejected Students</h2>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Student Aadhar Number</th>
+      <th scope="col">Student Name</th>
+      <th scope="col">Student Gender</th>
+      <th scope="col">Student Date of Birth</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rejectedStudent of rejectedStudents">
+      <th scope="row">{{rejectedStudent.studentAadharNumber}}</th>
+      <td>{{rejectedStudent.studentName}}</td>
+      <td>{{rejectedStudent.studentGender}}</td>
+      <td>{{rejectedStudent.studentDateOfBirth}}</td>
+      <td><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+          (click)="viewStudentDetails(rejectedStudent)">Change Status</a></td>
+    </tr>
+  </tbody>
+</table>
