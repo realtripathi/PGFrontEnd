@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InstituteService } from '../institute.service';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
@@ -11,7 +11,7 @@ import { StudentService } from '../student.service';
 })
 export class InstituteStudentVerifyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private studentService: StudentService, private instituteService: InstituteService) { }
+  constructor(private route: ActivatedRoute,private studentService: StudentService, private instituteService: InstituteService, private router: Router) { }
 
   public studentId;
   studentModel= new Student();
@@ -23,11 +23,13 @@ export class InstituteStudentVerifyComponent implements OnInit {
   }
 
   approveStudent(){
-    this.instituteService.approveStudent("Approved", this.studentId).subscribe()
+    this.instituteService.approveStudent("Approved", this.studentId).subscribe();
+    this.router.navigate(['instituteDashboard/studentVerification']);
   }
 
   rejectStudent(){
-    this.instituteService.rejectStudent("Rejected", this.studentId).subscribe()
+    this.instituteService.rejectStudent("Rejected", this.studentId).subscribe();
+    this.router.navigate(['instituteDashboard/studentVerification']);
   }
 
 }

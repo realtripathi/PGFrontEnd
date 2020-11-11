@@ -1,4 +1,3 @@
-
 <!-- <hr>
 {{instituteForm.value | json}}
 <hr>
@@ -7,9 +6,7 @@
 
 <div class="container-fluid mb-5">
   <h3 style="text-align: center;">New Institute Registration</h3>
-  <form #instituteForm="ngForm" >
-
-
+  <form #instituteForm="ngForm" (ngSubmit)="register2()" enctype="multipart/form-data">
     <fieldset class="">
       <legend>Basic Details</legend>
       <div class="form-group">
@@ -22,7 +19,7 @@
             <option *ngFor="let inst_cat of inst_cats">{{inst_cat}}</option>
           </select>
           <small class="text-danger" [class.d-none]="instCat.valid || instCat.untouched">Please select a valid
-            Category</small>    
+            Category</small>
         </div>
       </div>
 
@@ -253,11 +250,12 @@
           <input type="tel" required #mobileNumber="ngModel" pattern="^\d{10}$"
             [class.is-invalid]="mobileNumber.invalid && mobileNumber.touched" name="inst_mobile" class="form-control"
             placeholder="Enter Institute Name" [(ngModel)]="instituteModel.institutePhoneNumber">
-            <div *ngIf="mobileNumber.errors && mobileNumber.touched">
-              <small class="text-danger" *ngIf="mobileNumber.errors.required">Mobile Number is required</small>
-              <small class="text-danger" *ngIf="mobileNumber.errors.pattern">Mobile Number must be a 10 digits number</small>
-    
-            </div>
+          <div *ngIf="mobileNumber.errors && mobileNumber.touched">
+            <small class="text-danger" *ngIf="mobileNumber.errors.required">Mobile Number is required</small>
+            <small class="text-danger" *ngIf="mobileNumber.errors.pattern">Mobile Number must be a 10 digits
+              number</small>
+
+          </div>
         </div>
 
         <div class="col-md-6 mb-3">
@@ -265,11 +263,11 @@
           <input type="text" required #instEmail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             [class.is-invalid]="instEmail.invalid && instEmail.touched" name="inst_Email" class="form-control"
             placeholder="Enter Institute Name" [(ngModel)]="instituteModel.instituteEmail">
-            <div *ngIf="instEmail.errors && instEmail.touched">
-              <small class="text-danger" *ngIf="instEmail.errors.required">Email is required</small>
-              <small class="text-danger" *ngIf="instEmail.errors.pattern">Please enter a valid email</small>
-    
-            </div>
+          <div *ngIf="instEmail.errors && instEmail.touched">
+            <small class="text-danger" *ngIf="instEmail.errors.required">Email is required</small>
+            <small class="text-danger" *ngIf="instEmail.errors.pattern">Please enter a valid email</small>
+
+          </div>
         </div>
       </div>
 
@@ -282,39 +280,38 @@
 
     <!-- {{instituteForm.form.valid}} -->
 
+    <div class="container-fluid mb-5">
+      <fieldset>
+        <legend>Document Upload</legend>
+
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="registrationCertificate">Registration Certificate</label>
+            <input type="file" name="registrationCertificate" required class="form-control-file"
+              (change)="onFileChange1($event)" placeholder="Domicile Certificate">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="affiliationCertificate">Affiliation Certificate</label>
+            <input type="file" name="affiliationCertificate" required class="form-control-file"
+              (change)="onFileChange2($event)" placeholder="Student Photograph">
+          </div>
+
+
+
+        </div>
+      </fieldset>
+    </div>
+
     <div class="mx-auto text-center">
       <button type="submit" [disabled]="!instituteForm.form.valid || instCatInvalid" class="btn btn-primary"
         style="margin-left: 5%; margin-right: 5%;">Submit</button>
       <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
     </div>
 
+    <!-- <div class="mx-auto text-center">
+      <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">submit</button>
+      <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
+    </div> -->
   </form>
-  <div class="container-fluid mb-5">
-    <form (ngSubmit)="register2()"  enctype="multipart/form-data">
-      <fieldset>
-        <legend>Document Upload</legend>
-  
-        <div class="form-row">
-          <div class="col-md-6 mb-3">
-            <label for="registrationCertificate">Registration Certificate</label>
-            <input type="file" name="registrationCertificate" id="" class="form-control-file" (change)="onFileChange1($event)"
-              placeholder="Domicile Certificate">
-          </div>
-  
-          <div class="col-md-6 mb-3">
-            <label for="affiliationCertificate">Affiliation Certificate</label>
-            <input type="file" name="affiliationCertificate" id="" class="form-control-file" (change)="onFileChange2($event)" placeholder="Student Photograph"> 
-          </div>
-  
-         
-          
-        </div>
-      </fieldset>
-  
-  
-      <div class="mx-auto text-center">
-        <button type="submit" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">submit</button>
-        <button type="reset" class="btn btn-primary" style="margin-left: 5%; margin-right: 5%;">Reset</button>
-      </div>
-    </form>
 </div>

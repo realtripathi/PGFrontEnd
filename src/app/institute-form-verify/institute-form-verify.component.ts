@@ -1,5 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InstituteService } from '../institute.service';
 import { SchemeService } from '../scheme.service';
 import { ScholarshipForm } from '../scholarship-form';
@@ -11,7 +12,7 @@ import { ScholarshipForm } from '../scholarship-form';
 })
 export class InstituteFormVerifyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private schemeService : SchemeService, private instituteService: InstituteService) { }
+  constructor(private route: ActivatedRoute,private schemeService : SchemeService, private instituteService: InstituteService, private router: Router) { }
 
   public formId;
   formModel = new ScholarshipForm();
@@ -29,11 +30,13 @@ export class InstituteFormVerifyComponent implements OnInit {
   }
 
   approveForm(){
-    this.instituteService.approveForm("Approved",this.formId).subscribe()
+    this.instituteService.approveForm("Approved",this.formId).subscribe();
+    this.router.navigate(['instituteDashboard/formVerification']);
   }
 
   rejectForm(){
-    this.instituteService.rejectForm("Rejected",this.formId).subscribe()
+    this.instituteService.rejectForm("Rejected",this.formId).subscribe();
+    this.router.navigate(['instituteDashboard/formVerification']);
   }
 
 }

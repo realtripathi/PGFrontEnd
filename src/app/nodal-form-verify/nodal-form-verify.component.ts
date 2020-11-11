@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {NodalService} from '../nodal.service'
 import { SchemeService } from '../scheme.service';
 import { ScholarshipForm } from '../scholarship-form';
@@ -11,7 +11,7 @@ import { ScholarshipForm } from '../scholarship-form';
 })
 export class NodalFormVerifyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private schemeService : SchemeService, private nodalService:NodalService) { }
+  constructor(private route: ActivatedRoute,private schemeService : SchemeService, private nodalService:NodalService, private router: Router) { }
 
   public formId;
   formModel = new ScholarshipForm();
@@ -23,11 +23,13 @@ export class NodalFormVerifyComponent implements OnInit {
   }
 
   approveForm(){
-    this.nodalService.approveForm("Approved",this.formId).subscribe()
+    this.nodalService.approveForm("Approved",this.formId).subscribe();
+    this.router.navigate(['nodalDashboard/formVerification']);
   }
 
   rejectForm(){
-    this.nodalService.rejectForm("Rejected",this.formId).subscribe()
+    this.nodalService.rejectForm("Rejected",this.formId).subscribe();
+    this.router.navigate(['nodalDashboard/formVerification']);
   }
 
 }
