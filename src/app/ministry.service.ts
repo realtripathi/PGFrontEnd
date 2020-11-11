@@ -71,5 +71,13 @@ export class MinistryService {
     return this.http.post<LoginStatus>(url, login);
   }
 
-  
+  instituteForgotPassword(instituteId: number, email:String){                          
+    let url='http://localhost:8080/instituteForgotPassword?instituteId='+instituteId+'&email='+email;
+    return this.http.get(url);
+  }
+
+ studentForgotPassword(studentId: number, email:String){
+    let url='http://localhost:8080/studentForgotPassword?studentId='+studentId+'&email='+email;
+    return this.http.get(url);
+  }
 }

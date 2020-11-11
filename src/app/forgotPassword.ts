@@ -1,6 +1,7 @@
 export class ForgotPassword {
-    constructor(
-      public forgotPasswordUID: String,
-      public forgotPasswordUType: String
-    ) { }
+   
+      public forgotPasswordUID: String;
+      public forgotPasswordUType: String;
+      public forgotPasswordUEmail: String;
+    
   }
