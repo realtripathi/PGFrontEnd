@@ -32,6 +32,11 @@ export class StudentService {
     return this.http.get<Number>(url);
   }
 
+  fetchInstituteId(studentId: Number): Observable<Number>{
+    let url = 'http://localhost:8080/getInstituteId?studentId='+studentId;
+    return this.http.get<Number>(url);
+  }
+
   uploadDocument(formData: FormData){
     let url = 'http://localhost:8080/docs-upload'
     return this.http.post(url, formData);

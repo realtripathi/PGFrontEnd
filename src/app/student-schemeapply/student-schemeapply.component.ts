@@ -20,7 +20,7 @@ export class StudentSchemeapplyComponent implements OnInit {
 
   public scholarshipFormModel=new ScholarshipForm();
 
-  instituteID: String;
+  instituteID: Number;
 
   valueSet(value){
     this.instituteID = value;
@@ -37,6 +37,12 @@ export class StudentSchemeapplyComponent implements OnInit {
     this.schemeUid = parseInt(this.route.snapshot.paramMap.get('schemeId'));
     this.scholarshipFormModel.schemeUid=this.schemeUid;
     this.scholarshipFormModel.aadharNumber=parseInt(sessionStorage.getItem('studentId'));
+    this.studentService.fetchInstituteId(parseInt(sessionStorage.getItem('studentId'))).subscribe(
+      data=>{
+        this.instituteID=data;
+        this.scholarshipFormModel.instituteId = String(this.instituteID);
+      });
+    
     }
     else{
       sessionStorage.clear();
