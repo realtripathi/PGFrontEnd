@@ -175,7 +175,7 @@
             <label for="inst_addressl1">Line 1: </label>
             <input type="text" required #instAddress="ngModel"
               [class.is-invalid]="instAddress.invalid && instAddress.touched" name="inst_addressl1" class="form-control"
-              placeholder="Enter Institute Name" [(ngModel)]="instituteModel.instituteAddress">
+              placeholder="Enter Institute Address" [(ngModel)]="instituteModel.instituteAddress">
             <small class="text-danger" [class.d-none]="instAddress.valid || instAddress.untouched">Institute Address is
               Required</small>
           </div>
@@ -288,7 +288,7 @@
           <input type="file" name="registrationCertificate" required #regCerti
             [class.is-invalid]="regCerti.invalid && regCerti.touched" class="form-control-file"
             (change)="onFileChange1($event)">
-          <small class="text-danger" [class.d-none]="udoc1 || regCerti.untouched">Documnet is Required</small>
+          <small class="text-danger" [class.d-none]="udoc1 || regCerti.untouched">Document is Required</small>
         </div>
 
         <div class="col-md-6 mb-3">
@@ -296,7 +296,7 @@
           <input type="file" name="affiliationCertificate" required #affCerti
             [class.is-invalid]="affCerti.invalid && affCerti.touched" class="form-control-file"
             (change)="onFileChange2($event)" placeholder="Student Photograph">
-          <small class="text-danger" [class.d-none]="udoc2 || affCerti.untouched">Documnet is Required</small>
+          <small class="text-danger" [class.d-none]="udoc2 || affCerti.untouched">Document is Required</small>
         </div>
 
       </div>

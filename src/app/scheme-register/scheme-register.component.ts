@@ -11,7 +11,7 @@ import { SchemeService } from '../scheme.service';
 export class SchemeRegisterComponent implements OnInit {
 
   schemeModel=new Scheme();
-  scheme_Gender=['Female','Male','Other'];
+  scheme_Gender=['Female','Male','Others','All'];
   scheme_for_Disabled=['Yes','No'];
   scheme_caste=['SC', 'ST','OBC','EWS', 'GENERAL'];
 

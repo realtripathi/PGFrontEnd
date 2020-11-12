@@ -11,21 +11,21 @@
       <div class="col-md-6 mb-3">
         <label for="nodalName">Nodal Name</label>
         <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched"
-          class="form-control" name="name" class="form-control" placeholder="Enter Nodal Officer Name"
+          class="form-control" name="name" class="form-control" placeholder="Enter Name"
           [(ngModel)]="nodalModel.nodalName">
         <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
       </div>
 
       <div class="col-md-6 mb-3">
-        <label for="nodalDistrict">District</label>
-        <select (blur)="validatenodalDistrict(nodalDistrict.value)" required
-          (change)="validatenodalDistrict(nodalDistrict.value)" #nodalDistrict="ngModel"
-          [class.is-invalid]="nodalDistrict.invalid && nodalDistrict.touched" class="custom-select" name="nodalDistrict"
+        <label for="nodalState">State</label>
+        <select (blur)="validatenodalDistrict(nodalState.value)" required
+          (change)="validatenodalDistrict(nodalState.value)" #nodalState="ngModel"
+          [class.is-invalid]="nodalState.invalid && nodalState.touched" class="custom-select" name="nodalState"
           id="" [(ngModel)]="nodalModel.nodalState">
-          <option selected value="">Select District</option>
+          <option selected value="">Select State</option>
           <option *ngFor="let nodalDistrict of nodalDistricts">{{nodalDistrict}}</option>
         </select>
-        <small class="text-danger" [class.d-none]="!nodaldistrictInvalid || nodalDistrict.untouched">Invalid
+        <small class="text-danger" [class.d-none]="!nodaldistrictInvalid || nodalState.untouched">Invalid
           selection</small>
       </div>
 
@@ -33,7 +33,7 @@
         <label for="nodalPhone">Nodal Phone Number</label>
         <input type="tel" required #phone="ngModel" pattern="\d{10}$" name="phone"
           [class.is-invalid]="phone.invalid && phone.touched" class="form-control"
-          placeholder="Enter Nodal Officer Contact Number" [(ngModel)]="nodalModel.nodalPhone">
+          placeholder="Enter Contact Number" [(ngModel)]="nodalModel.nodalPhone">
 
         <div *ngIf="phone.errors && (phone.valid || phone.touched)">
           <small class="text-danger" *ngIf="phone.errors.required">Phone number is required</small>
@@ -45,7 +45,7 @@
         <label for="nodalEmail">Nodal Email address</label>
         <input type="email" required #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email"
           [class.is-invalid]="email.invalid && email.touched" class="form-control"
-          placeholder="Enter Nodal Officer Email Id" [(ngModel)]="nodalModel.nodalEmail">
+          placeholder="Enter Email Id" [(ngModel)]="nodalModel.nodalEmail">
         <div *ngIf="email.errors && (email.valid || email.touched)">
           <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
           <small class="text-danger" *ngIf="email.errors.pattern">Please enter a valid email</small>
