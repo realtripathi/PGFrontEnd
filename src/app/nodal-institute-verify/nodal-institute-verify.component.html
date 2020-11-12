@@ -94,23 +94,24 @@
             </div>
         </div>
     </div>
+    <div class="row text-center text-lg-left">
+
+        <div class="col-lg-3 col-md-4 col-6">
+            <a href="http://localhost:8080/downloads/{{instituteModel.registrationCertificate}}" target="_blank" class="d-block btn mb-4 btn-info" style="padding: 1%;">
+                <!-- <img src="http://localhost:8080/downloads/{{instituteModel.registrationCertificate}}" height="100px" width="100px"> -->
+                Registration Certificate
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6">
+            <a target="_blank" href="http://localhost:8080/downloads/{{instituteModel.affiliationCertificate}}" class="d-block btn mb-4 btn-info" style="padding: 1%;">
+                <!-- <img src="http://localhost:8080/downloads/{{instituteModel.affiliationCertificate}}" height="100px" width="100px"> -->
+                Affiliation Certificate
+            </a>
+        </div>
+    </div>
     <div class="mx-auto text-center">
         <button (click)="approveInstitute()" type="button" class="btn btn-success" style="margin-left: 5%; margin-right: 5%;">Approve</button>
         <button (click)="rejectInstitute()" type="button" class="btn btn-danger" style="margin-left: 5%; margin-right: 5%;">Reject</button>
-    </div>
-</div>
-
-<div class="row text-center text-lg-left">
-
-    <div class="col-lg-3 col-md-4 col-6">
-        <a href="http://localhost:8080/downloads/{{instituteModel.registrationCertificate}}" target="_blank" class="d-block mb-4 h-100">
-            <img src="http://localhost:8080/downloads/{{instituteModel.registrationCertificate}}" height="100px" width="100px">
-        </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-        <a target="_blank" href="http://localhost:8080/downloads/{{instituteModel.affiliationCertificate}}" class="d-block mb-4 h-100">
-            <img src="http://localhost:8080/downloads/{{instituteModel.affiliationCertificate}}" height="100px" width="100px">
-        </a>
     </div>
 </div>
 
