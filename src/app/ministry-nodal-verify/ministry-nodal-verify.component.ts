@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MinistryService } from '../ministry.service'
 import { Nodal } from '../nodal';
 import { NodalService } from '../nodal.service';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class MinistryNodalVerifyComponent implements OnInit {
 
   approveNodal() {
     this.ministryService.approveNodal("Approved", this.nodalUid).subscribe();
-    alert("approve nodal");
+    swal("approve nodal");
     this.router.navigate(['ministryDashboard/viewNodalOfficers']);
   }
 

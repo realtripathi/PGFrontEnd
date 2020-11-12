@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Institute } from '../institute';
 import { InstituteService } from '../institute.service';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -136,12 +137,12 @@ export class InstituteRegisterComponent implements OnInit {
        this.instituteId = data.instituteId;
        //alert(this.instituteId);
        this.upload();
-       alert("Registration Successful");
+       swal("Registration Successful");
        this.router.navigate(['instituteLogin']);
      }
      else {
        //this.router.navigate(['error']);
-       alert("Please Verify Details");
+       swal("Please Verify Details");
      }
    })
   }
@@ -151,7 +152,7 @@ export class InstituteRegisterComponent implements OnInit {
     this.instituteService.register(this.instituteModel).subscribe(data => {
      //alert(JSON.stringify(data));
      if(data.status == 'SUCCESS') {
-       alert("Registration Successful")
+       swal("Registration Successful")
        this.router.navigate(['instituteLogin']);
      }
      else {

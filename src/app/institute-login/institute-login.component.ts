@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { InstituteLogin } from "../institute-login";
 import { InstituteService } from '../institute.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-institute-login',
@@ -32,7 +33,7 @@ export class InstituteLoginComponent extends AppComponent implements OnInit {
         this.router.navigate(['instituteDashboard/profile']);
       }
       else {
-        alert(data.message);
+        swal(data.message);
       }
     })
   }

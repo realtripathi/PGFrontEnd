@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ScholarshipForm } from "../scholarship-form"
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentService } from '../student.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-document',
@@ -34,11 +35,11 @@ export class DocumentComponent implements OnInit {
           //alert(this.formId);
           this.upload();
         });
-        alert("Scheme Apply Sccessfull");
+        swal("Scheme Apply Sccessfull");
         this.router.navigate(['studentDashboard/profile']);
       }
       else {
-        alert("Something went wrong... Please try again");
+        swal("Something went wrong... Please try again");
       }
     })
   }

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
 import { Router } from '@angular/router';
 import { Institute } from '../institute';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-student-register',
@@ -75,12 +76,12 @@ export class StudentRegisterComponent implements OnInit {
     this.studentService.register(this.studentModel,this.institute_id).subscribe(data => {
      //alert(JSON.stringify(data));
      if(data.status == 'SUCCESS') {
-       alert("Registration Successful");
+       swal("Registration Successful");
        this.router.navigate(['studentLogin']);
      }
      else {
        //this.router.navigate(['error']);
-       alert(data.message);
+       swal(data.message);
      }
    })
    }

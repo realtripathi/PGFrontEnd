@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MinistryService } from '../ministry.service';
 import { Nodal } from '../nodal';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-nodal-register',
@@ -52,7 +53,7 @@ export class NodalRegisterComponent implements OnInit {
     this.ministryService.registerNodal(this.nodalModel).subscribe(data => {
      //alert(JSON.stringify(data));
      if(data.status == 'SUCCESS') {
-       alert("Nodal Registration Successful");
+       swal("Nodal Registration Successful");
        this.ngOnInit();
      }
      else {

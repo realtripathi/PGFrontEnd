@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { MinistryLogin } from "../ministry-login";
 import { MinistryService } from '../ministry.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-ministry-login',
@@ -36,7 +37,7 @@ export class MinistryLoginComponent extends AppComponent implements OnInit {
         this.router.navigate(['ministryDashboard/profile']);
       }
       else {
-        alert(data.message);
+        swal(data.message);
       }
     })
   }

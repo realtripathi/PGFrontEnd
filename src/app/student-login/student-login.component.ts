@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-student-login',
@@ -32,7 +33,7 @@ export class StudentLoginComponent extends AppComponent implements OnInit {
         this.router.navigate(['studentDashboard/profile']);
       }
       else {
-        alert(data.message);
+        swal(data.message);
       }
     })
   }

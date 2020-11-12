@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { NodalLogin } from "../nodal-login";
 import { NodalService } from '../nodal.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-nodal-login',
@@ -32,7 +33,7 @@ export class NodalLoginComponent extends AppComponent implements OnInit {
         this.router.navigate(['nodalDashboard/profile']);
       }
       else {
-        alert(data.message);
+        swal(data.message);
       }
     })
   }
