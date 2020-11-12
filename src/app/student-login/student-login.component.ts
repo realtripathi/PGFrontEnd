@@ -32,7 +32,7 @@ export class StudentLoginComponent extends AppComponent implements OnInit {
         this.router.navigate(['studentDashboard/profile']);
       }
       else {
-        alert("ERROR");
+        alert(data.message);
       }
     })
   }

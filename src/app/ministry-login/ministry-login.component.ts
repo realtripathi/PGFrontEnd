@@ -36,7 +36,7 @@ export class MinistryLoginComponent extends AppComponent implements OnInit {
         this.router.navigate(['ministryDashboard/profile']);
       }
       else {
-        alert("ERROR");
+        alert(data.message);
       }
     })
   }

@@ -79,6 +79,7 @@ export class StudentRegisterComponent implements OnInit {
      }
      else {
        //this.router.navigate(['error']);
+       alert(data.message);
      }
    })
    }

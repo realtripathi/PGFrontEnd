@@ -32,7 +32,7 @@ export class NodalLoginComponent extends AppComponent implements OnInit {
         this.router.navigate(['nodalDashboard/profile']);
       }
       else {
-        alert("EORROR");
+        alert(data.message);
       }
     })
   }

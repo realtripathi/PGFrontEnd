@@ -32,7 +32,7 @@ export class InstituteLoginComponent extends AppComponent implements OnInit {
         this.router.navigate(['instituteDashboard/profile']);
       }
       else {
-        alert("EORROR");
+        alert(data.message);
       }
     })
   }
