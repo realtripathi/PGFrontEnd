@@ -2,8 +2,8 @@
 <hr>
 {{studentRegForm.value | json}}
 <hr>
-{{studentModel | json}} 
-<hr>-->
+{{studentModel | json}}
+<hr> -->
 
 <div class="container-fluid mb-5">
   <h3 style="text-align: center;">New Student Registration</h3>
@@ -23,16 +23,11 @@
 
       <div class="col-md-6 mb-3">
         <label for="studentDistrict">District</label>
-        <select (blur)="validatestudDistrict(studDistrict.value)" required
-          (change)="validatestudDistrict(studDistrict.value)" #studDistrict="ngModel"
-          [class.is-invalid]="studDistrict.invalid && studDistrict.touched" class="custom-select" name="studentDistrict"
-          id="" [(ngModel)]="studentModel.studentDistrict">
-          <option selected value="">Select District</option>
-          <option *ngFor="let studDistrict of studDistricts">{{studDistrict}}</option>
-        </select>
-        <small class="text-danger" [class.d-none]="studDistrict.valid || studDistrict.untouched">Please select a
-          District
-        </small>
+        <input type="text" required #studDistrict="ngModel"
+          [class.is-invalid]="studDistrict.invalid && studDistrict.touched" class="form-control"
+          placeholder="Enter Name" name="studentDistrict" [(ngModel)]="studentModel.studentDistrict">
+        <small class="text-danger" [class.d-none]="studDistrict.valid || studDistrict.untouched">District is
+          required</small>
       </div>
     </div>
 
@@ -41,15 +36,14 @@
       <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control"
         placeholder="Enter Name" name="name" [(ngModel)]="studentModel.studentName">
       <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
-      <div></div>
     </div>
 
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="studDOB">DOB</label>
-        <input type="date" max="{{ maxDate | date:'yyyy-MM-dd'}}" min="{{ minDate | date:'yyyy-MM-dd'}}" name="studDOB" required #studDOB="ngModel"
-          [class.is-invalid]="studDOB.invalid && studDOB.touched" class="form-control" placeholder="Enter Name DOB"
-          [(ngModel)]="studentModel.studentDateOfBirth">
+        <input type="date" max="{{ maxDate | date:'yyyy-MM-dd'}}" min="{{ minDate | date:'yyyy-MM-dd'}}" name="studDOB"
+          required #studDOB="ngModel" [class.is-invalid]="studDOB.invalid && studDOB.touched" class="form-control"
+          placeholder="Enter Name DOB" [(ngModel)]="studentModel.studentDateOfBirth">
         <small class="text-danger" [class.d-none]="studDOB.valid || studDOB.untouched">DOB is required</small>
       </div>
 

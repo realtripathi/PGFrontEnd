@@ -45,6 +45,15 @@
 
         <div class="col-md-6 mb-3">
           <label for="inst_district">District</label>
+          <input type="text" required #instDistrict="ngModel"
+            [class.is-invalid]="instDistrict.invalid && instDistrict.touched" class="form-control"
+            placeholder="Enter Name" name="inst_district" [(ngModel)]="instituteModel.instituteDistrict">
+          <small class="text-danger" [class.d-none]="instDistrict.valid || instDistrict.untouched">District is
+            required</small>
+        </div>
+
+        <!-- <div class="col-md-6 mb-3">
+          <label for="inst_district">District</label>
           <select required #instDistrict="ngModel" [class.is-invalid]="instDistrict.invalid && instDistrict.touched"
             (blur)="validateinstDistrict(instDistrict.value)" (change)="validateinstDistrict(instDistrict.value)"
             class="custom-select" name="inst_district" [(ngModel)]="instituteModel.instituteDistrict">
@@ -53,7 +62,7 @@
           </select>
           <small class="text-danger" [class.d-none]="instDistrict.valid || instDistrict.untouched">Please select a
             District</small>
-        </div>
+        </div> -->
       </div>
 
       <div class="form-row">
@@ -185,7 +194,7 @@
             <input type="text" name="inst_addressl2" class="form-control" placeholder="Enter Institute Name"
               [(ngModel)]="instituteModel.institueAddress">
           </div>
-        </div>
+          </div>
 
          <div class="form-row">
           <div class="col-md-6 mb-3">
@@ -206,9 +215,8 @@
             <small class="text-danger" [class.d-none]="!instStateInvalid || instState.untouched">Please choose a
               State</small>
           </div>
-        </div>
 
-        <div class="form-row">
+          <!-- <div class="form-row">
           <div class="col-md-6 mb-3">
             <label for="inst_addressDistrict">District</label>
             <select class="custom-select" disabled required #instDistrict="ngModel"
@@ -220,14 +228,24 @@
             </select>
             <small class="text-danger" [class.d-none]="!instDistrictInvalid || instDistrict.untouched">Please choose a
               District</small>
-          </div>
+          </div> -->
 
-          <!-- <div class="col-md-6 mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="inst_addressDistrict">District</label>
+            <input type="text" disabled required #instDistrict="ngModel"
+              [class.is-invalid]="instDistrict.invalid && instDistrict.touched" class="form-control"
+              placeholder="Enter Name" name="inst_addressDistrict" [(ngModel)]="instituteModel.instituteDistrict">
+            <small class="text-danger" [class.d-none]="instDistrict.valid || instDistrict.untouched">District is
+              required</small>
+          </div>
+        </div>
+
+        <!-- <div class="col-md-6 mb-3">
             <label for="inst_pincode">PIN CODE: </label>
             <input type="text" name="inst_pincode" class="form-control" placeholder="Enter Institute Name"
               [(ngModel)]="instituteModel.institue_Address_pincode">
           </div> -->
-        </div>
+
       </div>
     </fieldset>
     <br>
@@ -238,7 +256,7 @@
         <label for="inst_principal">Principal Name: </label>
         <input type="text" required #instPrincipal="ngModel"
           [class.is-invalid]="instPrincipal.invalid && instPrincipal.touched" name="inst_principal" class="form-control"
-          placeholder="Enter Institute Name" [(ngModel)]="instituteModel.institutePrincipalNmae">
+          placeholder="Enter Principal Name" [(ngModel)]="instituteModel.institutePrincipalNmae">
         <small class="text-danger" [class.d-none]="instPrincipal.valid || instPrincipal.untouched">Principal Name is
           Required</small>
       </div>
@@ -249,7 +267,7 @@
           <label for="inst_mobile">Mobile Number: </label>
           <input type="tel" required #mobileNumber="ngModel" pattern="^\d{10}$"
             [class.is-invalid]="mobileNumber.invalid && mobileNumber.touched" name="inst_mobile" class="form-control"
-            placeholder="Enter Institute Name" [(ngModel)]="instituteModel.institutePhoneNumber">
+            placeholder="Enter Contact Number" [(ngModel)]="instituteModel.institutePhoneNumber">
           <div *ngIf="mobileNumber.errors && mobileNumber.touched">
             <small class="text-danger" *ngIf="mobileNumber.errors.required">Mobile Number is required</small>
             <small class="text-danger" *ngIf="mobileNumber.errors.pattern">Mobile Number must be a 10 digits
@@ -262,7 +280,7 @@
           <label for="inst_Email">Email: </label>
           <input type="text" required #instEmail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             [class.is-invalid]="instEmail.invalid && instEmail.touched" name="inst_Email" class="form-control"
-            placeholder="Enter Institute Name" [(ngModel)]="instituteModel.instituteEmail">
+            placeholder="Enter Contact Email" [(ngModel)]="instituteModel.instituteEmail">
           <div *ngIf="instEmail.errors && instEmail.touched">
             <small class="text-danger" *ngIf="instEmail.errors.required">Email is required</small>
             <small class="text-danger" *ngIf="instEmail.errors.pattern">Please enter a valid email</small>

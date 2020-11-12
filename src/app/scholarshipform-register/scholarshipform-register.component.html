@@ -3,16 +3,20 @@
   <div class="row">
     <div class="col-4">
       <div class="list-group">
-        <ul class="items list-group-item list-group-item-action" style="list-style: none; background-color: #3C40C6; color: white; text-align: center;"  *ngFor="let scheme of schemes" (click)="onSelect(scheme)">
-          <li><span class="input-group-text" style="background-color: white; padding-left: 40%;" id="basic-addon1">{{scheme.schemeId}}</span>{{scheme.name}}</li>
+        <ul class="items list-group-item list-group-item-action"
+          style="list-style: none; background-color: #3C40C6; color: white; text-align: center;"
+          *ngFor="let scheme of schemes" (click)="onSelect(scheme)">
+          <li><span class="input-group-text" style="background-color: white; padding-left: 40%;"
+              id="basic-addon1">{{scheme.schemeId}}</span>{{scheme.name}}</li>
         </ul>
       </div>
 
       <div class="card bg-light mb-4" style="max-width: 18rem; margin-top: 20%;">
         <div class="card-header"><i class="fas fa-quote-left"></i> &nbsp; Guidelines</div>
         <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+          <p class="card-text">प्रत्‍येक राज्‍य / केंद्रशासित प्रदेश सेकिसी भी कला में केवल एक प्रविष्‍टि स्‍वीकार होगी।
+            <a href="https://scholarships.gov.in/public/schemeGuidelines/Guidelines_DOHE_CSSS.pdf" target="_blank">अधिक
+              जानकारी के लिए यह दबाएं</a></p>
         </div>
       </div>
     </div>
@@ -21,8 +25,8 @@
       <div *ngIf="scheme">
         <p class="tab-pane"><strong>ELIGIBILITY CRITERIA: </strong>{{scheme.details}}</p>
         <div class="mx-auto text-center">
-          <button type="button" style=" margin-top: 5%;" (click)="onApply(scheme.schemeId)"
-            class="btn btn-primary" [disabled]="formExits || !genderNotMatch">Apply Form</button>
+          <button type="button" style=" margin-top: 5%;" (click)="onApply(scheme.schemeId)" class="btn btn-primary"
+            [disabled]="formExits || !genderNotMatch">Apply Form</button>
         </div>
       </div>
     </div>
