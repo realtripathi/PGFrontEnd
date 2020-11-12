@@ -10,7 +10,7 @@ import { MinistryService } from '../ministry.service';
 })
 export class MinistryViewInstituteComponent implements OnInit {
 
-  constructor(private router:ActivatedRoute,private route:Router,private ministryService: MinistryService) { }
+  constructor(private router: ActivatedRoute, private route: Router, private ministryService: MinistryService) { }
 
   public unapprovedInstitutes: Institute[];
   public approvedInstitutes: Institute[];
@@ -19,21 +19,21 @@ export class MinistryViewInstituteComponent implements OnInit {
   ministryId: any;
 
   ngOnInit(): void {
-    if(sessionStorage.getItem('userType')=="ministry" && sessionStorage.getItem('ministryId')!=null){
-    this.ministryId = sessionStorage.getItem('ministryId');
-    //this.ministryService.showUnapprovedInstitutes().subscribe(data => this.unapprovedInstitutes = data);
-    this.ministryService.viewInstitutesByMinistryStatus("Not Approved").subscribe(data => this.unapprovedInstitutes = data);
-    this.ministryService.viewInstitutesByMinistryStatus("Approved").subscribe(data => this.approvedInstitutes = data);
-    this.ministryService.viewInstitutesByMinistryStatus("Rejected").subscribe(data => this.rejectedInstitutes = data);
+    if (sessionStorage.getItem('userType') == "ministry" && sessionStorage.getItem('ministryId') != null) {
+      this.ministryId = sessionStorage.getItem('ministryId');
+      //this.ministryService.showUnapprovedInstitutes().subscribe(data => this.unapprovedInstitutes = data);
+      this.ministryService.viewInstitutesByMinistryStatus("Not Approved").subscribe(data => this.unapprovedInstitutes = data);
+      this.ministryService.viewInstitutesByMinistryStatus("Approved").subscribe(data => this.approvedInstitutes = data);
+      this.ministryService.viewInstitutesByMinistryStatus("Rejected").subscribe(data => this.rejectedInstitutes = data);
     }
-    else{
+    else {
       sessionStorage.clear();
       this.route.navigate(['ministryLogin']);
     }
   }
 
-  viewInstituteDetails(unapprovedInstitute){
-    this.route.navigate(['instituteDetails',unapprovedInstitute.instituteId],{relativeTo: this.router});
+  viewInstituteDetails(unapprovedInstitute) {
+    this.route.navigate(['instituteDetails', unapprovedInstitute.instituteId], { relativeTo: this.router });
   }
 
 }

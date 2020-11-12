@@ -1,9 +1,11 @@
 export class Nodal {
+
       public nodalUid: String;
+      public nodalState: String;
       public nodalName: String;
-      public nodalState:String;
-      public nodalPhone:Number;
       public nodalEmail: String;
-      public nodalPassword:String;
+      public nodalPhone: Number;
+      public nodalPassword: String;
+      public nodalStatus: String;
     
   }

@@ -15,11 +15,11 @@ export class ScholarshipForm {
         public class12PassingYear:Date;
         public class12Percentage:String;
         public admissionFee:string;
-        public tuitionFee:String;
+        public tutionFee:String;
         public otherFee:String;
         public isDisabled:String;
-        public typeOfDisability:String;
-        public percentOfDisability:String;
+        public typeOfDisabilty:String;
+        public percentageOfDisability:String;
         public maritalStatus:String;
         public parentProfession:String;
         public instituteId: String;

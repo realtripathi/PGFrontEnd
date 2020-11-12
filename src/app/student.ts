@@ -10,7 +10,7 @@ export class Student {
     public studentEmail: String;
     public studentStateOfDomicile: String;
     public studentDistrict: String;
-    //public institute: Institute;
+    public institute: Institute;
     public studentBankName: String;
     public studentBankAccountNumber: String;
     public studentIfcsCode: String;

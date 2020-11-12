@@ -12,31 +12,31 @@ import { MinistryService } from '../ministry.service';
 })
 export class MinistryInstituteVerifyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private instituteService : InstituteService, private ministryService:MinistryService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private instituteService: InstituteService, private ministryService: MinistryService, private router: Router) { }
 
-  public instituteId:number;
-  instituteModel=new Institute();
+  public instituteId: number;
+  instituteModel = new Institute();
 
   ngOnInit(): void {
-    if(sessionStorage.getItem('userType')=="ministry" && sessionStorage.getItem('ministryId')!=null){
-    let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.instituteId = id;
-    this.instituteService.viewProfile(this.instituteId).subscribe(data => this.instituteModel = data);
+    if (sessionStorage.getItem('userType') == "ministry" && sessionStorage.getItem('ministryId') != null) {
+      let id = parseInt(this.route.snapshot.paramMap.get('id'));
+      this.instituteId = id;
+      this.instituteService.viewProfile(this.instituteId).subscribe(data => this.instituteModel = data);
     }
-    else{
+    else {
       sessionStorage.clear();
       this.router.navigate(['ministryLogin']);
     }
   }
 
-  approveInstitute(){
-    this.ministryService.approveInstitute("Approved",this.instituteId).subscribe();
+  approveInstitute() {
+    this.ministryService.approveInstitute("Approved", this.instituteId).subscribe();
     this.router.navigate(['ministryDashboard/formInstitute']);
 
   }
 
-  rejectInstitute(){
-    this.ministryService.rejectInstitute("Rejected",this.instituteId).subscribe();
+  rejectInstitute() {
+    this.ministryService.rejectInstitute("Rejected", this.instituteId).subscribe();
     this.router.navigate(['ministryDashboard/formInstitute']);
   }
 

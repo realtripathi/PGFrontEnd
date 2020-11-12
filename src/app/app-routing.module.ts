@@ -92,7 +92,7 @@ const routes: Routes = [
       { path: 'formVerification', component: MinistryFormVerificationComponent },
       {path: 'formVerification/formDetails/:id', component:MinistryFormVerifyComponent},
       { path: 'viewNodalOfficers', component: MinistryViewNodalComponent },
-      {path:'viewNodalOfficers/nodalDetails/:id', component: MinistryNodalVerifyComponent},      //
+      {path: 'viewNodalOfficers/nodalDetails/:id', component: MinistryNodalVerifyComponent },
       { path: 'formInstitute', component: MinistryViewInstituteComponent },
       {path: 'formInstitute/instituteDetails/:id', component: MinistryInstituteVerifyComponent}
     ]

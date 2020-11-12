@@ -17,6 +17,9 @@ export class Institute {
     public institutePrincipalNmae: String;
     public institutePhoneNumber: String;
     public instituteEmail: String;
-    public registrationCertificate:string;
-    public affiliationCertificate:string;
+    public registrationCertificate: String;
+    public affiliationCertificate: String;
+    public instituteStatus: String;
+    public instituteNodalOfficerApproval: String;
+    public instituteMinistryApproval: String;
 }

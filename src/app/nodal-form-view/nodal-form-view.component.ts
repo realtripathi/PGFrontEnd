@@ -22,7 +22,6 @@ export class NodalFormViewComponent implements OnInit {
     this.nodalService.viewFormsByNodalStatus("Not Approved").subscribe(data => this.unapprovedForms = data);
     this.nodalService.viewFormsByNodalStatus("Approved").subscribe(data => this.approvedForms = data);
     this.nodalService.viewFormsByNodalStatus("Rejected").subscribe(data => this.rejectedForms = data);
-    
   }
   else{
     sessionStorage.clear();

@@ -1,5 +1,6 @@
 export class Scheme {
-    
+        
+        public schemeUId:String;
         public schemeName:String;
         public schemeMinistry:String;
         public schemeCourseLevel:String;

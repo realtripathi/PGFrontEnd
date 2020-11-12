@@ -10,7 +10,7 @@ import { MinistryService } from '../ministry.service';
 })
 export class MinistryFormVerificationComponent implements OnInit {
 
-  constructor(private router:ActivatedRoute,private route:Router,private ministryService: MinistryService) { }
+  constructor(private router: ActivatedRoute, private route: Router, private ministryService: MinistryService) { }
 
   public unapprovedForms: ScholarshipForm[];
   public approvedForms: ScholarshipForm[];
@@ -19,20 +19,20 @@ export class MinistryFormVerificationComponent implements OnInit {
   ministryId: any;
 
   ngOnInit(): void {
-    if(sessionStorage.getItem('userType')=="ministry" && sessionStorage.getItem('ministryId')!=null){
-    this.ministryId = sessionStorage.getItem('ministryId');
-    //this.ministryService.showUnapprovedForms().subscribe(data => this.unapprovedForms = data);
-    this.ministryService.viewFormsByMinistryStatus("Not Approved").subscribe(data => this.unapprovedForms = data);
-    this.ministryService.viewFormsByMinistryStatus("Approved").subscribe(data => this.approvedForms = data);
-    this.ministryService.viewFormsByMinistryStatus("Rejected").subscribe(data => this.rejectedForms = data);
+    if (sessionStorage.getItem('userType') == "ministry" && sessionStorage.getItem('ministryId') != null) {
+      this.ministryId = sessionStorage.getItem('ministryId');
+      //this.ministryService.showUnapprovedForms().subscribe(data => this.unapprovedForms = data);
+      this.ministryService.viewFormsByMinistryStatus("Not Approved").subscribe(data => this.unapprovedForms = data);
+      this.ministryService.viewFormsByMinistryStatus("Approved").subscribe(data => this.approvedForms = data);
+      this.ministryService.viewFormsByMinistryStatus("Rejected").subscribe(data => this.rejectedForms = data);
     }
-    else{
+    else {
       sessionStorage.clear();
       this.route.navigate(['ministryLogin']);
     }
   }
 
-  viewFormDetails(unapprovedForm){
-    this.route.navigate(['formDetails',unapprovedForm.formId],{relativeTo: this.router});
+  viewFormDetails(unapprovedForm) {
+    this.route.navigate(['formDetails', unapprovedForm.formId], { relativeTo: this.router });
   }
 }
