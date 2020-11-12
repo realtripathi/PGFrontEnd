@@ -30,10 +30,12 @@ export class MinistryFormVerifyComponent implements OnInit {
 
   approveForm(){
     this.ministryService.approveForm("Approved",this.formId).subscribe();
+    this.router.navigate(['ministryDashboard/formVerification']);
   }
 
   rejectForm(){
     this.ministryService.rejectForm("Rejected",this.formId).subscribe();
+    this.router.navigate(['ministryDashboard/formVerification']);
   }
 
 }
