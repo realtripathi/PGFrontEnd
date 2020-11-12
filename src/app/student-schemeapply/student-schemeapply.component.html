@@ -97,10 +97,10 @@
         </div>
 
         <div class="col-md-6 mb-3">
-          <label for="class10PassingYear">Passing Year</label>
+          <label for="class10PassingYear">Passing Date</label>
           <input type="date" required max="{{ maxDate | date:'yyyy-MM-dd'}}" min="{{ minDate | date:'yyyy-MM-dd'}}" #class10PassingYear="ngModel" [class.is-invalid]="class10PassingYear.invalid && class10PassingYear.touched" name="class10PassingYear" id="" class="form-control" placeholder="Enter the Passing Year"
             [(ngModel)]="scholarshipFormModel.class10PassingYear">
-            <small class="text-danger" [class.d-none]="class10PassingYear.valid || class10PassingYear.untouched">Passing Year is required</small>
+            <small class="text-danger" [class.d-none]="class10PassingYear.valid || class10PassingYear.untouched">Passing Date is required</small>
         </div>
 
         <div class="col-md-6 mb-3">
@@ -126,10 +126,10 @@
         </div>
 
         <div class="col-md-6 mb-3">
-          <label for="class12PassingYear">Passing Year</label>
+          <label for="class12PassingYear">Passing Date</label>
           <input type="date"required max="{{ maxDate | date:'yyyy-MM-dd'}}" min="{{ minDate | date:'yyyy-MM-dd'}}" #class12PassingYear="ngModel" [class.is-invalid]="class12PassingYear.invalid && class12PassingYear.touched" name="class12PassingYear" id="" class="form-control" placeholder="Enter the Passing Year"
             [(ngModel)]="scholarshipFormModel.class12PassingYear">
-            <small class="text-danger" [class.d-none]="class12PassingYear.valid || class12PassingYear.untouched">Passing year is required</small>
+            <small class="text-danger" [class.d-none]="class12PassingYear.valid || class12PassingYear.untouched">Passing Date is required</small>
         </div>
 
         <div class="col-md-6 mb-3">
