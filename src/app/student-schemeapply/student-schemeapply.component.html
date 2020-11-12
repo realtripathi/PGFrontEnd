@@ -168,7 +168,7 @@
         <div class="col-md-6 mb-3">
           <label for="instID">Institute ID</label>
           <input type="text" required #instID="ngModel" [class.is-invalid]="instID.invalid && instID.touched" (blur)="valueSet(instID.value)" (change)="valueSet(instID.value)" name="instID" id="" class="form-control" placeholder="Enter Institute Id"
-            [(ngModel)]="scholarshipFormModel.instituteId">
+            [(ngModel)]="scholarshipFormModel.instituteId" disabled>
             <small class="text-danger" [class.d-none]="instID.valid || instID.untouched">Institute Id is required</small> 
         </div>
       </div>
