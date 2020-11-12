@@ -25,19 +25,20 @@ export class DocumentComponent implements OnInit {
   }
 
   applyScheme() {
-    console.log(this.scholarForm);
+    //console.log(this.scholarForm);
     this.studentService.applyScheme(this.scholarForm, this.scholarForm.instituteId, this.scholarForm.schemeUid, this.scholarForm.aadharNumber).subscribe(data => {
       //alert(JSON.stringify(data));
       if (data.status == 'SUCCESS') {
         this.studentService.fetchformId(parseInt(sessionStorage.getItem('studentId'))).subscribe(data => {
           this.formId = data;
-          alert(this.formId);
+          //alert(this.formId);
           this.upload();
         });
+        alert("Scheme Apply Sccessfull");
         this.router.navigate(['studentDashboard/profile']);
       }
       else {
-        //this.router.navigate(['error']);
+        alert("Something went wrong... Please try again");
       }
     })
   }
@@ -121,7 +122,7 @@ export class DocumentComponent implements OnInit {
     formData.append('instituteIdCard', this.doc8)
     formData.append('casteIncomeCertificate', this.doc9)
     formData.append('feeReceiptOfCurrentYear', this.doc10)
-    console.log(formData.get('studentPic'));
+    //console.log(formData.get('studentPic'));
 
     this.studentService.uploadDocument(formData).subscribe(data => {
       //alert(JSON.stringify(data));

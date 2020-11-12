@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MinistryService} from '../ministry.service'
+import { MinistryService } from '../ministry.service'
 import { Nodal } from '../nodal';
-import { NodalService } from '../nodal.service' ;
+import { NodalService } from '../nodal.service';
 
 
 @Component({
@@ -12,31 +12,31 @@ import { NodalService } from '../nodal.service' ;
 })
 export class MinistryNodalVerifyComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private nodalService:NodalService,private ministryService:MinistryService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private nodalService: NodalService, private ministryService: MinistryService, private router: Router) { }
 
   public nodalUid;
-  nodalModel=new Nodal();
+  nodalModel = new Nodal();
 
   ngOnInit(): void {
-    if(sessionStorage.getItem('userType')=="ministry" && sessionStorage.getItem('ministryId')!=null){
-    let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.nodalUid = id;
-    this.nodalService.showProfile(this.nodalUid).subscribe(data => this.nodalModel = data);
+    if (sessionStorage.getItem('userType') == "ministry" && sessionStorage.getItem('ministryId') != null) {
+      let id = parseInt(this.route.snapshot.paramMap.get('id'));
+      this.nodalUid = id;
+      this.nodalService.showProfile(this.nodalUid).subscribe(data => this.nodalModel = data);
     }
-    else{
+    else {
       sessionStorage.clear();
       this.router.navigate(['ministryLogin']);
     }
   }
 
-  approveNodal(){
-    this.ministryService.approveNodal("Approved",this.nodalUid).subscribe();
+  approveNodal() {
+    this.ministryService.approveNodal("Approved", this.nodalUid).subscribe();
     alert("approve nodal");
     this.router.navigate(['ministryDashboard/viewNodalOfficers']);
   }
 
-  rejectNodal(){
-    this.ministryService.rejectNodal("Rejected",this.nodalUid).subscribe();
+  rejectNodal() {
+    this.ministryService.rejectNodal("Rejected", this.nodalUid).subscribe();
     this.router.navigate(['ministryDashboard/viewNodalOfficers']);
   }
 

@@ -75,6 +75,7 @@ export class StudentRegisterComponent implements OnInit {
     this.studentService.register(this.studentModel,this.institute_id).subscribe(data => {
      //alert(JSON.stringify(data));
      if(data.status == 'SUCCESS') {
+       alert("Registration Successful");
        this.router.navigate(['studentLogin']);
      }
      else {

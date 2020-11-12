@@ -22,7 +22,7 @@ export class NodalInstituteVerifyComponent implements OnInit {
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.instituteId = id;
     this.instituteService.viewProfile(this.instituteId).subscribe(data => this.instituteModel = data);
-    alert(JSON.stringify(this.instituteModel));
+    //alert(JSON.stringify(this.instituteModel));
   }
   else{
     sessionStorage.clear();

@@ -14,11 +14,17 @@ export class NodalRegisterComponent implements OnInit {
   constructor(private ministryService: MinistryService, private router:Router) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("userType")=='ministry' && sessionStorage.getItem("ministryId")!=null){
+      this.nodalModel= new Nodal();
+    }else{
+      sessionStorage.clear();
+      this.router.navigate(['ministryLogin']);
+    }
   }
 
   nodalDistricts = ['Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa','Gujarat','Haryana','Himachal Pradesh','Jammu and Kashmir','Jharkhand','Karnataka','Kerala','Madhya Pradesh','Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana','Tripura','Uttarakhand','Uttar Pradesh','West Bengal','Andaman and Nicobar Islands','Chandigarh','Dadra and Nagar Haveli','Daman and Diu','Delhi','Lakshadweep','Puducherry'];
 
-  nodalModel= new Nodal();
+  nodalModel
 
   nodaldistrictInvalid= true;
   nodalPasswordNotMatch=true;
@@ -46,7 +52,8 @@ export class NodalRegisterComponent implements OnInit {
     this.ministryService.registerNodal(this.nodalModel).subscribe(data => {
      //alert(JSON.stringify(data));
      if(data.status == 'SUCCESS') {
-       this.router.navigate(['ministryDashboard']);
+       alert("Nodal Registration Successful");
+       this.ngOnInit();
      }
      else {
        //this.router.navigate(['error']);
